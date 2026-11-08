@@ -24,7 +24,11 @@ Use it for transcription, diarization, speech quality, intelligibility, signal f
 - **Reuse upstream implementations.** MeetEval, pyannote.metrics, fast-bss-eval and the original model projects provide the scoring algorithms.
 - **Inspect the evidence.** The repository includes a per-interface validation matrix, model/source fingerprints and repeatable checks. Real model execution is distinguished from ordinary CI.
 
-## New in v0.5
+## New in v0.6
+
+A pinned [full environment](requirements.txt), a [shared cluster deployment guide](docs/SHARED_DEPLOYMENT.md), and `MetricHub` provide one verified entry point for the complete registry. Every ID is called independently in the [single-environment acceptance report](validation/shared-environment-v0.6.json). The profile retains Torch 2.8/CUDA 12.8 and uses CPU ONNX Runtime 1.16.3; model artifacts are provisioned separately. Existing metric definitions are unchanged.
+
+## Added in v0.5
 
 **AECMOS ECHO/DEG** across three explicit model profiles, **ERLE** with far-end-only energy pooling, and dataset-level **EER/minDCF**. Deployments can now lock and verify artifacts, code and dependency versions before scoring. See [exact conventions](docs/AEC_VERIFICATION.md), [deployment guide](docs/DEPLOYMENT_LOCKS.md), and [validation evidence](validation/aec-verification-v0.5.json). AECMOS uses a tested compatibility pin rather than modifying the upstream model.
 

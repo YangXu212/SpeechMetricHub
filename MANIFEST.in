@@ -1,4 +1,5 @@
 include README.md README.zh-CN.md LICENSE CHANGELOG.md THIRD_PARTY.md CONTRIBUTING.md WINDOWS_BUILD.md Dockerfile CITATION.cff SECURITY.md
+include requirements.txt
 recursive-include assets *.svg
 recursive-include .github *.yml *.md
 recursive-include docs *.md

@@ -10,7 +10,9 @@ from importlib import metadata
 import json
 from pathlib import Path
 import platform
+import site
 import sys
+import sysconfig
 
 ARTIFACT_KEYS = (
     "checkpoint",
@@ -35,9 +37,15 @@ def environment():
         for p in sorted((root / package).iterdir())
         if p.suffix in (".py", ".json")
     }
+    # Importing setuptools/librosa may append vendored dependency directories to
+    # sys.path. Those are not independently installed distributions and must not
+    # make a lock depend on the order in which callers import optional scorers.
+    package_paths = {sysconfig.get_path("purelib"), sysconfig.get_path("platlib")}
+    if site.ENABLE_USER_SITE:
+        package_paths.add(site.getusersitepackages())
     packages = {
         d.metadata["Name"].lower().replace("_", "-"): d.version
-        for d in metadata.distributions()
+        for d in metadata.distributions(path=sorted(package_paths))
         if d.metadata["Name"]
     }
     return {
@@ -83,16 +91,29 @@ def create_deployment(configs):
     return {"schema": "speechmetrichub-deployment-v1", "environment": env, "configs": result}
 
 
-def verify_deployment(manifest):
+def verify_deployment(manifest, *, families=None):
     if isinstance(manifest, (str, Path)):
         manifest = json.loads(Path(manifest).read_text(encoding="utf-8"))
     failures = []
+    verified_families = []
     try:
         if not isinstance(manifest, dict) or not isinstance(manifest.get("environment"), dict):
             raise ValueError("Deployment manifest and environment must be JSON objects")
         if manifest.get("schema") != "speechmetrichub-deployment-v1":
             raise ValueError("Unsupported deployment schema")
+        if not isinstance(manifest.get("configs"), dict):
+            raise ValueError("Deployment configs must be a JSON object")
+        if families is not None:
+            families = list(families)
+            missing = set(families) - set(manifest["configs"])
+            if missing:
+                raise ValueError(f"Families not configured in deployment: {sorted(missing)}")
+            manifest = {
+                **manifest,
+                "configs": {name: manifest["configs"][name] for name in families},
+            }
         current = create_deployment(manifest["configs"])
+        verified_families = sorted(current["configs"])
         expected = manifest["environment"]
         for key in ("speechmetrichub", "python", "system", "machine", "library_sha256"):
             if expected.get(key) != current["environment"][key]:
@@ -108,12 +129,19 @@ def verify_deployment(manifest):
         "status": "ok" if not failures else "deployment_mismatch",
         "failures": failures,
         "scope": "artifact and environment integrity; runtime scoring must be validated separately",
+        "verified_families": verified_families,
     }
 
 
-def load_deployment(path):
+def load_deployment(path, *, families=None):
     manifest = json.loads(Path(path).read_text(encoding="utf-8"))
-    checked = verify_deployment(manifest)
+    checked = verify_deployment(manifest, families=families)
     if checked["status"] != "ok":
         raise ValueError("Deployment verification failed: " + "; ".join(checked["failures"]))
-    return copy.deepcopy(manifest["configs"])
+    return copy.deepcopy(
+        {
+            name: config
+            for name, config in manifest["configs"].items()
+            if families is None or name in families
+        }
+    )

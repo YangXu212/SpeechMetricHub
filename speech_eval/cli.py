@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from pathlib import Path
 from .registry import list_metrics, run
 
@@ -28,7 +29,11 @@ def execute():
     batch.add_argument("--input", required=True)
     batch.add_argument("--output")
     for command in (calc, multi, batch):
-        command.add_argument("--deployment", help="Verify and load a locked deployment manifest")
+        command.add_argument(
+            "--deployment",
+            default=os.environ.get("SPEECHMETRICHUB_DEPLOYMENT"),
+            help="Verify and load a locked deployment manifest",
+        )
     lock = sub.add_parser("lock")
     lock.add_argument("--config", required=True)
     lock.add_argument("--output", required=True)
@@ -43,7 +48,9 @@ def execute():
             from .deployment import load_deployment
             from .registry import get_metric
 
-            configs = load_deployment(args.deployment)
+            names = payload["metrics"] if args.command == "evaluate" else [args.metric]
+            families = {get_metric(name).get("family") for name in names} - {None}
+            configs = load_deployment(args.deployment, families=sorted(families))
             if args.command == "evaluate":
                 if "configs" in payload:
                     raise ValueError("Do not override locked configs in request data")

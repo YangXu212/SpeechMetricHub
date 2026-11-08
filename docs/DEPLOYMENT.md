@@ -1,5 +1,7 @@
 # 部署与复现
 
+v0.6 提供已逐项实测的[统一环境与共享调用方案](SHARED_DEPLOYMENT.md)，完整包版本固定在 [requirements.txt](../requirements.txt)。优先使用独立新环境；不要将整份依赖覆盖到训练环境。Python 依赖、模型权重、上游源码和系统程序共同组成部署，安装 requirements 不等于所有模型已就绪。
+
 核心环境安装 `pip install 'numpy<2' '.[transcription,quality,separation,diarization]'`。模型基础安装 `.[models]`，再按需选择 aesthetics、scoreq、dnsmos、sheet、speaker extras。SCOREQ 1.0.0 固定 ONNX Runtime 1.16.3，不要混装 CPU/GPU 发行包。
 
 官方代码与权重独立保存，使用验收清单中的提交和 SHA-256。路径通过配置传入，不修改库源码。`speech-eval doctor --config deployment.local.json --verify-hashes` 检查文件；`expected_hashes` 可要求运行时拒绝不同权重和代码。源代码式上游的依赖在模型环境安装；可按 family 指定 `python` 解释器。

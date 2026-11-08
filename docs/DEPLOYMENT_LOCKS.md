@@ -1,6 +1,6 @@
 # Versioned worker deployments
 
-Deploy each compatible model stack in its own environment. Core imports remain lightweight; installing all extras together is not a supported deployment strategy. In particular, older SCOREQ/DNSMOS dependencies and the AECMOS runtime profile can conflict. CPU and GPU ONNX Runtime distributions install the same Python module: install exactly one in a worker.
+The [v0.6 shared profile](SHARED_DEPLOYMENT.md) supplies a tested full environment for all metric families, with Torch 2.8 and CPU ONNX Runtime 1.16.3. Use its pinned requirements for that profile; installing arbitrary combinations of extras is not equivalent. The separate v0.5 AECMOS GPU profile below remains available. Core imports stay lightweight. CPU and GPU ONNX Runtime distributions install the same Python module: install exactly one in a worker.
 
 ## Provision and validate
 
@@ -22,7 +22,7 @@ speechmetrichub evaluate --deployment deployment.locked.json --input examples/ae
 speechmetrichub run eer --input examples/verification_trials.json
 ```
 
-The lock contains the package version, Python patch version, OS/architecture, installed distribution versions, hashes of library source/registry files, artifact paths and hashes, and model settings. `load_deployment(path)` verifies these before returning configs. CLI `run`, `evaluate`, and `batch` accept `--deployment`; request data cannot override locked configs. Missing configured families are rejected. Locks use absolute local paths and are **not portable manifests to copy unchanged across machines**. Provision, validate, then generate a new lock on each target. Keep local locks out of Git.
+The lock contains the package version, Python patch version, OS/architecture, installed distribution versions, hashes of library source/registry files, artifact paths and hashes, and model settings. `load_deployment(path)` verifies these before returning configs. `families=[...]` scopes artifact checks to those families while retaining the full environment check. Distribution discovery uses installed site-package locations, avoiding vendored packages added to `sys.path` by optional imports. CLI `run`, `evaluate`, and `batch` accept `--deployment` or `SPEECHMETRICHUB_DEPLOYMENT`; request data cannot override locked configs. Missing configured families are rejected. Locks use absolute local paths and are **not portable manifests to copy unchanged across machines**. Shared mounts may reuse a lock only when those paths and the runtime match and cross-host scoring has been validated. Keep local locks out of Git.
 
 Alternate worker interpreters remain available in ordinary configs through `python`, but a strict lock must be created and used inside the actual worker interpreter. This avoids claiming that the caller's dependencies describe another environment. For multiple incompatible stacks, keep one lock and command entry point per environment.
 

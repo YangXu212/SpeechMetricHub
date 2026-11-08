@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "speechmetrichub"
-version = "0.5.0"
+version = "0.6.0"
 description = "Protocol-aware speech evaluation: 84 metric variants, upstream scorers, traceable results"
 authors = [{name = "Yang Xu"}]
 keywords = ["speech", "evaluation", "asr", "diarization", "speech-quality", "audio"]
@@ -29,15 +29,15 @@ Issues = "https://github.com/YangXu212/SpeechMetricHub/issues"
 Changelog = "https://github.com/YangXu212/SpeechMetricHub/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
-verification = ["numpy>=1.24,<2", "scikit-learn==1.5.2"]
-echo = ["numpy>=1.24,<2", "soundfile>=0.12"]
-aecmos-cpu = ["numpy==1.26.4", "scipy==1.13.1", "librosa==0.9.2", "soundfile==0.13.0", "onnxruntime==1.16.3"]
-aecmos-gpu = ["numpy==1.26.4", "scipy==1.13.1", "librosa==0.9.2", "soundfile==0.13.0", "onnxruntime-gpu==1.16.3"]
+verification = ["numpy>=1.23.5,<2", "scikit-learn==1.5.2"]
+echo = ["numpy>=1.23.5,<2", "soundfile>=0.12"]
+aecmos-cpu = ["numpy>=1.23.5,<2", "scipy==1.13.1", "librosa==0.9.2", "soundfile==0.13.0", "onnxruntime==1.16.3"]
+aecmos-gpu = ["numpy>=1.23.5,<2", "scipy==1.13.1", "librosa==0.9.2", "soundfile==0.13.0", "onnxruntime-gpu==1.16.3"]
 cuda11-libs = ["nvidia-cublas-cu11==11.11.3.6; sys_platform=='linux'", "nvidia-cudnn-cu11==8.9.6.50; sys_platform=='linux'", "nvidia-cuda-runtime-cu11==11.8.89; sys_platform=='linux'", "nvidia-cufft-cu11==10.9.0.58; sys_platform=='linux'", "nvidia-curand-cu11==10.3.0.86; sys_platform=='linux'"]
 transcription = ["meeteval==0.4.3", "kaldialign==0.12.0"]
-quality = ["numpy>=1.24", "scipy>=1.10", "soundfile>=0.12", "pystoi==0.4.1", "pesq==0.0.4", "soxr>=0.3"]
+quality = ["numpy>=1.23.5", "scipy>=1.10", "soundfile>=0.12", "pystoi==0.4.1", "pesq==0.0.4", "soxr>=0.3"]
 separation = ["fast-bss-eval==0.1.3", "soundfile>=0.12"]
-spectral = ["numpy>=1.24,<2", "scipy>=1.10", "soundfile>=0.12", "librosa==0.9.2", "pysptk==1.0.1", "fastdtw==0.3.4"]
+spectral = ["numpy>=1.23.5,<2", "scipy>=1.10", "soundfile>=0.12", "librosa==0.9.2", "pysptk==1.0.1", "fastdtw==0.3.4"]
 plcmos = ["numpy<2", "onnxruntime==1.16.3", "soxr==0.5.0.post1", "soundfile>=0.12"]
 diarization = ["pyannote.metrics==3.2.1", "pyannote.core==5.0.0", "pyannote.database==5.1.3"]
 models = ["torch==2.8.0", "torchaudio==2.8.0", "numpy<2", "soundfile>=0.12", "soxr==0.5.0.post1", "transformers==4.48.2", "librosa==0.9.2", "pandas<3", "PyYAML>=6", "phonemizer==3.6.0", "kaldialign==0.12.0"]

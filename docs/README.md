@@ -12,6 +12,8 @@ SpeechMetricHub separates the question **what is measured?** from **what referen
 
 ## Reference
 
+- [One-environment shared deployment](SHARED_DEPLOYMENT.md) — pinned full environment, `MetricHub`, and a cluster CLI entry point.
+
 - [Metric catalog](METRICS.md) — every canonical variant and migration alias.
 - [API](API.md) — inputs, outputs, batch behavior and extension points.
 - [Model configuration](MODELS.md) — upstream code, local artifacts, heads and resource settings.

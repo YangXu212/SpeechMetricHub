@@ -1,5 +1,11 @@
 # Python and command-line API
 
+For a provisioned shared environment, use `MetricHub()` with
+`SPEECHMETRICHUB_DEPLOYMENT`, or pass the lock path explicitly. It offers `run` and
+`evaluate` with verified model configs loaded automatically. See the
+[shared deployment examples](SHARED_DEPLOYMENT.md). Ordinary `run`/`evaluate`
+remain available for callers supplying their own explicit configs.
+
 ## Discover metrics
 
 ```python

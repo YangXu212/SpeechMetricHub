@@ -1,5 +1,11 @@
 # Validation evidence
 
+## v0.6 shared environment
+
+The [single-environment report](shared-environment-v0.6.json) records independent calls to every registry ID, including all model output heads and aliases. The environment is a dedicated copy of a Torch 2.8 baseline with a pinned [full package inventory](../requirements.txt). It retains CUDA 12.8 Torch but deliberately uses CPU ONNX Runtime 1.16.3. All-metric acceptance uses CPU; optional GPU and cross-host checks are separately identified in the report.
+
+This release adds 57 semantic/API regression checks in total, requirements resolution and `pip check`, installed-wheel execution, shared CLI/API checks, and same-fixture comparison of the six AEC heads to v0.5's upstream-validated CPU values. The old baseline environment is unchanged. See [reproduction and limits](../docs/SHARED_DEPLOYMENT.md). Successful integration fixtures are not benchmark-quality scores or an assurance of compatibility with future upgrades.
+
 ## v0.5 AEC / verification release evidence
 
 The installed wheel passed **54 semantic/API regression tests** outside the source checkout. All **16 deployment checks** passed, including locked CLI inference for every new model family, all three stateless scorer CLIs, dependency checks and refusal of changed artifacts/environments or request-level config overrides. The [deployment report](deployment-v0.5.json) includes the exact package inventory and library fingerprint.

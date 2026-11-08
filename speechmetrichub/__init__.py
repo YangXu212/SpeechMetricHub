@@ -8,6 +8,7 @@ from speech_eval import __version__, evaluate, list_metrics, register, run
 from speech_eval.batch import evaluate_batch
 from speech_eval.registry import get_metric
 from speech_eval.deployment import create_deployment, verify_deployment, load_deployment
+from speech_eval.hub import MetricHub
 
 __all__ = [
     "__version__",
@@ -20,4 +21,5 @@ __all__ = [
     "create_deployment",
     "verify_deployment",
     "load_deployment",
+    "MetricHub",
 ]

@@ -45,6 +45,11 @@ MeetEval 0.4.3 and PESQ can require compilation. On Debian/Ubuntu, install `buil
 
 ## Model environments
 
+For all metric families in one Linux/Python 3.10 environment, use the pinned
+[requirements.txt](../requirements.txt) and [shared deployment procedure](SHARED_DEPLOYMENT.md).
+This profile is independently validated from a Torch 2.8 clone; model weights,
+upstream source trees and ViSQOL are provisioned separately.
+
 Use a separate environment for historical model dependency stacks. For example:
 
 ```bash
@@ -62,13 +67,13 @@ SHEET, NISQA, SpeechMOS and other source-based models also require explicitly pr
 Download a wheel and its checksums from [GitHub Releases](https://github.com/YangXu212/SpeechMetricHub/releases), verify SHA-256, and install the desired extras:
 
 ```bash
-python -m pip install "./speechmetrichub-0.5.0-py3-none-any.whl[transcription]"
+python -m pip install "./speechmetrichub-0.6.0-py3-none-any.whl[transcription]"
 ```
 
 No PyPI publication is implied. Source installation can also be pinned to the release tag:
 
 ```bash
-python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.5.0"
+python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.6.0"
 ```
 
 ## Container recipe

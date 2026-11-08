@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 — 2026-11-08
+
+- Add a pinned Linux/Python 3.10 full environment derived from an independent Torch 2.8 clone, with all 89 registry IDs exercised in one interpreter.
+- Reconcile ESPnet's NumPy/setuptools requirements with the original AECMOS/SCOREQ ONNX Runtime 1.16.3 profile. Keep one CPU ONNX distribution and retain Torch CUDA 12.8.
+- Add `MetricHub`, a shared deployment entry-point generator, and the `SPEECHMETRICHUB_DEPLOYMENT` CLI default.
+- Verify only requested model artifacts during scoring, retaining full environment checks and a separate full-deployment verification command.
+- Stabilize dependency snapshots against optional imports that expose vendored distribution metadata.
+- Add reproducible deployment instructions, per-interface runtime evidence and compatibility checks without changing metric definitions or counts.
+
 ## 0.5.0 — 2026-11-08
 
 - Add AECMOS ECHO/DEG across 16k scenario, 16k scenarioless and 48k scenario profiles; exact upstream artifacts and compatible ONNX Runtime pin.
