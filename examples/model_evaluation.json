@@ -1,0 +1,12 @@
+{
+  "metrics": ["audiobox_aesthetics_ce", "audiobox_aesthetics_cu", "audiobox_aesthetics_pc", "audiobox_aesthetics_pq"],
+  "hypothesis": "/audio/example.wav",
+  "configs": {
+    "audiobox_aesthetics": {
+      "checkpoint": "/models/audiobox/checkpoint.pt",
+      "trusted_checkpoint": true,
+      "device": "cpu",
+      "threads": 2
+    }
+  }
+}

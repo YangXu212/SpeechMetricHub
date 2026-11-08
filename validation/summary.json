@@ -1,0 +1,2439 @@
+{
+  "release": "0.2.0",
+  "registered": 69,
+  "canonical": 64,
+  "passed": 69,
+  "model_families": 16,
+  "model_input_boundary_cases": 64,
+  "direct_model_parity_families": 8,
+  "identity_cases": 6,
+  "limitations": [
+    "Model runtime: Linux Python 3.10 CPU only",
+    "Not a benchmark reproduction or model ranking",
+    "Core clean-install results recorded separately",
+    "CI configuration and Dockerfile not executed by GitHub/Docker in this task"
+  ],
+  "metrics": {
+    "wer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "cer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 22.727272727272727,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 22.727272727272727,
+      "reason": null
+    },
+    "ts_wer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "ts_cer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 9.090909090909092,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 9.090909090909092,
+      "reason": null
+    },
+    "cpwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "cpcer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 22.727272727272727,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 22.727272727272727,
+      "reason": null
+    },
+    "tcpwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "tcpcer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 22.727272727272727,
+      "backend": {
+        "engine": "MeetEval",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0",
+        "numpy": "1.23.5",
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 22.727272727272727,
+      "reason": null
+    },
+    "der": {
+      "passed": true,
+      "category": "speaker_structure",
+      "alias_of": null,
+      "value": 0.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 0,
+      "reason": null
+    },
+    "jer": {
+      "passed": true,
+      "category": "speaker_structure",
+      "alias_of": null,
+      "value": 0.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 0,
+      "reason": null
+    },
+    "pesq_wb": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "value": 1.078130841255188,
+      "backend": {
+        "pesq": "0.0.4",
+        "soxr": "0.5.0.post1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 1.078130841255188,
+      "reason": null
+    },
+    "pesq_nb": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "value": 1.7396341562271118,
+      "backend": {
+        "pesq": "0.0.4",
+        "soxr": "0.5.0.post1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 1.7396341562271118,
+      "reason": null
+    },
+    "stoi": {
+      "passed": true,
+      "category": "intelligibility",
+      "alias_of": null,
+      "value": 0.8627216434878627,
+      "backend": {
+        "pystoi": "0.4.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 0.8627216434878627,
+      "reason": null
+    },
+    "estoi": {
+      "passed": true,
+      "category": "intelligibility",
+      "alias_of": null,
+      "value": 0.5911237437187755,
+      "backend": {
+        "pystoi": "0.4.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 0.5911237437187755,
+      "reason": null
+    },
+    "si_sdr": {
+      "passed": true,
+      "category": "signal_fidelity",
+      "alias_of": null,
+      "value": 3.9974759146692804,
+      "backend": {
+        "fast_bss_eval": "0.1.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 3.9974759146692804,
+      "reason": null
+    },
+    "si_sdri": {
+      "passed": true,
+      "category": "signal_fidelity",
+      "alias_of": null,
+      "value": 2.877404246179977,
+      "backend": {
+        "fast_bss_eval": "0.1.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 2.877404246179977,
+      "reason": null
+    },
+    "speaker_count": {
+      "passed": true,
+      "category": "speaker_structure",
+      "alias_of": null,
+      "value": 0,
+      "backend": null,
+      "verification_basis": "analytic_fixture",
+      "expected": 0,
+      "reason": null
+    },
+    "audiobox_aesthetics_ce": {
+      "passed": true,
+      "category": "audio_aesthetics",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 3.978579521179199,
+      "all_outputs": {
+        "CE": 3.978579521179199,
+        "CU": 3.130048990249634,
+        "PC": 2.6832540035247803,
+        "PQ": 3.820516347885132
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "audiobox-aesthetics": "0.0.4",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32"
+      },
+      "elapsed_seconds_per_family": 9.85194087587297,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "CE": 3.978579521179199,
+          "CU": 3.130048990249634,
+          "PC": 2.6832540035247803,
+          "PQ": 3.820516347885132
+        },
+        "absolute_errors": {
+          "CE": 0.0,
+          "CU": 0.0,
+          "PC": 0.0,
+          "PQ": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "audiobox_aesthetics_cu": {
+      "passed": true,
+      "category": "audio_aesthetics",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 3.130048990249634,
+      "all_outputs": {
+        "CE": 3.978579521179199,
+        "CU": 3.130048990249634,
+        "PC": 2.6832540035247803,
+        "PQ": 3.820516347885132
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "audiobox-aesthetics": "0.0.4",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32"
+      },
+      "elapsed_seconds_per_family": 9.85194087587297,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "CE": 3.978579521179199,
+          "CU": 3.130048990249634,
+          "PC": 2.6832540035247803,
+          "PQ": 3.820516347885132
+        },
+        "absolute_errors": {
+          "CE": 0.0,
+          "CU": 0.0,
+          "PC": 0.0,
+          "PQ": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "audiobox_aesthetics_pc": {
+      "passed": true,
+      "category": "audio_aesthetics",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.6832540035247803,
+      "all_outputs": {
+        "CE": 3.978579521179199,
+        "CU": 3.130048990249634,
+        "PC": 2.6832540035247803,
+        "PQ": 3.820516347885132
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "audiobox-aesthetics": "0.0.4",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32"
+      },
+      "elapsed_seconds_per_family": 9.85194087587297,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "CE": 3.978579521179199,
+          "CU": 3.130048990249634,
+          "PC": 2.6832540035247803,
+          "PQ": 3.820516347885132
+        },
+        "absolute_errors": {
+          "CE": 0.0,
+          "CU": 0.0,
+          "PC": 0.0,
+          "PQ": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "audiobox_aesthetics_pq": {
+      "passed": true,
+      "category": "audio_aesthetics",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 3.820516347885132,
+      "all_outputs": {
+        "CE": 3.978579521179199,
+        "CU": 3.130048990249634,
+        "PC": 2.6832540035247803,
+        "PQ": 3.820516347885132
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "audiobox-aesthetics": "0.0.4",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32"
+      },
+      "elapsed_seconds_per_family": 9.85194087587297,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "CE": 3.978579521179199,
+          "CU": 3.130048990249634,
+          "PC": 2.6832540035247803,
+          "PQ": 3.820516347885132
+        },
+        "absolute_errors": {
+          "CE": 0.0,
+          "CU": 0.0,
+          "PC": 0.0,
+          "PQ": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "scoreq_natural_nr": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.4159138202667236,
+      "all_outputs": {
+        "score": 1.4159138202667236
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "d493ba8acfe37d0aa0acceb85a41f22405fc4b9a5101359a6363d919307300b4"
+      },
+      "elapsed_seconds_per_family": 4.71186188608408,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "score": 1.4159138202667236
+        },
+        "absolute_errors": {
+          "score": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "scoreq_natural_ref": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.453781008720398,
+      "all_outputs": {
+        "score": 1.453781008720398
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "2931a273c50d5e3839a54a4017b5cfedd3ea30fa10e2f2bc55d217ba601670aa"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "899c9959bf48b38d99fdd5227b31182ca9d8253b14b61edd2725eca779a55b49"
+      },
+      "elapsed_seconds_per_family": 5.064585731830448,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "score": 1.453781008720398
+        },
+        "absolute_errors": {
+          "score": 0.0
+        }
+      },
+      "identity_property": {
+        "passed": true,
+        "expected": 0
+      }
+    },
+    "scoreq_synthetic_nr": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.5434259176254272,
+      "all_outputs": {
+        "score": 1.5434259176254272
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "4be95ad8e3bd9091dcf3bfbbfa747216e53db8db44b1caade5125c99383c02e0"
+      },
+      "elapsed_seconds_per_family": 4.585670595057309,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "score": 1.5434259176254272
+        },
+        "absolute_errors": {
+          "score": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "scoreq_synthetic_ref": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.2799341678619385,
+      "all_outputs": {
+        "score": 1.2799341678619385
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "2931a273c50d5e3839a54a4017b5cfedd3ea30fa10e2f2bc55d217ba601670aa"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "39cb2151cfda6212550361da4a6739f17b7dc01e03576345b97483617611ea90"
+      },
+      "elapsed_seconds_per_family": 4.92043963400647,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "score": 1.2799341678619385
+        },
+        "absolute_errors": {
+          "score": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_sig": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 3.1008395642718796,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_bak": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.6802315219941253,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_ovrl": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.719745901446655,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_p808_mos": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.497097969055176,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_sig_raw": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 3.2726266384124756,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_bak_raw": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.4662526845932007,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos_ovrl_raw": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.669622778892517,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa_mos": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.1446025371551514,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa_noi": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.3966377973556519,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa_dis": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.4980809688568115,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa_col": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.6927577257156372,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa_loud": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.0407559871673584,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "utmos": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.3084492683410645,
+      "all_outputs": {
+        "mos": 1.3084492683410645
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "38aa51ab79e2a4e09a1449758a4b37e9cbb2e8235a49662a732d33a9ba1e9bff",
+        "source_dir": "105515e24c873b4994a70fb958799db92ca66e5a1d8f4104c517201574f77390"
+      },
+      "elapsed_seconds_per_family": 3.854141970165074,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.3084492683410645
+        },
+        "absolute_errors": {
+          "mos": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "sheet_ssqa": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.2172908782958984,
+      "all_outputs": {
+        "mos": 2.2172908782958984
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "6d445e50510e9898f752e4942963b3340db925344ad52f2193cea71b7617c837",
+        "source_dir": "efffe7001706383dec85db275fc5414626bc56d16e598b0e47ed515b7748afaa",
+        "config_file": "dff8ffe386c7084899962a7b4c7686a3100d50806c8438eaae6d253d5757c898",
+        "ssl_checkpoint": "1f1e77f1acedacbaee9bc0b5dabcba7b97907869c478567632a73e978f5dc7c8"
+      },
+      "elapsed_seconds_per_family": 16.4420260428451,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "speaker_similarity": {
+      "passed": true,
+      "category": "speaker_identity",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.6702631711959839,
+      "all_outputs": {
+        "cosine": 0.6702631711959839
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "d5a0511ab1f073f1a8c9e2e2b82776433d4ec37b0a7f2b84a105dcb00a9a508a",
+        "config_file": "6e33a622d48aefb5ea199733b13db438a8ef59e50295f68be7fbbbef71394c33"
+      },
+      "elapsed_seconds_per_family": 14.83289872482419,
+      "upstream_direct_parity": null,
+      "identity_property": {
+        "passed": true,
+        "expected": 1
+      }
+    },
+    "phoneme_similarity": {
+      "passed": true,
+      "category": "content_similarity",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.9069767441860466,
+      "all_outputs": {
+        "similarity": 0.9069767441860466
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "model_dir": "8708ea17de13b41f8b9fad69dfdee8d3d5a71ae9ba11d799c7cf9646be7a6982"
+      },
+      "elapsed_seconds_per_family": 9.100811745040119,
+      "upstream_direct_parity": null,
+      "identity_property": {
+        "passed": true,
+        "expected": 1
+      }
+    },
+    "visqol_speech": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 1.05275,
+      "all_outputs": {
+        "mos": 1.05275
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "4bd031d6c95594ae2cd1d471aa6611bff26b3bbf816528431ff1741bcd798dc6",
+        "binary": "62d699c71a5d3ab97f1ac4d0925472931a3184fb9a3c31688fb990fbadd3f227"
+      },
+      "elapsed_seconds_per_family": 2.30046011460945,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "visqol_audio": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 2.64005,
+      "all_outputs": {
+        "mos": 2.64005
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "1e8246ed33bf36dc5c859351f7110f2cd31f98661989715c0fcf974ec48d3e2e",
+        "binary": "62d699c71a5d3ab97f1ac4d0925472931a3184fb9a3c31688fb990fbadd3f227"
+      },
+      "elapsed_seconds_per_family": 4.015122709795833,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "speechbert_precision": {
+      "passed": true,
+      "category": "content_similarity",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.6647222638130188,
+      "all_outputs": {
+        "precision": 0.6647222638130188,
+        "recall": 0.6682668328285217,
+        "f1": 0.6664898356154911
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_dir": "27151699d79e7fedfdcf82fcce933ebc0fec520949c360266a1b6e0fef5e0f77",
+        "model_dir": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc"
+      },
+      "elapsed_seconds_per_family": 9.356052698101848,
+      "upstream_direct_parity": null,
+      "identity_property": {
+        "passed": true,
+        "expected": 1
+      }
+    },
+    "speechbert_recall": {
+      "passed": true,
+      "category": "content_similarity",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.6682668328285217,
+      "all_outputs": {
+        "precision": 0.6647222638130188,
+        "recall": 0.6682668328285217,
+        "f1": 0.6664898356154911
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_dir": "27151699d79e7fedfdcf82fcce933ebc0fec520949c360266a1b6e0fef5e0f77",
+        "model_dir": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc"
+      },
+      "elapsed_seconds_per_family": 9.356052698101848,
+      "upstream_direct_parity": null,
+      "identity_property": {
+        "passed": true,
+        "expected": 1
+      }
+    },
+    "speechbert_f1": {
+      "passed": true,
+      "category": "content_similarity",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.6664898356154911,
+      "all_outputs": {
+        "precision": 0.6647222638130188,
+        "recall": 0.6682668328285217,
+        "f1": 0.6664898356154911
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_dir": "27151699d79e7fedfdcf82fcce933ebc0fec520949c360266a1b6e0fef5e0f77",
+        "model_dir": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc"
+      },
+      "elapsed_seconds_per_family": 9.356052698101848,
+      "upstream_direct_parity": null,
+      "identity_property": {
+        "passed": true,
+        "expected": 1
+      }
+    },
+    "whisper_wer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 112.5,
+      "all_outputs": {
+        "wer": 112.5
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "model_dir": "50053ffa985eab62d85c26e454406d4712f3c5bc7b838e679e6738557b3ead52"
+      },
+      "elapsed_seconds_per_family": 74.276521502994,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "whisper_dwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "real_audio": true,
+      "value": 0.0,
+      "all_outputs": {
+        "wer": 0.0
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "model_dir": "50053ffa985eab62d85c26e454406d4712f3c5bc7b838e679e6738557b3ead52"
+      },
+      "elapsed_seconds_per_family": 137.61605480872095,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "orcwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "tcorcwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "mimower": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "tcmimower": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "greedy_dicpwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "greedy_ditcpwer": {
+      "passed": true,
+      "category": "recognition",
+      "alias_of": null,
+      "value": 33.333333333333336,
+      "backend": {
+        "meeteval": "0.4.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 33.333333333333336,
+      "reason": null
+    },
+    "bss_sdr": {
+      "passed": true,
+      "category": "signal_fidelity",
+      "alias_of": null,
+      "value": 16.051540391918422,
+      "backend": {
+        "fast_bss_eval": "0.1.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 16.051540391918422,
+      "reason": null
+    },
+    "bss_sir": {
+      "passed": true,
+      "category": "signal_fidelity",
+      "alias_of": null,
+      "value": 36.804896660750636,
+      "backend": {
+        "fast_bss_eval": "0.1.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 36.804896660750636,
+      "reason": null
+    },
+    "bss_sar": {
+      "passed": true,
+      "category": "signal_fidelity",
+      "alias_of": null,
+      "value": 16.08952256077172,
+      "backend": {
+        "fast_bss_eval": "0.1.3"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 16.08952256077172,
+      "reason": null
+    },
+    "plcc": {
+      "passed": true,
+      "category": "rating_agreement",
+      "alias_of": null,
+      "value": 0.9922778767136677,
+      "backend": {
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 0.9922778767136677,
+      "reason": null
+    },
+    "srcc": {
+      "passed": true,
+      "category": "rating_agreement",
+      "alias_of": null,
+      "value": 1.0,
+      "backend": {
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 1.0,
+      "reason": null
+    },
+    "ktau": {
+      "passed": true,
+      "category": "rating_agreement",
+      "alias_of": null,
+      "value": 1.0,
+      "backend": {
+        "scipy": "1.13.1"
+      },
+      "verification_basis": "direct_upstream",
+      "expected": 1.0,
+      "reason": null
+    },
+    "vad_error": {
+      "passed": true,
+      "category": "speech_activity",
+      "alias_of": null,
+      "value": 0.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 0,
+      "reason": null
+    },
+    "vad_precision": {
+      "passed": true,
+      "category": "speech_activity",
+      "alias_of": null,
+      "value": 100.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 100,
+      "reason": null
+    },
+    "vad_recall": {
+      "passed": true,
+      "category": "speech_activity",
+      "alias_of": null,
+      "value": 100.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 100,
+      "reason": null
+    },
+    "vad_accuracy": {
+      "passed": true,
+      "category": "speech_activity",
+      "alias_of": null,
+      "value": 100.0,
+      "backend": {
+        "pyannote.metrics": "3.2.1"
+      },
+      "verification_basis": "analytic_fixture",
+      "expected": 100,
+      "reason": null
+    },
+    "scoreq": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": "scoreq_natural_ref",
+      "real_audio": true,
+      "value": 1.453781008720398,
+      "all_outputs": {
+        "score": 1.453781008720398
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "2931a273c50d5e3839a54a4017b5cfedd3ea30fa10e2f2bc55d217ba601670aa"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "899c9959bf48b38d99fdd5227b31182ca9d8253b14b61edd2725eca779a55b49"
+      },
+      "elapsed_seconds_per_family": 5.064585731830448,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "score": 1.453781008720398
+        },
+        "absolute_errors": {
+          "score": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "dnsmos": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": "dnsmos_ovrl",
+      "real_audio": true,
+      "value": 1.719745901446655,
+      "all_outputs": {
+        "SIG": 3.1008395642718796,
+        "BAK": 1.6802315219941253,
+        "OVRL": 1.719745901446655,
+        "P808_MOS": 2.497097969055176,
+        "SIG_raw": 3.2726266384124756,
+        "BAK_raw": 1.4662526845932007,
+        "OVRL_raw": 1.669622778892517
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "onnxruntime": "1.16.3",
+        "scoreq": "1.0.0",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_file": "1ab566afe006daab32ac7073296a5d0ef99f8b82f91c7266f3ccf26113d7a28b",
+        "primary_model": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "p808_model": "9246480c58567bc6affd4200938e77eef49468c8bc7ed3776d109c07456f6e91"
+      },
+      "elapsed_seconds_per_family": 4.736460620071739,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "SIG": 3.1008395642718796,
+          "BAK": 1.6802315219941253,
+          "OVRL": 1.719745901446655,
+          "P808_MOS": 2.497097969055176,
+          "SIG_raw": 3.2726266384124756,
+          "BAK_raw": 1.4662526845932007,
+          "OVRL_raw": 1.669622778892517
+        },
+        "absolute_errors": {
+          "SIG": 0.0,
+          "BAK": 0.0,
+          "OVRL": 0.0,
+          "P808_MOS": 0.0,
+          "SIG_raw": 0.0,
+          "BAK_raw": 0.0,
+          "OVRL_raw": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "nisqa": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": "nisqa_mos",
+      "real_audio": true,
+      "value": 1.1446025371551514,
+      "all_outputs": {
+        "mos": 1.1446025371551514,
+        "noi": 1.3966377973556519,
+        "dis": 2.4980809688568115,
+        "col": 1.6927577257156372,
+        "loud": 2.0407559871673584
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "7ec4cf937514dd3f8860b21e66fabd8ca87a168572675ef8d979c4c4ad2e805c",
+        "source_dir": "71f6d7c6cd7088eae0fd641b8342f07560d8da750f870088b64d07a2ca270a32"
+      },
+      "elapsed_seconds_per_family": 3.971717130858451,
+      "upstream_direct_parity": {
+        "passed": true,
+        "direct_upstream": {
+          "mos": 1.1446025371551514,
+          "noi": 1.3966377973556519,
+          "dis": 2.4980809688568115,
+          "col": 1.6927577257156372,
+          "loud": 2.0407559871673584
+        },
+        "absolute_errors": {
+          "mos": 0.0,
+          "noi": 0.0,
+          "dis": 0.0,
+          "col": 0.0,
+          "loud": 0.0
+        }
+      },
+      "identity_property": {}
+    },
+    "speechbert_score": {
+      "passed": true,
+      "category": "content_similarity",
+      "alias_of": "speechbert_precision",
+      "real_audio": true,
+      "value": 0.6647222638130188,
+      "all_outputs": {
+        "precision": 0.6647222638130188,
+        "recall": 0.6682668328285217,
+        "f1": 0.6664898356154911
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "source_dir": "27151699d79e7fedfdcf82fcce933ebc0fec520949c360266a1b6e0fef5e0f77",
+        "model_dir": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc"
+      },
+      "elapsed_seconds_per_family": 9.356052698101848,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    },
+    "visqol": {
+      "passed": true,
+      "category": "perceptual_quality",
+      "alias_of": "visqol_speech",
+      "real_audio": true,
+      "value": 1.05275,
+      "all_outputs": {
+        "mos": 1.05275
+      },
+      "input_sha256": {
+        "hypothesis": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0",
+        "reference": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+      },
+      "invalid_input_cases": {
+        "short": true,
+        "stereo": true,
+        "silent": true,
+        "absent": true
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.19.2",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "artifact_hashes": {
+        "checkpoint": "4bd031d6c95594ae2cd1d471aa6611bff26b3bbf816528431ff1741bcd798dc6",
+        "binary": "62d699c71a5d3ab97f1ac4d0925472931a3184fb9a3c31688fb990fbadd3f227"
+      },
+      "elapsed_seconds_per_family": 2.30046011460945,
+      "upstream_direct_parity": null,
+      "identity_property": {}
+    }
+  }
+}

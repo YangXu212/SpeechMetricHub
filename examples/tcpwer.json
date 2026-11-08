@@ -1,0 +1,31 @@
+{
+  "reference": [
+    {
+      "speaker": "Alice",
+      "text": "Hello world",
+      "start": 0,
+      "end": 2
+    },
+    {
+      "speaker": "Bob",
+      "text": "Good morning",
+      "start": 2,
+      "end": 4
+    }
+  ],
+  "hypothesis": [
+    {
+      "speaker": "S02",
+      "text": "hello world",
+      "start": 0.1,
+      "end": 2.1
+    },
+    {
+      "speaker": "S01",
+      "text": "good morning",
+      "start": 2.1,
+      "end": 4.1
+    }
+  ],
+  "collar": 5
+}

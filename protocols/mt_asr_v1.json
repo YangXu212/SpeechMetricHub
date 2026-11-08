@@ -1,0 +1,42 @@
+{
+  "id": "speech-eval-mt-v1.0",
+  "backend": {
+    "engine": "MeetEval",
+    "meeteval": "0.4.3",
+    "kaldialign": "0.12.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "normalization": {
+    "id": "nfkc-casefold-v1",
+    "unicode": "NFKC",
+    "case": "casefold",
+    "punctuation": "word boundaries; preserve apostrophe inside a word",
+    "characters": "Unicode letters, marks and numbers; no whitespace or punctuation",
+    "initialisms": "T_V_ style letter sequences become TV",
+    "numbers": "no verbalization",
+    "fillers": "retained",
+    "chinese": "CER; no implicit Chinese word segmentation"
+  },
+  "time": {
+    "collars_seconds": [
+      2,
+      5
+    ],
+    "reference_timing": "character_based",
+    "hypothesis_timing": "character_based_points",
+    "ordering": "segment",
+    "timestamp_tolerance_seconds": 0.05,
+    "approximate": true
+  },
+  "assignment_scope": "one recording per call",
+  "aggregation": "sum errors / sum reference units; split by corpus and unit",
+  "empty_reference": "rate=null; insertions retained in corpus numerator",
+  "failure_policy": "report every item; incomplete coverage has no complete-set score",
+  "official_moss_parity": false,
+  "official_chime_parity": false,
+  "sources": [
+    "https://github.com/fgnt/meeteval",
+    "https://github.com/fgnt/meeteval/blob/main/doc/tcpwer.md"
+  ]
+}

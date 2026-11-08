@@ -1,0 +1,25 @@
+name: Bug report
+description: Report an installation, scoring or protocol problem.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the metric ID, expected behavior and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Use synthetic/public inputs. Remove private paths, audio and secrets.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and protocol
+      description: Python, OS, dependency versions, model/source hashes, and relevant protocol settings.
+    validations:
+      required: true

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this software and the original implementations of the metrics you use."
+type: software
+title: "SpeechMetricHub: Protocol-aware Speech Evaluation"
+version: 0.3.0
+date-released: 2026-11-07
+authors:
+  - family-names: Xu
+    given-names: Yang
+repository-code: "https://github.com/YangXu212/SpeechMetricHub"
+url: "https://github.com/YangXu212/SpeechMetricHub"
+license: MIT
+keywords:
+  - speech evaluation
+  - speech recognition
+  - speaker diarization
+  - speech quality

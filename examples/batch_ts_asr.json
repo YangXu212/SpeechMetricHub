@@ -1,0 +1,11 @@
+{
+  "records": [
+    {
+      "id": "one",
+      "inputs": {
+        "reference": "hello world",
+        "hypothesis": "hello word"
+      }
+    }
+  ]
+}

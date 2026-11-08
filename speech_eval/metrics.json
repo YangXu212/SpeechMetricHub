@@ -1,0 +1,2711 @@
+[
+  {
+    "id": "wer",
+    "domains": [
+      "asr",
+      "ts_asr",
+      "tts",
+      "codec"
+    ],
+    "description": "Word error rate",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "词错误率"
+  },
+  {
+    "id": "cer",
+    "domains": [
+      "asr",
+      "ts_asr",
+      "tts",
+      "codec"
+    ],
+    "description": "Character error rate",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "字错误率"
+  },
+  {
+    "id": "ts_wer",
+    "domains": [
+      "asr",
+      "ts_asr"
+    ],
+    "description": "Target-speaker word error rate",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "指定目标说话人的词错误率"
+  },
+  {
+    "id": "ts_cer",
+    "domains": [
+      "asr",
+      "ts_asr"
+    ],
+    "description": "Target-speaker character error rate",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "指定目标说话人的字错误率"
+  },
+  {
+    "id": "cpwer",
+    "domains": [
+      "mt_asr",
+      "meeting"
+    ],
+    "description": "Concatenated minimum-permutation WER",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "全局说话人重排词错误率"
+  },
+  {
+    "id": "cpcer",
+    "domains": [
+      "mt_asr",
+      "meeting"
+    ],
+    "description": "Concatenated minimum-permutation CER",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "全局说话人重排字错误率"
+  },
+  {
+    "id": "tcpwer",
+    "domains": [
+      "mt_asr",
+      "meeting"
+    ],
+    "description": "Time-constrained minimum-permutation WER",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "时间约束全局重排词错误率"
+  },
+  {
+    "id": "tcpcer",
+    "domains": [
+      "mt_asr",
+      "meeting"
+    ],
+    "description": "Time-constrained minimum-permutation CER",
+    "implementation": "MeetEval 0.4.3 / kaldialign 0.12.0",
+    "source": "https://github.com/fgnt/meeteval",
+    "adapter": "speech_eval.registry:text_metric",
+    "status": "validated",
+    "dependencies": [
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "timestamps and collar for tcp",
+      "fixed normalization"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "时间约束全局重排字错误率"
+  },
+  {
+    "id": "der",
+    "domains": [
+      "diarization",
+      "meeting"
+    ],
+    "description": "Diarization error rate",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "speaker_structure",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "DER"
+  },
+  {
+    "id": "jer",
+    "domains": [
+      "diarization",
+      "meeting"
+    ],
+    "description": "Jaccard error rate",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "speaker_structure",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "JER"
+  },
+  {
+    "id": "pesq_wb",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "PESQ wideband, 16 kHz",
+    "implementation": "pesq 0.0.4",
+    "source": "https://github.com/ludlows/PESQ",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "pesq==0.0.4"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "backend_score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "PESQ 宽带 16 kHz"
+  },
+  {
+    "id": "pesq_nb",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "PESQ narrowband, 8 kHz",
+    "implementation": "pesq 0.0.4",
+    "source": "https://github.com/ludlows/PESQ",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "pesq==0.0.4"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "backend_score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "PESQ 窄带 8 kHz"
+  },
+  {
+    "id": "stoi",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "Short-time objective intelligibility",
+    "implementation": "pystoi 0.4.1",
+    "source": "https://github.com/mpariente/pystoi",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "pystoi==0.4.1"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "backend_score",
+    "category": "intelligibility",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "STOI 可懂度"
+  },
+  {
+    "id": "estoi",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "Extended STOI",
+    "implementation": "pystoi 0.4.1",
+    "source": "https://github.com/mpariente/pystoi",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "pystoi==0.4.1"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "backend_score",
+    "category": "intelligibility",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "ESTOI 扩展可懂度"
+  },
+  {
+    "id": "si_sdr",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "Scale-invariant signal-to-distortion ratio",
+    "implementation": "fast-bss-eval 0.1.3",
+    "source": "https://github.com/fakufaku/fast_bss_eval",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "fast-bss-eval==0.1.3"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "dB",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "尺度不变失真比"
+  },
+  {
+    "id": "si_sdri",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec"
+    ],
+    "description": "SI-SDR improvement over mixture",
+    "implementation": "fast-bss-eval 0.1.3",
+    "source": "https://github.com/fakufaku/fast_bss_eval",
+    "adapter": "speech_eval.audio:waveform_metric",
+    "status": "validated",
+    "dependencies": [
+      "fast-bss-eval==0.1.3"
+    ],
+    "requirements": [
+      "aligned mono reference and hypothesis",
+      "same length",
+      "sample_rate",
+      "mixture for SI-SDRi"
+    ],
+    "direction": "higher_is_better",
+    "unit": "dB",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "相对输入混合音频的 SI-SDR 改善"
+  },
+  {
+    "id": "speaker_count",
+    "domains": [
+      "diarization",
+      "mt_asr",
+      "meeting"
+    ],
+    "description": "Speaker-count absolute error and cardinality diagnostics",
+    "implementation": "speaker-count-v1 protocol",
+    "source": "local explicit cardinality protocol",
+    "adapter": "speech_eval.registry:cardinality_metric",
+    "status": "validated",
+    "dependencies": [],
+    "requirements": [
+      "reference labels",
+      "hypothesis labels"
+    ],
+    "direction": "lower_is_better",
+    "unit": "speakers",
+    "category": "speaker_structure",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "说话人数正确性、少估、多估与绝对误差；辅助诊断"
+  },
+  {
+    "id": "audiobox_aesthetics_ce",
+    "family": "audiobox_aesthetics",
+    "output": "CE",
+    "category": "audio_aesthetics",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "Content Enjoyment",
+    "source": "https://github.com/facebookresearch/audiobox-aesthetics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "audiobox-aesthetics==0.0.4"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "audiobox_aesthetics_cu",
+    "family": "audiobox_aesthetics",
+    "output": "CU",
+    "category": "audio_aesthetics",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "Content Usefulness",
+    "source": "https://github.com/facebookresearch/audiobox-aesthetics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "audiobox-aesthetics==0.0.4"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "audiobox_aesthetics_pc",
+    "family": "audiobox_aesthetics",
+    "output": "PC",
+    "category": "audio_aesthetics",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "descriptive",
+    "unit": "predicted_rating",
+    "description": "Production Complexity",
+    "source": "https://github.com/facebookresearch/audiobox-aesthetics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "audiobox-aesthetics==0.0.4"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "audiobox_aesthetics_pq",
+    "family": "audiobox_aesthetics",
+    "output": "PQ",
+    "category": "audio_aesthetics",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "Production Quality",
+    "source": "https://github.com/facebookresearch/audiobox-aesthetics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "audiobox-aesthetics==0.0.4"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "scoreq_natural_nr",
+    "family": "scoreq_natural_nr",
+    "output": "score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "SCOREQ natural nr",
+    "source": "https://github.com/alessandroragano/scoreq",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "scoreq==1.0.0"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "scoreq_natural_ref",
+    "family": "scoreq_natural_ref",
+    "output": "score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "nonmatching_waveform",
+      "matching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "embedding_distance",
+    "description": "SCOREQ natural ref",
+    "source": "https://github.com/alessandroragano/scoreq",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "scoreq==1.0.0"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "scoreq_synthetic_nr",
+    "family": "scoreq_synthetic_nr",
+    "output": "score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "SCOREQ synthetic nr",
+    "source": "https://github.com/alessandroragano/scoreq",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "scoreq==1.0.0"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "scoreq_synthetic_ref",
+    "family": "scoreq_synthetic_ref",
+    "output": "score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "nonmatching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "embedding_distance",
+    "description": "SCOREQ synthetic ref",
+    "source": "https://github.com/alessandroragano/scoreq",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "scoreq==1.0.0"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_sig",
+    "family": "dnsmos",
+    "output": "SIG",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS SIG",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_bak",
+    "family": "dnsmos",
+    "output": "BAK",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS BAK",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_ovrl",
+    "family": "dnsmos",
+    "output": "OVRL",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS OVRL",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_p808_mos",
+    "family": "dnsmos",
+    "output": "P808_MOS",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS P808_MOS",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_sig_raw",
+    "family": "dnsmos",
+    "output": "SIG_raw",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS SIG_raw",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_bak_raw",
+    "family": "dnsmos",
+    "output": "BAK_raw",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS BAK_raw",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "dnsmos_ovrl_raw",
+    "family": "dnsmos",
+    "output": "OVRL_raw",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "DNSMOS OVRL_raw",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "nisqa_mos",
+    "family": "nisqa",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "NISQA Overall quality",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "nisqa_noi",
+    "family": "nisqa",
+    "output": "noi",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "NISQA Noisiness quality",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "nisqa_dis",
+    "family": "nisqa",
+    "output": "dis",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "NISQA Discontinuity quality",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "nisqa_col",
+    "family": "nisqa",
+    "output": "col",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "NISQA Coloration quality",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "nisqa_loud",
+    "family": "nisqa",
+    "output": "loud",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "NISQA Loudness quality",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "utmos",
+    "family": "utmos",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "UTMOS22 strong",
+    "source": "https://github.com/tarepan/SpeechMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "torchaudio"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "sheet_ssqa",
+    "family": "sheet_ssqa",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "SHEET SSL-MOS (model/config must be identified)",
+    "source": "https://github.com/unilight/sheet",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "s3prl"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "speaker_similarity",
+    "family": "speaker_similarity",
+    "output": "cosine",
+    "category": "speaker_identity",
+    "reference_kinds": [
+      "speaker_reference"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "RawNet3 embedding cosine",
+    "source": "https://huggingface.co/espnet/voxcelebs12_rawnet3",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "espnet"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "phoneme_similarity",
+    "family": "phoneme_similarity",
+    "output": "similarity",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "ratio",
+    "description": "1 minus character edit rate of decoded IPA (not PER)",
+    "source": "https://huggingface.co/facebook/wav2vec2-lv-60-espeak-cv-ft",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "kaldialign"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "visqol_speech",
+    "family": "visqol_speech",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "ViSQOL speech 16 kHz",
+    "source": "https://github.com/google/visqol",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "visqol_audio",
+    "family": "visqol_audio",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "ViSQOL audio 48 kHz",
+    "source": "https://github.com/google/visqol",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "speechbert_precision",
+    "family": "speechbert",
+    "output": "precision",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore precision; HuBERT layer 8 default",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "speechbert_recall",
+    "family": "speechbert",
+    "output": "recall",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore recall; HuBERT layer 8 default",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "speechbert_f1",
+    "family": "speechbert",
+    "output": "f1",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore f1; HuBERT layer 8 default",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "whisper_wer",
+    "family": "whisper_wer",
+    "output": "wer",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Whisper ASR WER against ground-truth text",
+    "source": "https://github.com/huggingface/transformers",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "meeteval",
+      "kaldialign"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "whisper_dwer",
+    "family": "whisper_dwer",
+    "output": "wer",
+    "category": "recognition",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Whisper ASR WER against ASR transcript of clean reference; not ground-truth WER",
+    "source": "https://github.com/huggingface/transformers",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "meeteval",
+      "kaldialign"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    }
+  },
+  {
+    "id": "orcwer",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Optimal reference combination WER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "orcwer"
+  },
+  {
+    "id": "tcorcwer",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Time-constrained ORC-WER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "tcorcwer"
+  },
+  {
+    "id": "mimower",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Multi-input multi-output WER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "mimower"
+  },
+  {
+    "id": "tcmimower",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Time-constrained MIMO-WER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "tcmimower"
+  },
+  {
+    "id": "greedy_dicpwer",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Greedy diarization-invariant cpWER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "greedy_dicpwer"
+  },
+  {
+    "id": "greedy_ditcpwer",
+    "adapter": "speech_eval.standard:multistream",
+    "category": "recognition",
+    "reference_kinds": [
+      "speaker_transcript"
+    ],
+    "unit": "percent",
+    "description": "Greedy diarization-invariant tcpWER",
+    "source": "https://github.com/fgnt/meeteval",
+    "dependencies": [
+      "meeteval==0.4.3"
+    ],
+    "direction": "lower_is_better",
+    "domains": [
+      "multispeaker_asr"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "greedy_ditcpwer"
+  },
+  {
+    "id": "bss_sdr",
+    "adapter": "speech_eval.standard:bss",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_multisource_waveform"
+    ],
+    "unit": "dB",
+    "description": "BSS signal-to-distortion ratio",
+    "source": "https://github.com/fakufaku/fast_bss_eval",
+    "dependencies": [
+      "fast-bss-eval==0.1.3"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "separation",
+      "tse"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "bss_sdr"
+  },
+  {
+    "id": "bss_sir",
+    "adapter": "speech_eval.standard:bss",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_multisource_waveform"
+    ],
+    "unit": "dB",
+    "description": "BSS signal-to-interference ratio",
+    "source": "https://github.com/fakufaku/fast_bss_eval",
+    "dependencies": [
+      "fast-bss-eval==0.1.3"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "separation",
+      "tse"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "bss_sir"
+  },
+  {
+    "id": "bss_sar",
+    "adapter": "speech_eval.standard:bss",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_multisource_waveform"
+    ],
+    "unit": "dB",
+    "description": "BSS signal-to-artifacts ratio",
+    "source": "https://github.com/fakufaku/fast_bss_eval",
+    "dependencies": [
+      "fast-bss-eval==0.1.3"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "separation",
+      "tse"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "bss_sar"
+  },
+  {
+    "id": "plcc",
+    "adapter": "speech_eval.standard:correlations",
+    "category": "rating_agreement",
+    "reference_kinds": [
+      "paired_subjective_ratings"
+    ],
+    "unit": "correlation",
+    "description": "Pearson linear correlation",
+    "source": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+    "dependencies": [
+      "scipy"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "quality_prediction"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "plcc"
+  },
+  {
+    "id": "srcc",
+    "adapter": "speech_eval.standard:correlations",
+    "category": "rating_agreement",
+    "reference_kinds": [
+      "paired_subjective_ratings"
+    ],
+    "unit": "correlation",
+    "description": "Spearman rank correlation",
+    "source": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+    "dependencies": [
+      "scipy"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "quality_prediction"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "srcc"
+  },
+  {
+    "id": "ktau",
+    "adapter": "speech_eval.standard:correlations",
+    "category": "rating_agreement",
+    "reference_kinds": [
+      "paired_subjective_ratings"
+    ],
+    "unit": "correlation",
+    "description": "Kendall tau-b",
+    "source": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+    "dependencies": [
+      "scipy"
+    ],
+    "direction": "higher_is_better",
+    "domains": [
+      "quality_prediction"
+    ],
+    "implementation": "native upstream",
+    "requirements": [
+      "reference",
+      "hypothesis"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "ktau"
+  },
+  {
+    "id": "vad_error",
+    "domains": [
+      "vad",
+      "diarization"
+    ],
+    "description": "Speech-activity detection error rate",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "category": "speech_activity",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "vad_error"
+  },
+  {
+    "id": "vad_precision",
+    "domains": [
+      "vad",
+      "diarization"
+    ],
+    "description": "Speech-activity detection precision",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "higher_is_better",
+    "unit": "percent",
+    "category": "speech_activity",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "vad_precision"
+  },
+  {
+    "id": "vad_recall",
+    "domains": [
+      "vad",
+      "diarization"
+    ],
+    "description": "Speech-activity detection recall",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "higher_is_better",
+    "unit": "percent",
+    "category": "speech_activity",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "vad_recall"
+  },
+  {
+    "id": "vad_accuracy",
+    "domains": [
+      "vad",
+      "diarization"
+    ],
+    "description": "Speech-activity detection accuracy",
+    "implementation": "pyannote.metrics",
+    "source": "https://github.com/pyannote/pyannote-metrics",
+    "adapter": "speech_eval.diarization:diarization_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyannote.metrics"
+    ],
+    "requirements": [
+      "speech-activity reference",
+      "speaker-labeled hypothesis",
+      "explicit UEM",
+      "collar",
+      "overlap policy"
+    ],
+    "direction": "higher_is_better",
+    "unit": "percent",
+    "category": "speech_activity",
+    "reference_kinds": [
+      "speaker_annotation"
+    ],
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "description_zh": "vad_accuracy"
+  },
+  {
+    "id": "scoreq",
+    "family": "scoreq_natural_ref",
+    "output": "score",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "nonmatching_waveform",
+      "matching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "embedding_distance",
+    "description": "Deprecated alias for scoreq_natural_ref; use explicit metric ID",
+    "source": "https://github.com/alessandroragano/scoreq",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "scoreq==1.0.0"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "alias_of": "scoreq_natural_ref"
+  },
+  {
+    "id": "dnsmos",
+    "family": "dnsmos",
+    "output": "OVRL",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "Deprecated alias for dnsmos_ovrl; use explicit metric ID",
+    "source": "https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "onnxruntime",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "alias_of": "dnsmos_ovrl"
+  },
+  {
+    "id": "nisqa",
+    "family": "nisqa",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_rating",
+    "description": "Deprecated alias for nisqa_mos; use explicit metric ID",
+    "source": "https://github.com/gabrielmittag/NISQA",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch",
+      "librosa",
+      "pandas"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "alias_of": "nisqa_mos"
+  },
+  {
+    "id": "speechbert_score",
+    "family": "speechbert",
+    "output": "precision",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "Deprecated alias for speechbert_precision; use explicit metric ID",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "alias_of": "speechbert_precision"
+  },
+  {
+    "id": "visqol",
+    "family": "visqol_speech",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "Deprecated alias for visqol_speech; use explicit metric ID",
+    "source": "https://github.com/google/visqol",
+    "implementation": "native upstream model adapter",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "interface integration; not full benchmark reproduction",
+      "report": "validation/summary.json",
+      "evidence_release": "0.2.0"
+    },
+    "alias_of": "visqol_speech"
+  }
+]

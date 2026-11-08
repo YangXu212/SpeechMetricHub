@@ -1,0 +1,118 @@
+{
+  "audiobox_aesthetics": {
+    "checkpoint": "/models/audiobox/checkpoint.pt",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "nisqa": {
+    "source_dir": "/opt/upstream/NISQA",
+    "checkpoint": "/models/nisqa/nisqa.tar",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "utmos": {
+    "source_dir": "/opt/upstream/SpeechMOS",
+    "checkpoint": "/models/utmos/utmos22_strong_step7459_v1.pt",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "sheet_ssqa": {
+    "source_dir": "/opt/upstream/sheet",
+    "config_file": "/models/sheet/all7-sslmos-mdf-2337-config.yml",
+    "checkpoint": "/models/sheet/all7-sslmos-mdf-2337-checkpoint-86000steps.pkl",
+    "ssl_checkpoint": "/models/sheet/wav2vec_small.pt",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "dnsmos": {
+    "source_file": "/opt/upstream/DNSMOS/dnsmos_local.py",
+    "primary_model": "/models/dnsmos/sig_bak_ovr.onnx",
+    "p808_model": "/models/dnsmos/model_v8.onnx",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "speechbert": {
+    "source_dir": "/opt/upstream/DiscreteSpeechMetrics",
+    "model_dir": "/models/hubert-base-ls960",
+    "layer": 8,
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "phoneme_similarity": {
+    "model_dir": "/models/wav2vec2-lv-60-espeak-cv-ft",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "speaker_similarity": {
+    "config_file": "/models/rawnet3/config.yaml",
+    "checkpoint": "/models/rawnet3/40epoch.pth",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "visqol_speech": {
+    "binary": "/opt/visqol/visqol",
+    "checkpoint": "/models/visqol/lattice_tcditugenmeetpackhref_ls2_nl60_lr12_bs2048_learn.005_ep2400_train1_7_raw.tflite",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "visqol_audio": {
+    "binary": "/opt/visqol/visqol",
+    "checkpoint": "/models/visqol/libsvm_nu_svr_model.txt",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "scoreq_natural_nr": {
+    "checkpoint": "/models/scoreq/adapt_nr_telephone.onnx",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "scoreq_natural_ref": {
+    "checkpoint": "/models/scoreq/fixed_nmr_telephone.onnx",
+    "reference_kind": "nonmatching",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "scoreq_synthetic_nr": {
+    "checkpoint": "/models/scoreq/adapt_nr_synthetic.onnx",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "scoreq_synthetic_ref": {
+    "checkpoint": "/models/scoreq/fixed_nmr_synthetic.onnx",
+    "reference_kind": "nonmatching",
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "whisper_wer": {
+    "model_dir": "/models/whisper-large-v3",
+    "language": "english",
+    "beam_size": 5,
+    "timeout": 1200,
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "whisper_dwer": {
+    "model_dir": "/models/whisper-large-v3",
+    "language": "english",
+    "beam_size": 5,
+    "timeout": 1200,
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true
+  }
+}

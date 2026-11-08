@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Speech Eval single metric result",
+  "type": "object",
+  "required": ["metric", "status", "value"],
+  "properties": {
+    "metric": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "minLength": 1},
+    "value": {"type": ["number", "null"]},
+    "reason": {"type": "string"},
+    "backend": {"type": "object"},
+    "protocol": {"type": "object"},
+    "provenance": {"type": "object"},
+    "values": {"type": "object", "additionalProperties": {"type": "number"}}
+  },
+  "additionalProperties": true,
+  "description": "Nonfinite numbers are prohibited by JSON. Algorithm-specific counts/components are preserved as additional properties. Invalid caller arguments may raise before a result is created."
+}

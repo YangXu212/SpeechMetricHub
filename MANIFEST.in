@@ -1,0 +1,11 @@
+include README.md README.zh-CN.md LICENSE CHANGELOG.md THIRD_PARTY.md CONTRIBUTING.md WINDOWS_BUILD.md Dockerfile CITATION.cff SECURITY.md
+recursive-include assets *.svg
+recursive-include .github *.yml *.md
+recursive-include docs *.md
+recursive-include protocols *.json
+recursive-include examples *.json
+recursive-include examples *.md
+recursive-include validation *.md *.json
+recursive-include scripts *.py
+recursive-include tests *.py
+exclude examples/g13_external_profiles.json

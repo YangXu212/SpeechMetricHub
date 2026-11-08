@@ -1,0 +1,22 @@
+name: Metric integration
+description: Propose an upstream metric or an additional model/output variant.
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Original implementation and publication
+      description: Link the primary source and describe its license and available artifacts.
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Complete interface and protocol
+      description: List all outputs/modes, reference requirements, preprocessing, units and score directions.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Validation plan
+      description: Describe real inputs, upstream parity, semantic properties and failure cases.
