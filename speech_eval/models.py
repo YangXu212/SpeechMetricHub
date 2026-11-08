@@ -93,6 +93,11 @@ def select(result, spec):
     }
     if selected["status"] == "ok" and selected["value"] is None:
         selected.update(status="backend_error", reason=f"Missing declared output: {spec['output']}")
+    if spec["id"] == "lps_phone" and "protocol" in selected:
+        selected["protocol"] = {
+            **selected["protocol"],
+            "tokenization": "space-delimited decoded phonemes; URGENT 2026 LPS",
+        }
     if spec["family"] in ("whisper_wer", "whisper_dwer"):
         selected.update(
             {

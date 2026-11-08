@@ -795,3 +795,190 @@ Deprecated alias for visqol_speech; use explicit metric ID
 - 参数与口径：speech 16k 使用 lattice TFLite，audio 48k 使用 SVR。soxr HQ、PCM16、严格同长度同原始采样率；不暗中裁剪或峰值归一。输入幅值必须在[-1,1]。
 - 验证：真实LibriMix语音及可控噪声；短音频/立体声/静音/缺文件全部拒绝，无虚假数值。
 - 兼容别名：新实验请使用 `visqol_speech`。
+
+## `speechbert_mhubert_precision`
+
+多语言 SpeechBERTScore precision
+
+| Property | Contract |
+|---|---|
+| Measurement | content_similarity |
+| Reference | matching_waveform |
+| Output | cosine; higher_is_better |
+| Implementation | DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147 |
+| Source | [Upstream](https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics) |
+| Required | reference and hypothesis audio paths; local mHuBERT-147 model_dir; official DiscreteSpeechMetrics source_dir; layer=8; mono; >=1 second |
+
+Different encoder from HuBERT-base SBS; scores are not interchangeable. Full precision, recall and F1 retained.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `speechbert_mhubert_recall`
+
+多语言 SpeechBERTScore recall
+
+| Property | Contract |
+|---|---|
+| Measurement | content_similarity |
+| Reference | matching_waveform |
+| Output | cosine; higher_is_better |
+| Implementation | DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147 |
+| Source | [Upstream](https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics) |
+| Required | reference and hypothesis audio paths; local mHuBERT-147 model_dir; official DiscreteSpeechMetrics source_dir; layer=8; mono; >=1 second |
+
+Different encoder from HuBERT-base SBS; scores are not interchangeable. Full precision, recall and F1 retained.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `speechbert_mhubert_f1`
+
+多语言 SpeechBERTScore f1
+
+| Property | Contract |
+|---|---|
+| Measurement | content_similarity |
+| Reference | matching_waveform |
+| Output | cosine; higher_is_better |
+| Implementation | DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147 |
+| Source | [Upstream](https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics) |
+| Required | reference and hypothesis audio paths; local mHuBERT-147 model_dir; official DiscreteSpeechMetrics source_dir; layer=8; mono; >=1 second |
+
+Different encoder from HuBERT-base SBS; scores are not interchangeable. Full precision, recall and F1 retained.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `speaker_similarity_wavlm`
+
+WavLM-base-plus-SV 说话人余弦相似度
+
+| Property | Contract |
+|---|---|
+| Measurement | speaker_identity |
+| Reference | speaker_reference |
+| Output | cosine; higher_is_better |
+| Implementation | Transformers WavLMForXVector |
+| Source | [Upstream](https://huggingface.co/microsoft/wavlm-base-plus-sv) |
+| Required | reference speaker audio and hypothesis audio; local WavLM-base-plus-SV model_dir; mono; >=1 second |
+
+Cosine is in [-1,1], not calibrated probability or EER. Not interchangeable with RawNet3 or WavLM-large ECAPA.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `lps_phone`
+
+LPS 音素 token 相似度
+
+| Property | Contract |
+|---|---|
+| Measurement | content_similarity |
+| Reference | matching_waveform |
+| Output | ratio; higher_is_better |
+| Implementation | wav2vec2-lv-60-espeak-cv-ft + phone-token Levenshtein |
+| Source | [Upstream](https://github.com/urgent-challenge/urgent2026_challenge_track1/blob/main/evaluation_metrics/calculate_phoneme_similarity.py) |
+| Required | hypothesis audio file; explicit local deployment config; reference |
+
+1 - edit_distance / reference phone count; may be negative. Different from legacy IPA Unicode-character phoneme_similarity. Empty reference recognition is a failure; model-derived phones are not manual labels.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `plcmos_v2`
+
+PLCMOS v2 final 模型
+
+| Property | Contract |
+|---|---|
+| Measurement | perceptual_quality |
+| Reference | none |
+| Output | predicted_mos; higher_is_better |
+| Implementation | Microsoft SpeechMOS 0.0.1.1 PLCMOS.get_mos |
+| Source | [Upstream](https://pypi.org/project/speechmos/0.0.1.1/) |
+| Required | hypothesis audio path; official SpeechMOS plcmos.py source_file; matching local ONNX checkpoint; seed=0; embed_rounds=15; mono; >=1 second; CPU |
+
+Packet-loss-concealment MOS predictor; not established for arbitrary distortions. Final and validation checkpoints have different training/holdout scope. Seeded finite-rater sampling; scores depend on seed and repetition count.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `plcmos_v2_val`
+
+PLCMOS v2 validation 模型
+
+| Property | Contract |
+|---|---|
+| Measurement | perceptual_quality |
+| Reference | none |
+| Output | predicted_mos; higher_is_better |
+| Implementation | Microsoft SpeechMOS 0.0.1.1 PLCMOS.get_mos |
+| Source | [Upstream](https://pypi.org/project/speechmos/0.0.1.1/) |
+| Required | hypothesis audio path; official SpeechMOS plcmos.py source_file; matching local ONNX checkpoint; seed=0; embed_rounds=15; mono; >=1 second; CPU |
+
+Packet-loss-concealment MOS predictor; not established for arbitrary distortions. Final and validation checkpoints have different training/holdout scope. Seeded finite-rater sampling; scores depend on seed and repetition count.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `lsd_urgent`
+
+URGENT 增益拟合自然对数谱距离
+
+| Property | Contract |
+|---|---|
+| Measurement | signal_fidelity |
+| Reference | aligned_waveform |
+| Output | natural_log_power_ratio; lower_is_better |
+| Implementation | librosa STFT |
+| Source | [Upstream](https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics) |
+| Required | reference; hypothesis; sample_rate; equal-length finite non-silent mono audio |
+
+Frame, gain, log-base and coefficient conventions are part of the metric ID. MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `lsd_db`
+
+无增益拟合的 dB 谱距离
+
+| Property | Contract |
+|---|---|
+| Measurement | signal_fidelity |
+| Reference | aligned_waveform |
+| Output | dB; lower_is_better |
+| Implementation | librosa STFT |
+| Source | [Upstream](https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics) |
+| Required | reference; hypothesis; sample_rate; equal-length finite non-silent mono audio |
+
+Frame, gain, log-base and coefficient conventions are part of the metric ID. MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `mcd_urgent`
+
+URGENT MCD：增益拟合、含 c0
+
+| Property | Contract |
+|---|---|
+| Measurement | signal_fidelity |
+| Reference | aligned_waveform |
+| Output | dB; lower_is_better |
+| Implementation | pysptk mcep + fastdtw |
+| Source | [Upstream](https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics) |
+| Required | reference; hypothesis; sample_rate; equal-length finite non-silent mono audio |
+
+Frame, gain, log-base and coefficient conventions are part of the metric ID. MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `mcd_dtw_c1`
+
+SPTK MCD：DTW、不含 c0、不拟合增益
+
+| Property | Contract |
+|---|---|
+| Measurement | signal_fidelity |
+| Reference | aligned_waveform |
+| Output | dB; lower_is_better |
+| Implementation | pysptk mcep + fastdtw |
+| Source | [Upstream](https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics) |
+| Required | reference; hypothesis; sample_rate; equal-length finite non-silent mono audio |
+
+Frame, gain, log-base and coefficient conventions are part of the metric ID. MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity.
+
+Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).

@@ -1,6 +1,35 @@
 # Validation evidence
 
-There are two distinct evidence layers: the **v0.2 real-model integration baseline** and **v0.3 public packaging/API checks**. Neither is a complete benchmark leaderboard reproduction.
+## v0.4 expansion
+
+The [v0.4 evidence matrix](expansion-v0.4.json) records **11 new interfaces**, bringing the registry to **80 IDs / 75 canonical variants**. It preserves the older baseline below rather than overwriting its history.
+
+| Check | Recorded outcome |
+|---|---|
+| Semantic/API regression suite | 39 tests passed |
+| Real model execution | 48 family/case executions, producing 88 interface/case results across new and affected legacy paths |
+| Spectral profiles | 28 interface/case results across four profiles |
+| Independent parity / analytic checks | 14 passed, covering all 11 new interfaces and three existing SBS heads |
+| Additional controls | 11 passed: fixed-seed repeatability, invalid seed/repetition settings, speaker positive/negative, missing references and artifact mismatch |
+| Legacy compatibility | Existing HuBERT SBS P/R/F1 and IPA-character similarity exactly match the recorded v0.2 degraded-fixture values |
+
+Successful and intentionally invalid cases are distinguished in the matrix. Model cases include real degraded speech, identity, different content, explicit resampling, and short/silent/stereo/missing files. The different-content fixture is from the same speaker; a separate speaker-control fixture supplies the impostor. Observed WavLM cosine was 0.9406 for another utterance by the same speaker and 0.4850 for the other speaker. This single control does not establish a recognition threshold or population EER.
+
+Independent checks use public upstream calls or a separately specified mathematical reference: current URGENT phone-token LPS, direct encoder features and cosine reductions for SBS/WavLM, Microsoft SpeechMOS PLCMOS, public URGENT LSD/MCD, and a known 6.0205999 dB half-amplitude fixture for `lsd_db`. Sources and model/input SHA-256 identities are recorded. Upstream tolerance is 1e-5 for neural features and 1e-7 for deterministic PLCMOS/spectral comparisons.
+
+Model tests used a dedicated Linux/Python 3.10 CPU environment with two threads and inherited dependencies. This is not a fresh installation of every model stack. All historical heavyweight families were not rerun: changed legacy paths and every newly admitted ID were exercised. Public CI separately tests fresh core/spectral installs on Python 3.10 and 3.11; it does not download neural weights.
+
+To reproduce with your provisioned artifacts and fixture directory:
+
+```bash
+python scripts/validate_expansion.py --config deployment.local.json --fixtures /audio/fixtures --output runtime.local.json
+python scripts/validate_expansion_parity.py --config deployment.local.json --fixtures /audio/fixtures --upstream /opt/public-reference-scripts --results runtime.local.json --output parity.local.json
+python scripts/validate_expansion_controls.py --config deployment.local.json --fixtures /audio/fixtures --output controls.local.json
+```
+
+The fixture directory contains `ref.wav`, `noisy.wav`, `aux.wav` (same speaker/different text), `impostor.wav` (different speaker), `rate24.wav` (reference resampled to 24 kHz), `short.wav`, `silent.wav`, and `stereo.wav`. `missing.wav` must not exist. The parity script requires `urgent_lps.py`, `urgent_intrusive.py` and `mcd_utils.py` from the public URLs in the JSON report. Read [exact profiles](../docs/EXPANSION_PROFILES.md) before comparing results.
+
+The inherited evidence has two layers: the **v0.2 real-model integration baseline** and **v0.3 public packaging/API checks**. Neither is a complete benchmark leaderboard reproduction.
 
 ## Real-model integration baseline
 

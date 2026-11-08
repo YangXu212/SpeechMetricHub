@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-11-07
+
+- Add 11 validated metric interfaces: mHuBERT-147 SpeechBERTScore precision/recall/F1, phone-token LPS, WavLM-base-plus-SV cosine, PLCMOS v2 final/validation, URGENT natural-log LSD, dB LSD, URGENT MCD and c1-only DTW MCD.
+- Preserve all prior IDs and scoring defaults. Distinguish phone-token LPS from legacy IPA-character similarity and model-specific SBS from a generic name.
+- Add spectral/PLCMOS dependency extras, local-artifact deployment templates, the research/admission plan, exact profile definitions and repeatable real-model/parity/control harnesses.
+- Expand semantic/API tests from 33 to 39; add real-speech, upstream/analytic parity, boundary, speaker positive/negative, RNG repeatability and artifact-mismatch evidence. Public CI includes the new spectral dependency stack; heavy model execution remains separately documented.
+- No private lab code, audio or model weights are redistributed.
+
 ## 0.3.0 — First public SpeechMetricHub release
 
 - Name and package the project as SpeechMetricHub, with a public `speechmetrichub` namespace and CLI.

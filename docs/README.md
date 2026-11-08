@@ -22,3 +22,6 @@ SpeechMetricHub separates the question **what is measured?** from **what referen
 - [Roadmap](ROADMAP.md) — candidates, not advertised implementations.
 
 中文资料：[项目说明](../README.zh-CN.md) · [指标卡](METRICS.zh-CN.md) · [部署说明](DEPLOYMENT.md) · [验证记录](../validation/README.zh-CN.md)。
+
+- [v0.4 research and integration plan](EXPANSION_PLAN.md)
+- [v0.4 exact scoring profiles](EXPANSION_PROFILES.md)

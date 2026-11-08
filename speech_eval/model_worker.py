@@ -85,6 +85,8 @@ def score(request):
         "speaker_similarity",
         "phoneme_similarity",
         "speechbert",
+        "speechbert_mhubert",
+        "speaker_similarity_wavlm",
         "visqol_speech",
         "visqol_audio",
         "whisper_dwer",
@@ -138,6 +140,8 @@ def score(request):
         "dnsmos",
         "visqol_speech",
         "visqol_audio",
+        "plcmos_v2",
+        "plcmos_v2_val",
     ):
         if not config.get("trusted_checkpoint"):
             raise ValueError("Set trusted_checkpoint=true only for trusted local PyTorch artifacts")
@@ -293,6 +297,41 @@ def score(request):
             }
             protocol.update(personalized=False, resampler="soxr_HQ", scoring_sample_rate=16000)
             backend["onnxruntime"] = ort.__version__
+        elif family in ("plcmos_v2", "plcmos_v2_val"):
+            import onnxruntime as ort
+
+            module = source_module(require(config, "source_file"), "official_plcmos")
+            rounds = config.get("embed_rounds", 15)
+            seed = config.get("seed", 0)
+            if isinstance(rounds, bool) or not isinstance(rounds, int) or not 1 <= rounds <= 1000:
+                raise ValueError("embed_rounds must be an integer in [1, 1000]")
+            if isinstance(seed, bool) or not isinstance(seed, int) or not 0 <= seed < 2**32:
+                raise ValueError("seed must be a uint32 integer")
+            if device != "cpu":
+                raise ValueError("PLCMOS profile uses ONNX CPUExecutionProvider")
+            model = module.PLCMOS.__new__(module.PLCMOS)
+            model.model_name = family
+            model.max_lens = 999999999999
+            model.embed_rounds = rounds
+            options = ort.SessionOptions()
+            options.intra_op_num_threads = config.get("threads", 2)
+            options.inter_op_num_threads = 1
+            model.session = ort.InferenceSession(
+                require(config, "checkpoint"), options, providers=["CPUExecutionProvider"]
+            )
+            audio16 = soxr.resample(wave, sr, 16000) if sr != 16000 else wave
+            if np.max(np.abs(audio16)) > 1:
+                raise ValueError("PLCMOS samples must be in [-1,1]; no implicit normalization")
+            np.random.seed(seed)
+            values = {"mos": model.get_mos(audio16, 16000)}
+            protocol.update(
+                scoring_sample_rate=16000,
+                resampler="soxr_HQ",
+                seed=seed,
+                embed_rounds=rounds,
+                model_version=family,
+                random_generator="numpy RandomState (upstream global RNG)",
+            )
         else:
             values, details = extended(family, hyp, ref, wave, sr, config, provenance, protocol)
     values = {k: float(v) for k, v in values.items()}
@@ -396,7 +435,7 @@ def extended(family, hyp, ref, wave, sr, config, provenance, protocol):
         model.spk_model.eval()
         value = torch.cosine_similarity(model(reference16), model(wave16), dim=-1).item()
         return {"cosine": value}, details
-    if family == "speechbert":
+    if family in ("speechbert", "speechbert_mhubert"):
         from transformers import HubertModel
 
         module = source_module(
@@ -413,10 +452,33 @@ def extended(family, hyp, ref, wave, sr, config, provenance, protocol):
         model.layer = config.get("layer", 8)
         model.sr = 16000
         p, r, f = model.score(reference16, wave16)
-        protocol.update(model_type="hubert-base", layer=model.layer)
+        protocol.update(
+            model_type="hubert-base" if family == "speechbert" else "mhubert-147",
+            layer=model.layer,
+            reference_order="reference first; hypothesis second",
+        )
         return {"precision": p, "recall": r, "f1": f}, details
+    if family == "speaker_similarity_wavlm":
+        from transformers import Wav2Vec2FeatureExtractor, WavLMForXVector
+
+        path = require(config, "model_dir")
+        processor = Wav2Vec2FeatureExtractor.from_pretrained(path, local_files_only=True)
+        model = WavLMForXVector.from_pretrained(path, local_files_only=True).to(device).eval()
+
+        def embedding(audio):
+            inputs = processor(audio, sampling_rate=16000, return_tensors="pt", padding=True)
+            return model(**inputs.to(device)).embeddings
+
+        value = torch.cosine_similarity(embedding(reference16), embedding(wave16), dim=-1).item()
+        protocol.update(
+            model_type="wavlm-base-plus-sv",
+            similarity="cosine",
+            pooling="upstream x-vector",
+            feature_extractor_do_normalize=processor.do_normalize,
+        )
+        return {"cosine": value}, details
     if family == "phoneme_similarity":
-        import kaldialign
+        from .phonemes import compare_decoded
         from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
 
         path = require(config, "model_dir")
@@ -427,17 +489,15 @@ def extended(family, hyp, ref, wave, sr, config, provenance, protocol):
             values = processor(audio, return_tensors="pt", sampling_rate=16000).input_values.to(
                 device
             )
-            return processor.batch_decode(model(values).logits.argmax(dim=-1))[0].replace(" ", "")
+            return processor.batch_decode(model(values).logits.argmax(dim=-1))[0]
 
-        a, b = decode(reference16), decode(wave16)
-        if not a:
-            raise ValueError("Empty reference phoneme prediction")
-        counts = kaldialign.edit_distance(list(a), list(b))
-        details = {"reference_ipa": a, "hypothesis_ipa": b, "counts": counts}
+        ref_decoded, hyp_decoded = decode(reference16), decode(wave16)
+        values, details = compare_decoded(ref_decoded, hyp_decoded)
         protocol["tokenization"] = (
             "Unicode characters of IPA after space removal; legacy PhonemeSimilarity, not phone-token PER"
         )
-        return {"similarity": 1 - counts["total"] / len(a)}, details
+        protocol["phone_tokenization"] = "space-delimited decoded phonemes; URGENT 2026 LPS"
+        return values, details
     if family in ("whisper_wer", "whisper_dwer"):
         from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
         from transformers.models.whisper.english_normalizer import EnglishTextNormalizer

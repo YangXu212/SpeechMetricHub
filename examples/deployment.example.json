@@ -114,5 +114,39 @@
     "device": "cpu",
     "threads": 2,
     "trusted_checkpoint": true
+  },
+  "speechbert_mhubert": {
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true,
+    "timeout": 600,
+    "source_dir": "/opt/upstream/DiscreteSpeechMetrics",
+    "model_dir": "/models/mHuBERT-147",
+    "layer": 8
+  },
+  "speaker_similarity_wavlm": {
+    "device": "cpu",
+    "threads": 2,
+    "trusted_checkpoint": true,
+    "timeout": 600,
+    "model_dir": "/models/wavlm-base-plus-sv"
+  },
+  "plcmos_v2": {
+    "device": "cpu",
+    "threads": 2,
+    "timeout": 600,
+    "source_file": "/opt/upstream/speechmos/plcmos.py",
+    "checkpoint": "/models/plcmos/plcmos_v2.onnx",
+    "seed": 0,
+    "embed_rounds": 15
+  },
+  "plcmos_v2_val": {
+    "device": "cpu",
+    "threads": 2,
+    "timeout": 600,
+    "source_file": "/opt/upstream/speechmos/plcmos.py",
+    "checkpoint": "/models/plcmos/plcmos_v2_val.onnx",
+    "seed": 0,
+    "embed_rounds": 15
   }
 }

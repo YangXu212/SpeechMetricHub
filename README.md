@@ -13,8 +13,8 @@
 
 Use it for transcription, diarization, speech quality, intelligibility, signal fidelity and similarity research. Select metrics by **what they measure**, then filter by reference conditions and task tags.
 
-> **64 canonical metric variants · 10 measurement dimensions · 16 model families.**
-> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations of upstream methods, not 64 newly proposed algorithms.
+> **75 canonical metric variants · 10 measurement dimensions · 20 model families.**
+> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations of upstream methods, not 75 newly proposed algorithms.
 
 ## Why use it?
 
@@ -23,6 +23,12 @@ Use it for transcription, diarization, speech quality, intelligibility, signal f
 - **Keep failures visible.** Missing dependencies, invalid inputs and incomplete batches do not silently become zero scores or disappear from an average.
 - **Reuse upstream implementations.** MeetEval, pyannote.metrics, fast-bss-eval and the original model projects provide the scoring algorithms.
 - **Inspect the evidence.** The repository includes a per-interface validation matrix, model/source fingerprints and repeatable checks. Real model execution is distinguished from ordinary CI.
+
+## New in v0.4
+
+The [research and integration plan](docs/EXPANSION_PLAN.md) led to 11 additional interfaces: multilingual mHuBERT SBS **P/R/F1**, phone-token **LPS**, **WavLM speaker cosine**, **PLCMOS v2/final and validation**, and four explicitly named **LSD/MCD profiles**. Existing IDs retain their semantics.
+
+See [profile definitions and examples](docs/EXPANSION_PROFILES.md) and the [release validation evidence](validation/expansion-v0.4.json). In particular, IPA-character LPS is different from phone-token LPS, and natural-log gain-fitted LSD is different from dB LSD.
 
 ## Quick start
 
@@ -88,11 +94,11 @@ speechmetrichub doctor
 | Recognition | WER/CER, TS-WER/CER, cpWER/cpCER, tcpWER/tcpCER, ORC/tcORC, MIMO/tcMIMO, greedy DI-cp/DI-tcp, Whisper WER/dWER |
 | Speaker structure | DER, JER, speaker-count error and diagnostics |
 | Speech activity | Detection error, precision, recall, accuracy |
-| Perceptual quality | PESQ WB/NB, ViSQOL speech/audio, DNSMOS calibrated/raw heads and P.808 head, NISQA five dimensions, SCOREQ four modes, UTMOS22 strong, SHEET SSL-MOS |
+| Perceptual quality | PESQ WB/NB, ViSQOL speech/audio, DNSMOS calibrated/raw heads and P.808 head, NISQA five dimensions, SCOREQ four modes, UTMOS22 strong, SHEET SSL-MOS; PLCMOS v2/final and validation |
 | Intelligibility | STOI, ESTOI |
-| Signal fidelity | SI-SDR, SI-SDR improvement, BSS SDR/SIR/SAR |
-| Speaker identity | RawNet3 embedding cosine |
-| Content similarity | IPA character similarity; SpeechBERTScore precision, recall, F1 |
+| Signal fidelity | SI-SDR, SI-SDR improvement, BSS SDR/SIR/SAR; LSD and DTW MCD profiles |
+| Speaker identity | RawNet3 and WavLM-base-plus-SV embedding cosine |
+| Content similarity | IPA character similarity; HuBERT/mHuBERT SpeechBERTScore precision, recall, F1; character/phone LPS |
 | Audio aesthetics | Audiobox Content Enjoyment, Content Usefulness, Production Complexity, Production Quality |
 | Rating agreement | Pearson, Spearman, Kendall tau-b |
 

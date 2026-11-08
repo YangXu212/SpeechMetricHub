@@ -1,0 +1,1615 @@
+{
+  "release": "0.4.0",
+  "date": "2026-11-07",
+  "scope": "11 new interfaces plus changed legacy model paths; actual CPU execution, not benchmark reproduction",
+  "environment": {
+    "platform": "Linux x86_64",
+    "python": "3.10",
+    "device": "cpu",
+    "threads": 2,
+    "isolation": "Dedicated venv overlay; inherited system dependencies; not a fresh complete model installation"
+  },
+  "counts": {
+    "registered": 80,
+    "canonical": 75,
+    "new_interfaces": 11,
+    "semantic_tests": 39,
+    "model_family_case_executions": 48,
+    "model_interface_case_results": 88,
+    "spectral_interface_case_results": 28,
+    "parity_comparisons": 14,
+    "additional_controls": 11
+  },
+  "new_interfaces": [
+    "speechbert_mhubert_precision",
+    "speechbert_mhubert_recall",
+    "speechbert_mhubert_f1",
+    "speaker_similarity_wavlm",
+    "lps_phone",
+    "plcmos_v2",
+    "plcmos_v2_val",
+    "lsd_urgent",
+    "lsd_db",
+    "mcd_urgent",
+    "mcd_dtw_c1"
+  ],
+  "model_cases": {
+    "speechbert_mhubert_precision": {
+      "degraded": {
+        "speechbert_mhubert_precision": {
+          "status": "ok",
+          "value": 0.7968013286590576
+        },
+        "speechbert_mhubert_recall": {
+          "status": "ok",
+          "value": 0.8003261089324951
+        },
+        "speechbert_mhubert_f1": {
+          "status": "ok",
+          "value": 0.798559829289002
+        }
+      },
+      "identity": {
+        "speechbert_mhubert_precision": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "speechbert_mhubert_recall": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "speechbert_mhubert_f1": {
+          "status": "ok",
+          "value": 1.0
+        }
+      },
+      "nonmatching": {
+        "speechbert_mhubert_precision": {
+          "status": "ok",
+          "value": 0.5603843927383423
+        },
+        "speechbert_mhubert_recall": {
+          "status": "ok",
+          "value": 0.572336733341217
+        },
+        "speechbert_mhubert_f1": {
+          "status": "ok",
+          "value": 0.5662975031909793
+        }
+      },
+      "resampled": {
+        "speechbert_mhubert_precision": {
+          "status": "ok",
+          "value": 0.999980092048645
+        },
+        "speechbert_mhubert_recall": {
+          "status": "ok",
+          "value": 0.999980092048645
+        },
+        "speechbert_mhubert_f1": {
+          "status": "ok",
+          "value": 0.999980092048645
+        }
+      },
+      "short": {
+        "speechbert_mhubert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "speechbert_mhubert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "speechbert_mhubert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "speechbert_mhubert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_mhubert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    },
+    "speaker_similarity_wavlm": {
+      "degraded": {
+        "speaker_similarity_wavlm": {
+          "status": "ok",
+          "value": 0.9166595935821533
+        }
+      },
+      "identity": {
+        "speaker_similarity_wavlm": {
+          "status": "ok",
+          "value": 0.9999999403953552
+        }
+      },
+      "nonmatching": {
+        "speaker_similarity_wavlm": {
+          "status": "ok",
+          "value": 0.940626323223114
+        }
+      },
+      "resampled": {
+        "speaker_similarity_wavlm": {
+          "status": "ok",
+          "value": 0.9999861717224121
+        }
+      },
+      "short": {
+        "speaker_similarity_wavlm": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "speaker_similarity_wavlm": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "speaker_similarity_wavlm": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "speaker_similarity_wavlm": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    },
+    "plcmos_v2": {
+      "degraded": {
+        "plcmos_v2": {
+          "status": "ok",
+          "value": 2.7909133275349935
+        }
+      },
+      "identity": {
+        "plcmos_v2": {
+          "status": "ok",
+          "value": 4.0990549723307295
+        }
+      },
+      "nonmatching": {
+        "plcmos_v2": {
+          "status": "ok",
+          "value": 4.402813307444254
+        }
+      },
+      "resampled": {
+        "plcmos_v2": {
+          "status": "ok",
+          "value": 4.155667114257812
+        }
+      },
+      "short": {
+        "plcmos_v2": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "plcmos_v2": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "plcmos_v2": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "plcmos_v2": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    },
+    "plcmos_v2_val": {
+      "degraded": {
+        "plcmos_v2_val": {
+          "status": "ok",
+          "value": 2.4774656931559247
+        }
+      },
+      "identity": {
+        "plcmos_v2_val": {
+          "status": "ok",
+          "value": 4.5767508824666345
+        }
+      },
+      "nonmatching": {
+        "plcmos_v2_val": {
+          "status": "ok",
+          "value": 4.707665697733561
+        }
+      },
+      "resampled": {
+        "plcmos_v2_val": {
+          "status": "ok",
+          "value": 4.499738979339599
+        }
+      },
+      "short": {
+        "plcmos_v2_val": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "plcmos_v2_val": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "plcmos_v2_val": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "plcmos_v2_val": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    },
+    "phoneme_similarity": {
+      "degraded": {
+        "phoneme_similarity": {
+          "status": "ok",
+          "value": 0.9069767441860466
+        },
+        "lps_phone": {
+          "status": "ok",
+          "value": 0.8947368421052632
+        }
+      },
+      "identity": {
+        "phoneme_similarity": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "lps_phone": {
+          "status": "ok",
+          "value": 1.0
+        }
+      },
+      "nonmatching": {
+        "phoneme_similarity": {
+          "status": "ok",
+          "value": -0.09302325581395343
+        },
+        "lps_phone": {
+          "status": "ok",
+          "value": -0.07894736842105265
+        }
+      },
+      "resampled": {
+        "phoneme_similarity": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "lps_phone": {
+          "status": "ok",
+          "value": 1.0
+        }
+      },
+      "short": {
+        "phoneme_similarity": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "lps_phone": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "phoneme_similarity": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "lps_phone": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "phoneme_similarity": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "lps_phone": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "phoneme_similarity": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "lps_phone": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    },
+    "speechbert_precision": {
+      "degraded": {
+        "speechbert_precision": {
+          "status": "ok",
+          "value": 0.6647222638130188
+        },
+        "speechbert_recall": {
+          "status": "ok",
+          "value": 0.6682668328285217
+        },
+        "speechbert_f1": {
+          "status": "ok",
+          "value": 0.6664898356154911
+        }
+      },
+      "identity": {
+        "speechbert_precision": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "speechbert_recall": {
+          "status": "ok",
+          "value": 1.0
+        },
+        "speechbert_f1": {
+          "status": "ok",
+          "value": 1.0
+        }
+      },
+      "nonmatching": {
+        "speechbert_precision": {
+          "status": "ok",
+          "value": 0.4480030834674835
+        },
+        "speechbert_recall": {
+          "status": "ok",
+          "value": 0.46991631388664246
+        },
+        "speechbert_f1": {
+          "status": "ok",
+          "value": 0.4586981344979056
+        }
+      },
+      "resampled": {
+        "speechbert_precision": {
+          "status": "ok",
+          "value": 0.9999876022338867
+        },
+        "speechbert_recall": {
+          "status": "ok",
+          "value": 0.9999876022338867
+        },
+        "speechbert_f1": {
+          "status": "ok",
+          "value": 0.9999876022338867
+        }
+      },
+      "short": {
+        "speechbert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "silent": {
+        "speechbert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "stereo": {
+        "speechbert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      },
+      "missing": {
+        "speechbert_precision": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_recall": {
+          "status": "invalid_input",
+          "value": null
+        },
+        "speechbert_f1": {
+          "status": "invalid_input",
+          "value": null
+        }
+      }
+    }
+  },
+  "spectral_cases": {
+    "lsd_urgent": {
+      "degraded": {
+        "metric": "lsd_urgent",
+        "status": "ok",
+        "value": 6.366441586699863,
+        "value_unit": "natural_log_power_ratio",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent",
+          "gain_normalization": "least_squares_hypothesis_to_reference_eps1e-8",
+          "n_fft": 512,
+          "hop_length": 256,
+          "window": "hann_periodic",
+          "center": true,
+          "pad_mode": "constant",
+          "frequency_bins": "all_one_sided",
+          "logarithm": "natural log power ratio",
+          "epsilon": 1e-08
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "librosa": "0.9.2"
+        }
+      },
+      "identity": {
+        "metric": "lsd_urgent",
+        "status": "ok",
+        "value": 0.00721530620984149,
+        "value_unit": "natural_log_power_ratio",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent",
+          "gain_normalization": "least_squares_hypothesis_to_reference_eps1e-8",
+          "n_fft": 512,
+          "hop_length": 256,
+          "window": "hann_periodic",
+          "center": true,
+          "pad_mode": "constant",
+          "frequency_bins": "all_one_sided",
+          "logarithm": "natural log power ratio",
+          "epsilon": 1e-08
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "librosa": "0.9.2"
+        }
+      },
+      "short": {
+        "metric": "lsd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent"
+        }
+      },
+      "silent": {
+        "metric": "lsd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent"
+        }
+      },
+      "stereo": {
+        "metric": "lsd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent"
+        }
+      },
+      "missing": {
+        "metric": "lsd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Error opening 'fixtures/missing.wav': System error.",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent"
+        }
+      },
+      "wrong_rate": {
+        "metric": "lsd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "File rate differs from declared sample_rate",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_urgent"
+        }
+      }
+    },
+    "lsd_db": {
+      "degraded": {
+        "metric": "lsd_db",
+        "status": "ok",
+        "value": 30.712859552657676,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db",
+          "gain_normalization": "none",
+          "n_fft": 512,
+          "hop_length": 256,
+          "window": "hann_periodic",
+          "center": true,
+          "pad_mode": "constant",
+          "frequency_bins": "all_one_sided",
+          "logarithm": "10*log10 power",
+          "power_floor": 1e-12
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "librosa": "0.9.2"
+        }
+      },
+      "identity": {
+        "metric": "lsd_db",
+        "status": "ok",
+        "value": 0.0,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db",
+          "gain_normalization": "none",
+          "n_fft": 512,
+          "hop_length": 256,
+          "window": "hann_periodic",
+          "center": true,
+          "pad_mode": "constant",
+          "frequency_bins": "all_one_sided",
+          "logarithm": "10*log10 power",
+          "power_floor": 1e-12
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "librosa": "0.9.2"
+        }
+      },
+      "short": {
+        "metric": "lsd_db",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db"
+        }
+      },
+      "silent": {
+        "metric": "lsd_db",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db"
+        }
+      },
+      "stereo": {
+        "metric": "lsd_db",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db"
+        }
+      },
+      "missing": {
+        "metric": "lsd_db",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Error opening 'fixtures/missing.wav': System error.",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db"
+        }
+      },
+      "wrong_rate": {
+        "metric": "lsd_db",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "File rate differs from declared sample_rate",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "lsd_db"
+        }
+      }
+    },
+    "mcd_urgent": {
+      "degraded": {
+        "metric": "mcd_urgent",
+        "status": "ok",
+        "value": 11.516964931966926,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent",
+          "gain_normalization": "least_squares_hypothesis_to_reference_eps1e-8",
+          "n_fft": 1024,
+          "hop_length": 256,
+          "window": "pysptk_hamming",
+          "center": false,
+          "padding": false,
+          "mcep_order": 23,
+          "alpha": 0.42,
+          "coefficient_start": 0,
+          "mcep_epsilon": 1e-06,
+          "mcep_etype": 1,
+          "time_alignment": "fastdtw_radius1_euclidean_on_selected_coefficients",
+          "waveform_scale": "float64_original_amplitude",
+          "silence_removal": false
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "pysptk": "1.0.1",
+          "fastdtw": "0.3.4",
+          "scipy": "1.13.1"
+        }
+      },
+      "identity": {
+        "metric": "mcd_urgent",
+        "status": "ok",
+        "value": 5.464250870154193e-10,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent",
+          "gain_normalization": "least_squares_hypothesis_to_reference_eps1e-8",
+          "n_fft": 1024,
+          "hop_length": 256,
+          "window": "pysptk_hamming",
+          "center": false,
+          "padding": false,
+          "mcep_order": 23,
+          "alpha": 0.42,
+          "coefficient_start": 0,
+          "mcep_epsilon": 1e-06,
+          "mcep_etype": 1,
+          "time_alignment": "fastdtw_radius1_euclidean_on_selected_coefficients",
+          "waveform_scale": "float64_original_amplitude",
+          "silence_removal": false
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "pysptk": "1.0.1",
+          "fastdtw": "0.3.4",
+          "scipy": "1.13.1"
+        }
+      },
+      "short": {
+        "metric": "mcd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent"
+        }
+      },
+      "silent": {
+        "metric": "mcd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent"
+        }
+      },
+      "stereo": {
+        "metric": "mcd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent"
+        }
+      },
+      "missing": {
+        "metric": "mcd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Error opening 'fixtures/missing.wav': System error.",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent"
+        }
+      },
+      "wrong_rate": {
+        "metric": "mcd_urgent",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "File rate differs from declared sample_rate",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_urgent"
+        }
+      }
+    },
+    "mcd_dtw_c1": {
+      "degraded": {
+        "metric": "mcd_dtw_c1",
+        "status": "ok",
+        "value": 6.978213752653188,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1",
+          "gain_normalization": "none",
+          "n_fft": 1024,
+          "hop_length": 256,
+          "window": "pysptk_hamming",
+          "center": false,
+          "padding": false,
+          "mcep_order": 23,
+          "alpha": 0.42,
+          "coefficient_start": 1,
+          "mcep_epsilon": 1e-06,
+          "mcep_etype": 1,
+          "time_alignment": "fastdtw_radius1_euclidean_on_selected_coefficients",
+          "waveform_scale": "float64_original_amplitude",
+          "silence_removal": false
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "pysptk": "1.0.1",
+          "fastdtw": "0.3.4",
+          "scipy": "1.13.1"
+        }
+      },
+      "identity": {
+        "metric": "mcd_dtw_c1",
+        "status": "ok",
+        "value": 0.0,
+        "value_unit": "dB",
+        "direction": "lower_is_better",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1",
+          "gain_normalization": "none",
+          "n_fft": 1024,
+          "hop_length": 256,
+          "window": "pysptk_hamming",
+          "center": false,
+          "padding": false,
+          "mcep_order": 23,
+          "alpha": 0.42,
+          "coefficient_start": 1,
+          "mcep_epsilon": 1e-06,
+          "mcep_etype": 1,
+          "time_alignment": "fastdtw_radius1_euclidean_on_selected_coefficients",
+          "waveform_scale": "float64_original_amplitude",
+          "silence_removal": false
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "pysptk": "1.0.1",
+          "fastdtw": "0.3.4",
+          "scipy": "1.13.1"
+        }
+      },
+      "short": {
+        "metric": "mcd_dtw_c1",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1"
+        }
+      },
+      "silent": {
+        "metric": "mcd_dtw_c1",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1"
+        }
+      },
+      "stereo": {
+        "metric": "mcd_dtw_c1",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Require nonempty equal-length mono inputs; no implicit crop",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1"
+        }
+      },
+      "missing": {
+        "metric": "mcd_dtw_c1",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "Error opening 'fixtures/missing.wav': System error.",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1"
+        }
+      },
+      "wrong_rate": {
+        "metric": "mcd_dtw_c1",
+        "status": "invalid_input",
+        "value": null,
+        "reason": "File rate differs from declared sample_rate",
+        "protocol": {
+          "sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "delay_alignment": "none",
+          "aggregation": "utterance_macro",
+          "profile": "mcd_dtw_c1"
+        }
+      }
+    }
+  },
+  "parity": {
+    "speechbert_precision": {
+      "adapter": 0.6647222638130188,
+      "upstream": 0.6647223830223083,
+      "absolute_error": 1.1920928955078125e-07,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speechbert_recall": {
+      "adapter": 0.6682668328285217,
+      "upstream": 0.6682668328285217,
+      "absolute_error": 0.0,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speechbert_f1": {
+      "adapter": 0.6664898356154911,
+      "upstream": 0.666489895537543,
+      "absolute_error": 5.992205187599353e-08,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speechbert_mhubert_precision": {
+      "adapter": 0.7968013286590576,
+      "upstream": 0.7968013286590576,
+      "absolute_error": 0.0,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speechbert_mhubert_recall": {
+      "adapter": 0.8003261089324951,
+      "upstream": 0.8003261685371399,
+      "absolute_error": 5.960464477539063e-08,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speechbert_mhubert_f1": {
+      "adapter": 0.798559829289002,
+      "upstream": 0.798559858959924,
+      "absolute_error": 2.9670921941615802e-08,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "speaker_similarity_wavlm": {
+      "adapter": 0.9166595935821533,
+      "upstream": 0.9166595935821533,
+      "absolute_error": 0.0,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "lps_phone": {
+      "adapter": 0.8947368421052632,
+      "upstream": 0.8947368421052632,
+      "absolute_error": 0.0,
+      "tolerance": 1e-05,
+      "passed": true
+    },
+    "plcmos_v2": {
+      "adapter": 2.7909133275349935,
+      "upstream": 2.7909133275349935,
+      "absolute_error": 0.0,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    "plcmos_v2_val": {
+      "adapter": 2.4774656931559247,
+      "upstream": 2.4774656931559247,
+      "absolute_error": 0.0,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    "lsd_urgent": {
+      "adapter": 6.366441586699863,
+      "upstream": 6.366441586699865,
+      "absolute_error": 1.7763568394002505e-15,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    "mcd_urgent": {
+      "adapter": 11.516964931966926,
+      "upstream": 11.516964931966932,
+      "absolute_error": 5.329070518200751e-15,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    "lsd_db": {
+      "adapter": 6.020599913279624,
+      "upstream": 6.020599913279624,
+      "absolute_error": 0.0,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    "mcd_dtw_c1": {
+      "adapter": 6.978213752653188,
+      "upstream": 6.978213752653188,
+      "absolute_error": 0.0,
+      "tolerance": 1e-07,
+      "passed": true
+    }
+  },
+  "controls": {
+    "plcmos_v2_repeat": {
+      "passed": true,
+      "result": {
+        "a": 2.7909133275349935,
+        "b": 2.7909133275349935
+      }
+    },
+    "plcmos_v2_seed": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "plcmos_v2_embed_rounds": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "plcmos_v2_val_repeat": {
+      "passed": true,
+      "result": {
+        "a": 2.4774656931559247,
+        "b": 2.4774656931559247
+      }
+    },
+    "plcmos_v2_val_seed": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "plcmos_v2_val_embed_rounds": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "speaker_positive_negative": {
+      "passed": true,
+      "result": {
+        "same_speaker_different_text": 0.940626323223114,
+        "different_speaker": 0.48495692014694214
+      }
+    },
+    "speechbert_mhubert_f1_missing_reference": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "speaker_similarity_wavlm_missing_reference": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "lps_phone_missing_reference": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    },
+    "artifact_mismatch": {
+      "passed": true,
+      "result": {
+        "status": "invalid_input"
+      }
+    }
+  },
+  "sources": {
+    "urgent_lps.py": {
+      "url": "https://github.com/urgent-challenge/urgent2026_challenge_track1/blob/main/evaluation_metrics/calculate_phoneme_similarity.py",
+      "sha256": "0b41b4fc762a66a13d327db000ff2d9543c4b863f06f187679731cba1c096dd9"
+    },
+    "speechbertscore.py": {
+      "url": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics/blob/master/discrete_speech_metrics/speechbertscore.py",
+      "sha256": "8277a512aa7129f24518d48a647360cf0531a1eda05f19b95024adde0cebdf3c"
+    },
+    "urgent_intrusive.py": {
+      "url": "https://github.com/urgent-challenge/urgent2025_challenge/blob/main/evaluation_metrics/calculate_intrusive_se_metrics.py",
+      "sha256": "ac4f5bb77faa4374a623b8e0d33f6a00a5dfa6c6145d08061d71e28132d61590"
+    },
+    "mcd_utils.py": {
+      "url": "https://github.com/urgent-challenge/urgent2025_challenge/blob/main/evaluation_metrics/mcd_utils.py",
+      "sha256": "c0866a634dfc8d557230ba554bdf947c79aa93fde8db698f140a515b631b4530"
+    },
+    "speechmos-public/speechmos/plcmos.py": {
+      "url": "https://pypi.org/project/speechmos/0.0.1.1/",
+      "sha256": "3d41ff7d28f57331d49eb7d8c7279200e70ad8d54c7f7973c0b9b7a4c909c8ce"
+    }
+  },
+  "artifacts": {
+    "speechbert_mhubert": {
+      "protocol": {
+        "family": "speechbert_mhubert",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "mhubert-147",
+        "layer": 8,
+        "reference_order": "reference first; hypothesis second",
+        "artifact_hashes": {
+          "source_dir": "ce65936a4ded3707824b5ebfd356c4bda34f0fac864b94de38634de22b35b2ec",
+          "model_dir": "9f7b2759ea21946d72d241098a525471594098cf48cda81fb52270a44ca828ea"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "source_dir": {
+          "sha256": "ce65936a4ded3707824b5ebfd356c4bda34f0fac864b94de38634de22b35b2ec",
+          "files": {
+            "discrete_speech_metrics/speechbertscore.py": "8277a512aa7129f24518d48a647360cf0531a1eda05f19b95024adde0cebdf3c"
+          }
+        },
+        "model_dir": {
+          "sha256": "9f7b2759ea21946d72d241098a525471594098cf48cda81fb52270a44ca828ea",
+          "files": {
+            "checkpoint_best.pt": "8d88f79300fbd3dec7b0cc8ded2e3535cf09479d198a230babac835f9c274ef8",
+            "config.json": "9a67db4e9afb5f02772395bb442a0eb4b0275d5d19e074b98076f4ceada111da",
+            "model.safetensors": "2359b3e9dc6869cb0855119a2866f056aeb400e46252da9cbcc8e9b7aee50c8b",
+            "preprocessor_config.json": "e850c9afcd068b4f7f226000ccee047349368a23e1dc5f5784838f822b2d185c",
+            "pytorch_model.bin": "9f2a500d9ff74a801608c732cf30b2d97863df366d9b659a28b39eb2caf2b10a"
+          }
+        }
+      }
+    },
+    "speaker_similarity_wavlm": {
+      "protocol": {
+        "family": "speaker_similarity_wavlm",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "wavlm-base-plus-sv",
+        "similarity": "cosine",
+        "pooling": "upstream x-vector",
+        "artifact_hashes": {
+          "model_dir": "d1564d85f3abf6d8aba7da2853a0a77e7404ead50b172fa78c610ec453f42675"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "model_dir": {
+          "sha256": "d1564d85f3abf6d8aba7da2853a0a77e7404ead50b172fa78c610ec453f42675",
+          "files": {
+            "config.json": "c6ac8c0ce55b18d4612677931036fe5ce78093e87361c552a173f00a0bb07514",
+            "preprocessor_config.json": "99272fe8ccfab114b68b478681ea47ee3a1ce62bb788cb92dd6e4f69fb1f1da2",
+            "pytorch_model.bin": "e906bce2fa42fb497a1d1a9ecf81548adb7e03b12a5644e32d2f42f0d6500fad"
+          }
+        }
+      }
+    },
+    "plcmos_v2": {
+      "protocol": {
+        "family": "plcmos_v2",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "seed": 0,
+        "embed_rounds": 15,
+        "model_version": "plcmos_v2",
+        "random_generator": "numpy RandomState (upstream global RNG)",
+        "artifact_hashes": {
+          "checkpoint": "c0ad3fc64ef9682b4749c0e96636b41c73b4b30bd123b9348feea06a96895286",
+          "source_file": "3d41ff7d28f57331d49eb7d8c7279200e70ad8d54c7f7973c0b9b7a4c909c8ce"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "checkpoint": {
+          "sha256": "c0ad3fc64ef9682b4749c0e96636b41c73b4b30bd123b9348feea06a96895286",
+          "files": null
+        },
+        "source_file": {
+          "sha256": "3d41ff7d28f57331d49eb7d8c7279200e70ad8d54c7f7973c0b9b7a4c909c8ce",
+          "files": null
+        }
+      }
+    },
+    "plcmos_v2_val": {
+      "protocol": {
+        "family": "plcmos_v2_val",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "seed": 0,
+        "embed_rounds": 15,
+        "model_version": "plcmos_v2_val",
+        "random_generator": "numpy RandomState (upstream global RNG)",
+        "artifact_hashes": {
+          "checkpoint": "f8c39410fac44789dc0a197cf807b19ec87eb16e45aa2abeaaad4138a26564f1",
+          "source_file": "3d41ff7d28f57331d49eb7d8c7279200e70ad8d54c7f7973c0b9b7a4c909c8ce"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "checkpoint": {
+          "sha256": "f8c39410fac44789dc0a197cf807b19ec87eb16e45aa2abeaaad4138a26564f1",
+          "files": null
+        },
+        "source_file": {
+          "sha256": "3d41ff7d28f57331d49eb7d8c7279200e70ad8d54c7f7973c0b9b7a4c909c8ce",
+          "files": null
+        }
+      }
+    },
+    "phoneme_similarity": {
+      "protocol": {
+        "family": "phoneme_similarity",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "tokenization": "Unicode characters of IPA after space removal; legacy PhonemeSimilarity, not phone-token PER",
+        "phone_tokenization": "space-delimited decoded phonemes; URGENT 2026 LPS",
+        "artifact_hashes": {
+          "model_dir": "8708ea17de13b41f8b9fad69dfdee8d3d5a71ae9ba11d799c7cf9646be7a6982"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "model_dir": {
+          "sha256": "8708ea17de13b41f8b9fad69dfdee8d3d5a71ae9ba11d799c7cf9646be7a6982",
+          "files": {
+            "config.json": "4609fb49b7e1d28aecb2840da1926c40bd915bc6f1120a940afacf7159bbfb13",
+            "preprocessor_config.json": "a2254a5b58f72cd4de3632f8eee64f3f098b7c1402128d2f419e7d00ae13e335",
+            "pytorch_model.bin": "3173bde9e9ce490fa0f989e413c42f25bc1820c020adc1e6b9b87025b3cfcc5e",
+            "special_tokens_map.json": "bb7068de1150661a10b55f9e4b12a0e77af8bf91f5e45e1b58afaf1d0e17f675",
+            "tokenizer_config.json": "1273ec458332cc55226ec596904bae811420755ace7e5d69462b61c4f480b457",
+            "vocab.json": "d732ab2456c0c017930001dc9af0b41b3b93d25b2eb9740bf9d925508d7d87d0"
+          }
+        }
+      }
+    },
+    "speechbert": {
+      "protocol": {
+        "family": "speechbert",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "hubert-base",
+        "layer": 8,
+        "reference_order": "reference first; hypothesis second",
+        "artifact_hashes": {
+          "source_dir": "ce65936a4ded3707824b5ebfd356c4bda34f0fac864b94de38634de22b35b2ec",
+          "model_dir": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.26.4",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "identities": {
+        "source_dir": {
+          "sha256": "ce65936a4ded3707824b5ebfd356c4bda34f0fac864b94de38634de22b35b2ec",
+          "files": {
+            "discrete_speech_metrics/speechbertscore.py": "8277a512aa7129f24518d48a647360cf0531a1eda05f19b95024adde0cebdf3c"
+          }
+        },
+        "model_dir": {
+          "sha256": "395616342f1c71a661feedb0b6bb361f733f6835a7cd26459d7e99b4916c1dfc",
+          "files": {
+            "config.json": "56be398848bbd9cbc720172b0d45b2f01cac7652f2968f0f31f5faf9f2986acc",
+            "preprocessor_config.json": "4a93853b74278b7c769d07f5a861e5d12ceb5db2bced5620d335f87238cb9e86",
+            "pytorch_model.bin": "062249fffb353eab67547a2fbc129f7c31a2f459faf641b19e8fb007cc5c48ad"
+          }
+        }
+      }
+    }
+  },
+  "inputs": {
+    "aux.wav": {
+      "sha256": "2931a273c50d5e3839a54a4017b5cfedd3ea30fa10e2f2bc55d217ba601670aa"
+    },
+    "impostor.wav": {
+      "sha256": "ce20f6b0ba5ebe4fc0a8df77c516c527a33067cc833f1d9dbc6bda31d71e8aac"
+    },
+    "mix.wav": {
+      "sha256": "b00e6182cca9e8cf2ad15eb66729f8031743168211bdf45fde5512d521eb0f0a"
+    },
+    "noisy.wav": {
+      "sha256": "7270c02b9c7e7fb307d26117258a8feac2ce6ee2f60910a023e094b2bc3569a0"
+    },
+    "rate24.wav": {
+      "sha256": "668d015d10efd127e3d431f0d4332f73fcdb64d5d8cb5264b42122ab8d4b78f8"
+    },
+    "ref.wav": {
+      "sha256": "fa14c9af11d6d52b1980841f10938fffaa33faa2db7b57ddd4d29f4da3f0444c"
+    },
+    "short.wav": {
+      "sha256": "0157f56baf15d2f60c860c3697720b489f42eefa9e1705cc8452f12723674210"
+    },
+    "silent.wav": {
+      "sha256": "33e7aa7adf529a7ca1e3c6e00ec6e3e3032a1f70f1d0bb14de0461cfb48e9905"
+    },
+    "stereo.wav": {
+      "sha256": "d6acb4533aed253ee78dcf5b134fdf76ef9167b7e04f3d5941f5e718553e90c6"
+    },
+    "provenance": {
+      "corpus": "LibriMix Libri2Mix test; English speech",
+      "reference_id": "4077-13754-0001_5142-33396-0065/s1",
+      "impostor_id": "4077-13754-0001_5142-33396-0065/s2",
+      "same_speaker_different_text_id": "4077-13754-0004_5142-36377-0020/s1",
+      "degradation": "controlled additive noise; see inherited validation baseline",
+      "redistributed": false
+    }
+  },
+  "legacy_regression": {
+    "phoneme_similarity": {
+      "v02": 0.9069767441860466,
+      "v04": 0.9069767441860466,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    "speechbert_precision": {
+      "v02": 0.6647222638130188,
+      "v04": 0.6647222638130188,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    "speechbert_recall": {
+      "v02": 0.6682668328285217,
+      "v04": 0.6682668328285217,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    "speechbert_f1": {
+      "v02": 0.6664898356154911,
+      "v04": 0.6664898356154911,
+      "absolute_error": 0.0,
+      "passed": true
+    }
+  },
+  "limitations": [
+    "Model inference tested on Linux Python 3.10 CPU only; no GPU/Windows/all-language validity claim.",
+    "Each real-audio control is an interface/semantic check, not a statistically powered evaluation.",
+    "Aux fixture is different text from the same speaker; impostor is a different speaker.",
+    "Historical v0.2 evidence is preserved separately; all existing heavyweight models were not rerun in this expansion environment.",
+    "PLCMOS v2-val requires a separately provisioned checkpoint; no weight redistribution.",
+    "No claims of fresh whole-model-environment installation or Docker runtime validation."
+  ]
+}

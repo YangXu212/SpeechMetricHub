@@ -29,6 +29,8 @@ The minimal installation supports discovery and configuration inspection; scorin
 | `transcription` | MeetEval and kaldialign |
 | `quality` | PESQ, STOI/ESTOI, waveform I/O and resampling |
 | `separation` | fast-bss-eval |
+| `spectral` | LSD/MCD: librosa, pysptk, fastdtw; compiler may be required |
+| `plcmos` | PLCMOS ONNX runtime; combine with `models` and explicitly provision official source/checkpoint |
 | `diarization` | pyannote.metrics and compatible core/database versions |
 | `models` | Common Torch/Transformers/audio model dependencies |
 | `aesthetics`, `scoreq`, `dnsmos`, `sheet`, `speaker` | Family-specific dependencies; combine with `models` as appropriate |
@@ -60,13 +62,13 @@ SHEET, NISQA, SpeechMOS and other source-based models also require explicitly pr
 Download a wheel and its checksums from [GitHub Releases](https://github.com/YangXu212/SpeechMetricHub/releases), verify SHA-256, and install the desired extras:
 
 ```bash
-python -m pip install "./speechmetrichub-0.3.0-py3-none-any.whl[transcription]"
+python -m pip install "./speechmetrichub-0.4.0-py3-none-any.whl[transcription]"
 ```
 
 No PyPI publication is implied. Source installation can also be pinned to the release tag:
 
 ```bash
-python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.3.0"
+python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.4.0"
 ```
 
 ## Container recipe

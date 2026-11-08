@@ -2707,5 +2707,536 @@
       "evidence_release": "0.2.0"
     },
     "alias_of": "visqol_speech"
+  },
+  {
+    "id": "speechbert_mhubert_precision",
+    "family": "speechbert_mhubert",
+    "output": "precision",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore mHuBERT-147 layer 8 precision",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "reference and hypothesis audio paths",
+      "local mHuBERT-147 model_dir",
+      "official DiscreteSpeechMetrics source_dir",
+      "layer=8; mono; >=1 second"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "多语言 SpeechBERTScore precision",
+    "caveats": [
+      "Different encoder from HuBERT-base SBS; scores are not interchangeable.",
+      "Full precision, recall and F1 retained."
+    ]
+  },
+  {
+    "id": "speechbert_mhubert_recall",
+    "family": "speechbert_mhubert",
+    "output": "recall",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore mHuBERT-147 layer 8 recall",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "reference and hypothesis audio paths",
+      "local mHuBERT-147 model_dir",
+      "official DiscreteSpeechMetrics source_dir",
+      "layer=8; mono; >=1 second"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "多语言 SpeechBERTScore recall",
+    "caveats": [
+      "Different encoder from HuBERT-base SBS; scores are not interchangeable.",
+      "Full precision, recall and F1 retained."
+    ]
+  },
+  {
+    "id": "speechbert_mhubert_f1",
+    "family": "speechbert_mhubert",
+    "output": "f1",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "SpeechBERTScore mHuBERT-147 layer 8 f1",
+    "source": "https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics",
+    "implementation": "DiscreteSpeechMetrics algorithm with utter-project/mHuBERT-147",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "torch"
+    ],
+    "requirements": [
+      "reference and hypothesis audio paths",
+      "local mHuBERT-147 model_dir",
+      "official DiscreteSpeechMetrics source_dir",
+      "layer=8; mono; >=1 second"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "多语言 SpeechBERTScore f1",
+    "caveats": [
+      "Different encoder from HuBERT-base SBS; scores are not interchangeable.",
+      "Full precision, recall and F1 retained."
+    ]
+  },
+  {
+    "id": "speaker_similarity_wavlm",
+    "family": "speaker_similarity_wavlm",
+    "output": "cosine",
+    "category": "speaker_identity",
+    "reference_kinds": [
+      "speaker_reference"
+    ],
+    "direction": "higher_is_better",
+    "unit": "cosine",
+    "description": "WavLM-base-plus-SV x-vector cosine",
+    "source": "https://huggingface.co/microsoft/wavlm-base-plus-sv",
+    "implementation": "Transformers WavLMForXVector",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch==2.8.0",
+      "transformers==4.48.2",
+      "soundfile",
+      "soxr"
+    ],
+    "requirements": [
+      "reference speaker audio and hypothesis audio",
+      "local WavLM-base-plus-SV model_dir",
+      "mono; >=1 second"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "WavLM-base-plus-SV 说话人余弦相似度",
+    "caveats": [
+      "Cosine is in [-1,1], not calibrated probability or EER.",
+      "Not interchangeable with RawNet3 or WavLM-large ECAPA."
+    ]
+  },
+  {
+    "id": "lps_phone",
+    "family": "phoneme_similarity",
+    "output": "phone_similarity",
+    "category": "content_similarity",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "higher_is_better",
+    "unit": "ratio",
+    "description": "Levenshtein Phoneme Similarity (phone-token profile)",
+    "source": "https://github.com/urgent-challenge/urgent2026_challenge_track1/blob/main/evaluation_metrics/calculate_phoneme_similarity.py",
+    "implementation": "wav2vec2-lv-60-espeak-cv-ft + phone-token Levenshtein",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers",
+      "kaldialign"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "explicit local deployment config",
+      "reference"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "LPS 音素 token 相似度",
+    "caveats": [
+      "1 - edit_distance / reference phone count; may be negative.",
+      "Different from legacy IPA Unicode-character phoneme_similarity.",
+      "Empty reference recognition is a failure; model-derived phones are not manual labels."
+    ]
+  },
+  {
+    "id": "plcmos_v2",
+    "family": "plcmos_v2",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "PLCMOS v2 final model",
+    "source": "https://pypi.org/project/speechmos/0.0.1.1/",
+    "implementation": "Microsoft SpeechMOS 0.0.1.1 PLCMOS.get_mos",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch==2.8.0",
+      "onnxruntime==1.16.3",
+      "soundfile",
+      "soxr"
+    ],
+    "requirements": [
+      "hypothesis audio path",
+      "official SpeechMOS plcmos.py source_file",
+      "matching local ONNX checkpoint",
+      "seed=0; embed_rounds=15; mono; >=1 second; CPU"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "PLCMOS v2 final 模型",
+    "caveats": [
+      "Packet-loss-concealment MOS predictor; not established for arbitrary distortions.",
+      "Final and validation checkpoints have different training/holdout scope.",
+      "Seeded finite-rater sampling; scores depend on seed and repetition count."
+    ]
+  },
+  {
+    "id": "plcmos_v2_val",
+    "family": "plcmos_v2_val",
+    "output": "mos",
+    "category": "perceptual_quality",
+    "reference_kinds": [
+      "none"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_mos",
+    "description": "PLCMOS v2 validation model",
+    "source": "https://pypi.org/project/speechmos/0.0.1.1/",
+    "implementation": "Microsoft SpeechMOS 0.0.1.1 PLCMOS.get_mos",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "torch==2.8.0",
+      "onnxruntime==1.16.3",
+      "soundfile",
+      "soxr"
+    ],
+    "requirements": [
+      "hypothesis audio path",
+      "official SpeechMOS plcmos.py source_file",
+      "matching local ONNX checkpoint",
+      "seed=0; embed_rounds=15; mono; >=1 second; CPU"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    },
+    "description_zh": "PLCMOS v2 validation 模型",
+    "caveats": [
+      "Packet-loss-concealment MOS predictor; not established for arbitrary distortions.",
+      "Final and validation checkpoints have different training/holdout scope.",
+      "Seeded finite-rater sampling; scores depend on seed and repetition count."
+    ]
+  },
+  {
+    "id": "lsd_urgent",
+    "domains": [
+      "enhancement",
+      "tse",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "description": "URGENT gain-fitted natural-log spectral distance",
+    "description_zh": "URGENT 增益拟合自然对数谱距离",
+    "implementation": "librosa STFT",
+    "source": "https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics",
+    "adapter": "speech_eval.spectral:spectral_metric",
+    "status": "validated",
+    "dependencies": [
+      "numpy",
+      "soundfile",
+      "librosa==0.9.2"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "sample_rate",
+      "equal-length finite non-silent mono audio"
+    ],
+    "direction": "lower_is_better",
+    "unit": "natural_log_power_ratio",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "caveats": [
+      "Frame, gain, log-base and coefficient conventions are part of the metric ID.",
+      "MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity."
+    ],
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    }
+  },
+  {
+    "id": "lsd_db",
+    "domains": [
+      "enhancement",
+      "tse",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "description": "Log-spectral distance in dB (no gain fit)",
+    "description_zh": "无增益拟合的 dB 谱距离",
+    "implementation": "librosa STFT",
+    "source": "https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics",
+    "adapter": "speech_eval.spectral:spectral_metric",
+    "status": "validated",
+    "dependencies": [
+      "numpy",
+      "soundfile",
+      "librosa==0.9.2"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "sample_rate",
+      "equal-length finite non-silent mono audio"
+    ],
+    "direction": "lower_is_better",
+    "unit": "dB",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "caveats": [
+      "Frame, gain, log-base and coefficient conventions are part of the metric ID.",
+      "MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity."
+    ],
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    }
+  },
+  {
+    "id": "mcd_urgent",
+    "domains": [
+      "enhancement",
+      "tse",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "description": "URGENT MCD with gain fit and c0",
+    "description_zh": "URGENT MCD：增益拟合、含 c0",
+    "implementation": "pysptk mcep + fastdtw",
+    "source": "https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics",
+    "adapter": "speech_eval.spectral:spectral_metric",
+    "status": "validated",
+    "dependencies": [
+      "numpy",
+      "soundfile",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4",
+      "scipy"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "sample_rate",
+      "equal-length finite non-silent mono audio"
+    ],
+    "direction": "lower_is_better",
+    "unit": "dB",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "caveats": [
+      "Frame, gain, log-base and coefficient conventions are part of the metric ID.",
+      "MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity."
+    ],
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    }
+  },
+  {
+    "id": "mcd_dtw_c1",
+    "domains": [
+      "enhancement",
+      "tse",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "description": "SPTK MCD with DTW on c1..order (no gain fit)",
+    "description_zh": "SPTK MCD：DTW、不含 c0、不拟合增益",
+    "implementation": "pysptk mcep + fastdtw",
+    "source": "https://github.com/urgent-challenge/urgent2025_challenge/tree/main/evaluation_metrics",
+    "adapter": "speech_eval.spectral:spectral_metric",
+    "status": "validated",
+    "dependencies": [
+      "numpy",
+      "soundfile",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4",
+      "scipy"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "sample_rate",
+      "equal-length finite non-silent mono audio"
+    ],
+    "direction": "lower_is_better",
+    "unit": "dB",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "caveats": [
+      "Frame, gain, log-base and coefficient conventions are part of the metric ID.",
+      "MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity."
+    ],
+    "validation": {
+      "state": "passed",
+      "report": "validation/expansion-v0.4.json",
+      "evidence_release": "0.4.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
+    }
   }
 ]

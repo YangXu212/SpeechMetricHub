@@ -30,7 +30,7 @@ The worker sets offline Hugging Face behavior and uses supplied local artifacts.
 | `sheet_ssqa` | MOS for the selected SSL-MOS config | [SHEET](https://github.com/unilight/sheet) source, config, scoring checkpoint, SSL checkpoint |
 | `speechbert` | Precision, recall, F1 | [DiscreteSpeechMetrics](https://github.com/Takaaki-Saeki/DiscreteSpeechMetrics) source, [HuBERT base](https://huggingface.co/facebook/hubert-base-ls960), layer 8 |
 | `speaker_similarity` | Cosine | [ESPnet RawNet3](https://huggingface.co/espnet/voxcelebs12_rawnet3) config and `40epoch.pth` |
-| `phoneme_similarity` | IPA character similarity | Local [wav2vec2 phoneme model](https://huggingface.co/facebook/wav2vec2-lv-60-espeak-cv-ft) directory |
+| `phoneme_similarity` | IPA character similarity and phone-token LPS | Local [wav2vec2 phoneme model](https://huggingface.co/facebook/wav2vec2-lv-60-espeak-cv-ft) directory |
 | `visqol_speech` | MOS-LQO | [ViSQOL](https://github.com/google/visqol) binary and speech lattice TFLite model |
 | `visqol_audio` | MOS-LQO | ViSQOL binary and `libsvm_nu_svr_model.txt` |
 | `whisper_wer`, `whisper_dwer` | WER and N/S/D/I | Local [Whisper large-v3](https://huggingface.co/openai/whisper-large-v3), English, beam 5 |
@@ -64,3 +64,14 @@ python scripts/validate_models.py \
 ```
 
 Use `--families audiobox_aesthetics scoreq_natural_nr` to run a subset. A configuration file is not a runtime result: retain the actual report from your machine. GPU paths, all other model variants, languages and distortion domains are not implied to be validated by the recorded CPU baseline.
+
+## v0.4 additions
+
+| Family | Complete outputs | Artifacts |
+|---|---|---|
+| `speechbert_mhubert` | precision, recall, F1 | Public DiscreteSpeechMetrics source; local utter-project/mHuBERT-147; layer 8 |
+| `speaker_similarity_wavlm` | cosine | microsoft/wavlm-base-plus-sv model directory including feature extractor config |
+| `plcmos_v2` | MOS | Microsoft SpeechMOS 0.0.1.1 `plcmos.py`; final v2 ONNX |
+| `plcmos_v2_val` | MOS | Same public scorer; separately provisioned v2 validation ONNX |
+
+See [complete profile definitions](EXPANSION_PROFILES.md), [example configuration](../examples/deployment.example.json) and [recorded v0.4 identities](../validation/expansion-v0.4.json). The existing `phoneme_similarity` family now computes both character and phone-token outputs in one inference. Choose the explicit `lps_phone` metric ID for the latter.
