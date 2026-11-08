@@ -19,6 +19,20 @@ def doctor(configs=None, verify_hashes=False):
             except metadata.PackageNotFoundError:
                 missing.append(name)
         family = spec.get("family")
+        runtime = None
+        if family and family.startswith("aecmos_"):
+            installed = {}
+            for name in ("onnxruntime", "onnxruntime-gpu"):
+                try:
+                    installed[name] = metadata.version(name)
+                except metadata.PackageNotFoundError:
+                    pass
+            runtime = {
+                "installed": installed,
+                "compatible_distribution": len(installed) == 1
+                and list(installed.values()) == ["1.16.3"],
+                "requirement": "exactly one ONNX Runtime 1.16.3 distribution; CUDA initialization requires inference test",
+            }
         config = configs.get(family, {}) if family else {}
         artifacts = {}
         for key in (
@@ -54,6 +68,7 @@ def doctor(configs=None, verify_hashes=False):
                 "configured": configured,
                 "artifacts": artifacts,
                 "runtime_validation": spec.get("validation", {}),
+                "runtime_inspection": runtime,
                 "note": "Inspection only; run validation on this machine to establish runtime support",
             }
         )

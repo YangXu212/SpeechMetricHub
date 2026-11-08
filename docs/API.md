@@ -99,3 +99,7 @@ register("my_metric", my_metric,
 ```
 
 Registration is process-local and rejects duplicate names. A custom registration is not marked runtime-validated. See [EXTENDING.md](EXTENDING.md) for the integration standard.
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).

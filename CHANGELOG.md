@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 — 2026-11-08
+
+- Add AECMOS ECHO/DEG across 16k scenario, 16k scenarioless and 48k scenario profiles; exact upstream artifacts and compatible ONNX Runtime pin.
+- Add explicit-region ERLE with energy pooling and visible undefined/infinite outcomes.
+- Add dataset-level EER and minDCF with tie-aware ROC, score direction, explicit prior/costs and rejection of per-recording averaging.
+- Add deployment lock/create/verify/load APIs and CLI; verify source, artifacts, Python and distribution versions before scoring.
+- Add isolated Linux GPU library provisioning, requested-provider checks, real upstream CPU/GPU comparisons and CUDA-kernel profiling.
+- Preserve all older metric IDs and protocols. The registry now contains 89 IDs, 84 canonical variants, 11 dimensions and 23 model families.
+
+
 ## 0.4.0 — 2026-11-07
 
 - Add 11 validated metric interfaces: mHuBERT-147 SpeechBERTScore precision/recall/F1, phone-token LPS, WavLM-base-plus-SV cosine, PLCMOS v2 final/validation, URGENT natural-log LSD, dB LSD, URGENT MCD and c1-only DTW MCD.

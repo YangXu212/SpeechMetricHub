@@ -7,6 +7,7 @@ Model code and checkpoints are trusted local artifacts supplied in config.
 from __future__ import annotations
 
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -17,12 +18,52 @@ import tempfile
 def model_family(family, *, hypothesis, reference=None, config=None):
     config = dict(config or {})
     device = config.get("device", "cpu")
-    if device != "cpu" and not (device.startswith("cuda:") and device[5:].isdigit()):
+    if not isinstance(device, str) or (
+        device != "cpu" and not (device.startswith("cuda:") and device[5:].isdigit())
+    ):
         raise ValueError("device must be cpu or an explicit cuda:N")
+    timeout = config.get("timeout", 600)
+    if (
+        isinstance(timeout, bool)
+        or not isinstance(timeout, (int, float))
+        or not math.isfinite(timeout)
+        or timeout <= 0
+    ):
+        raise ValueError("timeout must be finite and positive")
     threads = config.get("threads", 2)
     if isinstance(threads, bool) or not isinstance(threads, int) or not 1 <= threads <= 64:
         raise ValueError("threads must be an integer from 1 to 64")
     env = os.environ.copy()
+    if family.startswith("aecmos_"):
+        env["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+        env["NVIDIA_TF32_OVERRIDE"] = "0"
+    if (
+        family.startswith("aecmos_")
+        and sys.platform == "linux"
+        and (
+            not config.get("python")
+            or Path(config["python"]).absolute() == Path(sys.executable).absolute()
+        )
+    ):
+        from importlib.metadata import distribution, PackageNotFoundError
+
+        libraries = []
+        for package, folder in (
+            ("nvidia-cublas-cu11", "cublas"),
+            ("nvidia-cudnn-cu11", "cudnn"),
+            ("nvidia-cuda-runtime-cu11", "cuda_runtime"),
+            ("nvidia-cuda-nvrtc-cu11", "cuda_nvrtc"),
+            ("nvidia-cufft-cu11", "cufft"),
+            ("nvidia-curand-cu11", "curand"),
+        ):
+            try:
+                path = distribution(package).locate_file(f"nvidia/{folder}/lib")
+                if path.is_dir():
+                    libraries.append(str(path))
+            except PackageNotFoundError:
+                pass
+        if libraries:
+            env["LD_LIBRARY_PATH"] = os.pathsep.join(libraries + [env.get("LD_LIBRARY_PATH", "")])
     env.update(
         OMP_NUM_THREADS=str(threads),
         MKL_NUM_THREADS=str(threads),
@@ -56,7 +97,7 @@ def model_family(family, *, hypothesis, reference=None, config=None):
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=config.get("timeout", 600),
+                timeout=timeout,
             )
         except subprocess.TimeoutExpired:
             return {
@@ -64,6 +105,8 @@ def model_family(family, *, hypothesis, reference=None, config=None):
                 "values": {},
                 "reason": "Model worker exceeded configured timeout",
             }
+        except OSError as exc:
+            return {"status": "dependency_unavailable", "values": {}, "reason": str(exc)}
         if not out.exists():
             return {
                 "status": "backend_error",
@@ -121,13 +164,38 @@ def evaluate(metrics, *, hypothesis, reference=None, configs=None, **inputs):
     cache, results = {}, {}
     for name in metrics:
         spec = get_metric(name)
-        if spec.get("adapter") == "speech_eval.models:model_metric":
+        if spec.get("adapter") in (
+            "speech_eval.models:model_metric",
+            "speech_eval.aec:aecmos_metric",
+        ):
             family = spec["family"]
             if family not in cache:
-                cache[family] = model_family(
-                    family, hypothesis=hypothesis, reference=reference, config=configs.get(family)
-                )
+                if spec["adapter"] == "speech_eval.aec:aecmos_metric":
+                    from .aec import aecmos_family
+
+                    cache[family] = aecmos_family(
+                        family,
+                        hypothesis=hypothesis,
+                        farend=inputs.get("farend"),
+                        microphone=inputs.get("microphone"),
+                        talk_type=inputs.get("talk_type"),
+                        config=configs.get(family),
+                    )
+                else:
+                    cache[family] = model_family(
+                        family,
+                        hypothesis=hypothesis,
+                        reference=reference,
+                        config=configs.get(family),
+                    )
             results[name] = select(cache[family], spec)
         else:
-            results[name] = run(name, hypothesis=hypothesis, reference=reference, **inputs)
+            non_model_inputs = {
+                key: value
+                for key, value in inputs.items()
+                if key not in ("farend", "microphone", "talk_type")
+            }
+            results[name] = run(
+                name, hypothesis=hypothesis, reference=reference, **non_model_inputs
+            )
     return results

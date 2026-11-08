@@ -1,0 +1,7 @@
+{
+  "metrics": ["aecmos_16k_echo", "aecmos_16k_deg"],
+  "farend": "playback.wav",
+  "microphone": "microphone.wav",
+  "hypothesis": "enhanced.wav",
+  "talk_type": "dt"
+}

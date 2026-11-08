@@ -31,7 +31,7 @@ def main():
         if f"## `{spec['id']}`" not in catalog:
             failures.append(f"Missing metric card: {spec['id']}")
     counts = (len(registry), sum(not m.get("alias_of") for m in registry))
-    if counts != (80, 75):
+    if counts != (89, 84):
         failures.append(f"Update documented counts: {counts}")
     ET.parse(root / "assets/banner.svg")
     config = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))

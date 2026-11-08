@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="title desc">
   <title id="title">SpeechMetricHub</title>
-  <desc id="desc">Protocol-aware speech evaluation. 75 metric variants, 10 measurement dimensions, 20 model families.</desc>
+  <desc id="desc">Protocol-aware speech evaluation. 84 metric variants, 11 measurement dimensions, 23 model families.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b2028"/><stop offset="1" stop-color="#12383a"/></linearGradient>
     <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#79e0bd"/><stop offset="1" stop-color="#acd5fa"/></linearGradient>
@@ -13,11 +13,11 @@
     <text x="60" y="199" font-size="25" fill="#c1d8d4">Speech evaluation, with the protocol attached.</text>
     <g transform="translate(60 246)">
       <rect width="204" height="55" rx="9" fill="#173c40" stroke="#33585a"/>
-      <text x="17" y="35" font-size="27" font-weight="700" fill="#9aebcf">75</text><text x="63" y="34" font-size="16" fill="#e0efeb">metric variants</text>
+      <text x="17" y="35" font-size="27" font-weight="700" fill="#9aebcf">84</text><text x="63" y="34" font-size="16" fill="#e0efeb">metric variants</text>
       <rect x="222" width="219" height="55" rx="9" fill="#173c40" stroke="#33585a"/>
-      <text x="239" y="35" font-size="27" font-weight="700" fill="#9aebcf">10</text><text x="284" y="34" font-size="16" fill="#e0efeb">measurement axes</text>
+      <text x="239" y="35" font-size="27" font-weight="700" fill="#9aebcf">11</text><text x="284" y="34" font-size="16" fill="#e0efeb">measurement axes</text>
       <rect x="459" width="201" height="55" rx="9" fill="#173c40" stroke="#33585a"/>
-      <text x="476" y="35" font-size="27" font-weight="700" fill="#9aebcf">20</text><text x="521" y="34" font-size="16" fill="#e0efeb">model families</text>
+      <text x="476" y="35" font-size="27" font-weight="700" fill="#9aebcf">23</text><text x="521" y="34" font-size="16" fill="#e0efeb">model families</text>
     </g>
     <text x="60" y="378" font-size="13" fill="#a9c8c1" letter-spacing="1.4">UPSTREAM SCORERS  /  EXPLICIT REFERENCES  /  TRACEABLE RESULTS</text>
   </g>

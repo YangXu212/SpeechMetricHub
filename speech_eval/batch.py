@@ -7,8 +7,8 @@ from .registry import run, get_metric
 
 def evaluate_batch(metric, records, **shared):
     spec = get_metric(metric)
-    if spec.get("category") == "rating_agreement":
-        raise ValueError("Correlation is a dataset-level metric: call run with all paired ratings")
+    if spec.get("category") == "rating_agreement" or spec.get("evaluation_scope") == "dataset":
+        raise ValueError("Dataset-level metric: call run once with the whole trial/rating list")
     records = list(records)
     ids = [r["id"] for r in records]
     if len(set(ids)) != len(ids):
@@ -31,6 +31,7 @@ def evaluate_batch(metric, records, **shared):
         for r in rows
         if r["result"]["status"] == "ok"
         or (text_metric and r["result"]["status"] == "undefined_reference")
+        or (metric == "erle" and r["result"]["status"] == "infinite_result")
     ]
 
     def comparable_protocol(v):
@@ -59,6 +60,17 @@ def evaluate_batch(metric, records, **shared):
         counts = {k: sum(r[k] for r in good) for k in ["N", "S", "D", "I", "errors"]}
         value = 100 * counts["errors"] / counts["N"] if counts["N"] else None
         method = "micro_errors_over_reference_units"
+    elif metric == "erle":
+        counts = {
+            k: sum(r["details"][k] for r in good)
+            for k in ("before_energy", "after_energy", "scored_samples")
+        }
+        value = (
+            10 * (math.log10(counts["before_energy"]) - math.log10(counts["after_energy"]))
+            if counts["before_energy"] > 0 and counts["after_energy"] > 0
+            else None
+        )
+        method = "micro_energy_ratio_db"
     elif metric in ("der", "jer") or metric.startswith("vad_"):
         counts = {}
         for row in good:

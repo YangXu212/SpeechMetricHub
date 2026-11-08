@@ -3238,5 +3238,413 @@
       "device": "cpu",
       "scope": "real speech, upstream/analytic parity and invalid-input checks; not a full benchmark"
     }
+  },
+  {
+    "id": "aecmos_16k_echo",
+    "family": "aecmos_16k",
+    "output": "echo_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_16k: echo_mos",
+    "description_zh": "微软 aecmos_16k：echo_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "aecmos_16k_deg",
+    "family": "aecmos_16k",
+    "output": "deg_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_16k: deg_mos",
+    "description_zh": "微软 aecmos_16k：deg_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "aecmos_16k_scenarioless_echo",
+    "family": "aecmos_16k_scenarioless",
+    "output": "echo_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_16k_scenarioless: echo_mos",
+    "description_zh": "微软 aecmos_16k_scenarioless：echo_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "aecmos_16k_scenarioless_deg",
+    "family": "aecmos_16k_scenarioless",
+    "output": "deg_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_16k_scenarioless: deg_mos",
+    "description_zh": "微软 aecmos_16k_scenarioless：deg_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "aecmos_48k_echo",
+    "family": "aecmos_48k",
+    "output": "echo_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_48k: echo_mos",
+    "description_zh": "微软 aecmos_48k：echo_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "aecmos_48k_deg",
+    "family": "aecmos_48k",
+    "output": "deg_mos",
+    "category": "perceptual_quality",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "aec_triplet"
+    ],
+    "description": "Microsoft aecmos_48k: deg_mos",
+    "description_zh": "微软 aecmos_48k：deg_mos",
+    "implementation": "Microsoft speechmos 0.0.1.1 AECMOS frontend and ONNX model",
+    "adapter": "speech_eval.aec:aecmos_metric",
+    "source": "https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local",
+    "dependencies": [
+      "numpy==1.26.4",
+      "librosa==0.9.2",
+      "soundfile==0.13.0"
+    ],
+    "requirements": [
+      "farend",
+      "microphone",
+      "hypothesis",
+      "config",
+      "explicit talk_type except scenarioless"
+    ],
+    "direction": "higher_is_better",
+    "unit": "predicted_MOS",
+    "caveats": [
+      "Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit.",
+      "st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified.",
+      "DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS.",
+      "Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu,cuda:RTX3090",
+      "scope": "real AEC audio, direct upstream parity, actual CUDA kernels, repetition and invalid controls"
+    }
+  },
+  {
+    "id": "erle",
+    "category": "echo_attenuation",
+    "domains": [
+      "aec"
+    ],
+    "reference_kinds": [
+      "echo_or_farend_only_microphone"
+    ],
+    "description": "Echo return loss enhancement over explicit far-end-only intervals",
+    "description_zh": "明确远端单讲区间的回声返回损耗增强",
+    "implementation": "Float64 pooled energy ratio; no gain normalization or epsilon",
+    "adapter": "speech_eval.echo:erle_metric",
+    "source": "https://www.microsoft.com/en-us/research/publication/aecmos-a-speech-quality-assessment-metric-for-echo-impairment/",
+    "dependencies": [
+      "numpy",
+      "soundfile"
+    ],
+    "requirements": [
+      "reference",
+      "hypothesis",
+      "sample_rate",
+      "farend_only_regions",
+      "signal_definition"
+    ],
+    "direction": "higher_is_better",
+    "unit": "dB",
+    "caveats": [
+      "Not defined as an echo-only measure during double-talk.",
+      "Microphone-based ERLE includes noise; label this signal definition explicitly.",
+      "Batches pool energies, not per-recording dB. Zero residual returns infinite_result and null."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "analytic fixtures, exhaustive threshold comparison or real-waveform energy checks, and invalid controls"
+    }
+  },
+  {
+    "id": "eer",
+    "category": "speaker_identity",
+    "domains": [
+      "speaker_verification"
+    ],
+    "reference_kinds": [
+      "trial_labels"
+    ],
+    "evaluation_scope": "dataset",
+    "description": "Tie-aware interpolated equal error rate",
+    "description_zh": "并列分数组合后的插值等错误率",
+    "implementation": "scikit-learn complete ROC + explicit detection operating-point convention",
+    "adapter": "speech_eval.verification:verification_metric",
+    "dependencies": [
+      "numpy",
+      "scikit-learn==1.5.2"
+    ],
+    "source": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html",
+    "requirements": [
+      "scores",
+      "labels"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "caveats": [
+      "Whole trial list, both classes required; never average per-utterance EER/minDCF.",
+      "Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point.",
+      "EER uses linear ROC interpolation, which can differ from closest empirical-point conventions."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "analytic fixtures, exhaustive threshold comparison or real-waveform energy checks, and invalid controls"
+    }
+  },
+  {
+    "id": "min_dcf",
+    "category": "speaker_identity",
+    "domains": [
+      "speaker_verification"
+    ],
+    "reference_kinds": [
+      "trial_labels"
+    ],
+    "evaluation_scope": "dataset",
+    "description": "Minimum detection cost with explicit prior",
+    "description_zh": "显式先验下的最小检测代价",
+    "implementation": "scikit-learn complete ROC + explicit detection operating-point convention",
+    "adapter": "speech_eval.verification:verification_metric",
+    "dependencies": [
+      "numpy",
+      "scikit-learn==1.5.2"
+    ],
+    "source": "https://www.nist.gov/document/nistsre10evalplan-r6pdf",
+    "requirements": [
+      "scores",
+      "labels",
+      "p_target"
+    ],
+    "direction": "lower_is_better",
+    "unit": "normalized_cost_or_cost",
+    "caveats": [
+      "Whole trial list, both classes required; never average per-utterance EER/minDCF.",
+      "Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point.",
+      "Default costs 1/1; normalized=True. p_target is mandatory; minDCF is an oracle sweep, not deployment-threshold actual DCF."
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/aec-verification-v0.5.json",
+      "evidence_release": "0.5.0",
+      "platform": "Linux x86_64",
+      "python": "3.10",
+      "device": "cpu",
+      "scope": "analytic fixtures, exhaustive threshold comparison or real-waveform energy checks, and invalid controls"
+    }
   }
 ]

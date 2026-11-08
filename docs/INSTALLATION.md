@@ -62,13 +62,13 @@ SHEET, NISQA, SpeechMOS and other source-based models also require explicitly pr
 Download a wheel and its checksums from [GitHub Releases](https://github.com/YangXu212/SpeechMetricHub/releases), verify SHA-256, and install the desired extras:
 
 ```bash
-python -m pip install "./speechmetrichub-0.4.0-py3-none-any.whl[transcription]"
+python -m pip install "./speechmetrichub-0.5.0-py3-none-any.whl[transcription]"
 ```
 
 No PyPI publication is implied. Source installation can also be pinned to the release tag:
 
 ```bash
-python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.4.0"
+python -m pip install "speechmetrichub[transcription] @ git+https://github.com/YangXu212/SpeechMetricHub.git@v0.5.0"
 ```
 
 ## Container recipe
@@ -79,3 +79,7 @@ docker run --rm speechmetrichub list --category recognition
 ```
 
 The Dockerfile describes a core-scoring image. It does not bundle pretrained weights. Docker runtime is outside the recorded model integration baseline; successful CI/package installation is a separate claim.
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).

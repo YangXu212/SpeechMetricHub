@@ -1,0 +1,6 @@
+{
+  "scores": [0.91, 0.82, 0.33, 0.74],
+  "labels": [1, 1, 0, 0],
+  "trial_ids": ["e1-t1", "e2-t2", "e1-t3", "e2-t4"],
+  "score_direction": "higher_is_target"
+}

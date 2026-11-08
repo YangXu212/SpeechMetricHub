@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: python -m pip install 'numpy<2' '.[transcription,quality,separation,diarization,spectral,dev]'
+      - run: python -m pip install 'numpy<2' '.[transcription,quality,separation,diarization,spectral,verification,echo,dev]'
       - run: python -m ruff check speech_eval speechmetrichub tests scripts
       - run: python -m ruff format --check speech_eval speechmetrichub tests scripts
       - run: python -m unittest discover -s tests -v

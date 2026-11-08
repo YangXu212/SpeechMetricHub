@@ -1,0 +1,3335 @@
+{
+  "release": "0.5.0",
+  "passed": true,
+  "checks": [
+    {
+      "name": "aecmos_16k_echo/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 2.0535411834716797,
+      "gpu": 2.053541421890259,
+      "upstream": 2.0535411834716797,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_deg/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.999999046325684,
+      "gpu": 4.999999046325684,
+      "upstream": 4.999999046325684,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k/st/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_16k_echo/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.999815940856934,
+      "gpu": 4.999815940856934,
+      "upstream": 4.999816417694092,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_deg/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 3.268693447113037,
+      "gpu": 3.268693208694458,
+      "upstream": 3.268693447113037,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k/nst/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_16k_echo/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 2.566744804382324,
+      "gpu": 2.566744804382324,
+      "upstream": 2.566744565963745,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_deg/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.04064416885376,
+      "gpu": 4.04064416885376,
+      "upstream": 4.040644645690918,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k/dt/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_16k/profiling_on_off",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_16k_echo": 0.0,
+        "aecmos_16k_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_16k/repeat",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_16k_echo": 0.0,
+        "aecmos_16k_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_16k/reject_wrong_rate",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_short",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_long",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_stereo",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_nonfinite",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_overrange",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_unequal_length",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_missing_file",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_invalid_marker",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_hash_mismatch",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/reject_wrong_profile",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k/nearend_silent_farend_and_enhanced",
+      "passed": true
+    },
+    {
+      "name": "aecmos_16k_scenarioless_echo/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 1.7757731676101685,
+      "gpu": 1.7757728099822998,
+      "upstream": 1.7757731676101685,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless_deg/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.9998626708984375,
+      "gpu": 4.9998626708984375,
+      "upstream": 4.9998626708984375,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless/st/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 40
+    },
+    {
+      "name": "aecmos_16k_scenarioless_echo/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.999607563018799,
+      "gpu": 4.999607563018799,
+      "upstream": 4.999607563018799,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless_deg/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 3.709355592727661,
+      "gpu": 3.709355592727661,
+      "upstream": 3.709355592727661,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless/nst/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 40
+    },
+    {
+      "name": "aecmos_16k_scenarioless_echo/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 1.6636337041854858,
+      "gpu": 1.6636340618133545,
+      "upstream": 1.6636337041854858,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless_deg/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.999871253967285,
+      "gpu": 4.999870777130127,
+      "upstream": 4.999871253967285,
+      "reason": null
+    },
+    {
+      "name": "aecmos_16k_scenarioless/dt/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 40
+    },
+    {
+      "name": "aecmos_16k_scenarioless/profiling_on_off",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_16k_scenarioless_echo": 0.0,
+        "aecmos_16k_scenarioless_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_16k_scenarioless/repeat",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_16k_scenarioless_echo": 0.0,
+        "aecmos_16k_scenarioless_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_wrong_rate",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_short",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_long",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_stereo",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_nonfinite",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_overrange",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_unequal_length",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_missing_file",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_invalid_marker",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_hash_mismatch",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/reject_wrong_profile",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_16k_scenarioless/nearend_silent_farend_and_enhanced",
+      "passed": true
+    },
+    {
+      "name": "aecmos_48k_echo/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 1.8596283197402954,
+      "gpu": 1.859628677368164,
+      "upstream": 1.8596283197402954,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k_deg/st/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.9999871253967285,
+      "gpu": 4.9999871253967285,
+      "upstream": 4.9999871253967285,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k/st/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_48k_echo/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 4.999960422515869,
+      "gpu": 4.999960422515869,
+      "upstream": 4.999960422515869,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k_deg/nst/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 3.3854119777679443,
+      "gpu": 3.3854119777679443,
+      "upstream": 3.3854119777679443,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k/nst/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_48k_echo/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 2.2403738498687744,
+      "gpu": 2.240372896194458,
+      "upstream": 2.2403738498687744,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k_deg/dt/cpu_gpu_upstream",
+      "passed": true,
+      "cpu": 3.924560308456421,
+      "gpu": 3.924560070037842,
+      "upstream": 3.924560308456421,
+      "reason": null
+    },
+    {
+      "name": "aecmos_48k/dt/actual_cuda_kernels",
+      "passed": true,
+      "kernel_events": 37
+    },
+    {
+      "name": "aecmos_48k/profiling_on_off",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_48k_echo": 0.0,
+        "aecmos_48k_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_48k/repeat",
+      "passed": true,
+      "absolute_deltas": {
+        "aecmos_48k_echo": 0.0,
+        "aecmos_48k_deg": 0.0
+      },
+      "tolerance": 1e-06
+    },
+    {
+      "name": "aecmos_48k/reject_wrong_rate",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_short",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_long",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_stereo",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_nonfinite",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_overrange",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_unequal_length",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_missing_file",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_invalid_marker",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_hash_mismatch",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/reject_wrong_profile",
+      "passed": true,
+      "status": "invalid_input"
+    },
+    {
+      "name": "aecmos_48k/nearend_silent_farend_and_enhanced",
+      "passed": true
+    },
+    {
+      "name": "erle/real_microphone_gain_1",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "erle/real_microphone_gain_0.1",
+      "passed": true,
+      "value": 19.999999999999876
+    },
+    {
+      "name": "cuda_unavailable_no_cpu_fallback",
+      "passed": true,
+      "status": "backend_error"
+    }
+  ],
+  "rows": [
+    {
+      "metric": "aecmos_16k_echo",
+      "scenario": "st",
+      "model_marker": "st",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.0535411834716797,
+          "deg_mos": 4.999999046325684
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.3617606982588768,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 2.0535411834716797,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.053541421890259,
+          "deg_mos": 4.999999046325684
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.5111741274595261,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 2.053541421890259,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 2.0535411834716797
+    },
+    {
+      "metric": "aecmos_16k_deg",
+      "scenario": "st",
+      "model_marker": "st",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.0535411834716797,
+          "deg_mos": 4.999999046325684
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.3617606982588768,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 4.999999046325684,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.053541421890259,
+          "deg_mos": 4.999999046325684
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.5111741274595261,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 4.999999046325684,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.999999046325684
+    },
+    {
+      "metric": "aecmos_16k_echo",
+      "scenario": "nst",
+      "model_marker": "nst",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999815940856934,
+          "deg_mos": 3.268693447113037
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.36332036182284355,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 4.999815940856934,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999815940856934,
+          "deg_mos": 3.268693208694458
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.5007429141551256,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 4.999815940856934,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.999816417694092
+    },
+    {
+      "metric": "aecmos_16k_deg",
+      "scenario": "nst",
+      "model_marker": "nst",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999815940856934,
+          "deg_mos": 3.268693447113037
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.36332036182284355,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 3.268693447113037,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999815940856934,
+          "deg_mos": 3.268693208694458
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.5007429141551256,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 3.268693208694458,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 3.268693447113037
+    },
+    {
+      "metric": "aecmos_16k_echo",
+      "scenario": "dt",
+      "model_marker": "dt",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.566744804382324,
+          "deg_mos": 4.04064416885376
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.36874496564269066,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 2.566744804382324,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.566744804382324,
+          "deg_mos": 4.04064416885376
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.48768366128206253,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_echo",
+        "value": 2.566744804382324,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 2.566744565963745
+    },
+    {
+      "metric": "aecmos_16k_deg",
+      "scenario": "dt",
+      "model_marker": "dt",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.566744804382324,
+          "deg_mos": 4.04064416885376
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.36874496564269066,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 4.04064416885376,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.566744804382324,
+          "deg_mos": 4.04064416885376
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663915512_Stage_0.onnx",
+            "sha256": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k",
+          "model_name": "aecmos_16kHz",
+          "sample_rate": 16000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "f53122f43cb7e5b77ec797e85c8b997cfc2aac8220857c709226d876de8c0a99"
+          }
+        },
+        "elapsed_seconds": 0.48768366128206253,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_deg",
+        "value": 4.04064416885376,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.040644645690918
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_echo",
+      "scenario": "st",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.7757731676101685,
+          "deg_mos": 4.9998626708984375
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.3647405970841646,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 1.7757731676101685,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.7757728099822998,
+          "deg_mos": 4.9998626708984375
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4738104585558176,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 1.7757728099822998,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 1.7757731676101685
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_deg",
+      "scenario": "st",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.7757731676101685,
+          "deg_mos": 4.9998626708984375
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.3647405970841646,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 4.9998626708984375,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.7757728099822998,
+          "deg_mos": 4.9998626708984375
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "86df9eae29419a575564bd3c847ec86f6a0b945a71857be119be0b06e17fa6f4"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "8f9e2fd01c0d6d57536fbb9afc678c72e9bdccc3df5b42db64c56a1500b695c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4738104585558176,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 4.9998626708984375,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.9998626708984375
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_echo",
+      "scenario": "nst",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999607563018799,
+          "deg_mos": 3.709355592727661
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.3636850770562887,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 4.999607563018799,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999607563018799,
+          "deg_mos": 3.709355592727661
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4846887644380331,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 4.999607563018799,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.999607563018799
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_deg",
+      "scenario": "nst",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999607563018799,
+          "deg_mos": 3.709355592727661
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.3636850770562887,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 3.709355592727661,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999607563018799,
+          "deg_mos": 3.709355592727661
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "8029e8a4aeb0fe3dcc1002eebe4d837a036261ae55583d2928fb3eb78f47f7a3"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "2e6df6bf5be28edfb5b7a21c47c88d692ce72fc3c8085118e618217c67214023"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4846887644380331,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 3.709355592727661,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 3.709355592727661
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_echo",
+      "scenario": "dt",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.6636337041854858,
+          "deg_mos": 4.999871253967285
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.36787406355142593,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 1.6636337041854858,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.6636340618133545,
+          "deg_mos": 4.999870777130127
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4812721200287342,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_echo",
+        "value": 1.6636340618133545,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 1.6636337041854858
+    },
+    {
+      "metric": "aecmos_16k_scenarioless_deg",
+      "scenario": "dt",
+      "model_marker": null,
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.6636337041854858,
+          "deg_mos": 4.999871253967285
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.36787406355142593,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 4.999871253967285,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.6636340618133545,
+          "deg_mos": 4.999870777130127
+        },
+        "details": {
+          "samples": 160000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "e216bdbfc98133888c9835dac4724d9c409d48656f81ef052bbd344d0e1968cc"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "25b4a1205726a0b9d6da681da0d7a127e017bfa2209b5f980c33261b36f40d7b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1663829550_Stage_0.onnx",
+            "sha256": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_16k_scenarioless",
+          "model_name": "aecmos_scenarioless_16kHz",
+          "sample_rate": 16000,
+          "talk_type": null,
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b517d8d9ca2f91ea55d15f605a15917c19be5d832868fe115c7c5bc48986dae1"
+          }
+        },
+        "elapsed_seconds": 0.4812721200287342,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_16k_scenarioless_deg",
+        "value": 4.999870777130127,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.999871253967285
+    },
+    {
+      "metric": "aecmos_48k_echo",
+      "scenario": "st",
+      "model_marker": "st",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.8596283197402954,
+          "deg_mos": 4.9999871253967285
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "ffc443b0dba33b0ffcb4f87ff8a9b2e0743244b47d52fb4ee1af6370af7b9607"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.39057438634335995,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 1.8596283197402954,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.859628677368164,
+          "deg_mos": 4.9999871253967285
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "ffc443b0dba33b0ffcb4f87ff8a9b2e0743244b47d52fb4ee1af6370af7b9607"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.49507406912744045,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 1.859628677368164,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 1.8596283197402954
+    },
+    {
+      "metric": "aecmos_48k_deg",
+      "scenario": "st",
+      "model_marker": "st",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.8596283197402954,
+          "deg_mos": 4.9999871253967285
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "ffc443b0dba33b0ffcb4f87ff8a9b2e0743244b47d52fb4ee1af6370af7b9607"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.39057438634335995,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 4.9999871253967285,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 1.859628677368164,
+          "deg_mos": 4.9999871253967285
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "ffc443b0dba33b0ffcb4f87ff8a9b2e0743244b47d52fb4ee1af6370af7b9607"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "98cd4d0d685be51a8feec9f9694b59b3f5aac6e8f97be2030365b187e871a7d1"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "st",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.49507406912744045,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 4.9999871253967285,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.9999871253967285
+    },
+    {
+      "metric": "aecmos_48k_echo",
+      "scenario": "nst",
+      "model_marker": "nst",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999960422515869,
+          "deg_mos": 3.3854119777679443
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "6e57de4a61cf0bae5ccc0b094138514e4e747fd50212e6e2528dacdd94f03b8b"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "1532c0aad78ece5f72c3c752ba7fe23df671ef0d03b0183430a232a909b40e0e"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "cf0c8e45a3a0f5098b2f401102b9ab1cb6c28bc409b6ed790c7c4e88ae9a61c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.3901556674391031,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 4.999960422515869,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999960422515869,
+          "deg_mos": 3.3854119777679443
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "6e57de4a61cf0bae5ccc0b094138514e4e747fd50212e6e2528dacdd94f03b8b"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "1532c0aad78ece5f72c3c752ba7fe23df671ef0d03b0183430a232a909b40e0e"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "cf0c8e45a3a0f5098b2f401102b9ab1cb6c28bc409b6ed790c7c4e88ae9a61c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.5017157550901175,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 4.999960422515869,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 4.999960422515869
+    },
+    {
+      "metric": "aecmos_48k_deg",
+      "scenario": "nst",
+      "model_marker": "nst",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999960422515869,
+          "deg_mos": 3.3854119777679443
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "6e57de4a61cf0bae5ccc0b094138514e4e747fd50212e6e2528dacdd94f03b8b"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "1532c0aad78ece5f72c3c752ba7fe23df671ef0d03b0183430a232a909b40e0e"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "cf0c8e45a3a0f5098b2f401102b9ab1cb6c28bc409b6ed790c7c4e88ae9a61c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.3901556674391031,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 3.3854119777679443,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 4.999960422515869,
+          "deg_mos": 3.3854119777679443
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "6e57de4a61cf0bae5ccc0b094138514e4e747fd50212e6e2528dacdd94f03b8b"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "1532c0aad78ece5f72c3c752ba7fe23df671ef0d03b0183430a232a909b40e0e"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "cf0c8e45a3a0f5098b2f401102b9ab1cb6c28bc409b6ed790c7c4e88ae9a61c3"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "nst",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.5017157550901175,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 3.3854119777679443,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 3.3854119777679443
+    },
+    {
+      "metric": "aecmos_48k_echo",
+      "scenario": "dt",
+      "model_marker": "dt",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.2403738498687744,
+          "deg_mos": 3.924560308456421
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "31ef7faeb74bd353f9ea15ebf12631612dc9e348848303f23a417a71232e260d"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.3969045579433441,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 2.2403738498687744,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.240372896194458,
+          "deg_mos": 3.924560070037842
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "31ef7faeb74bd353f9ea15ebf12631612dc9e348848303f23a417a71232e260d"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.5036399513483047,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_echo",
+        "value": 2.240372896194458,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 2.2403738498687744
+    },
+    {
+      "metric": "aecmos_48k_deg",
+      "scenario": "dt",
+      "model_marker": "dt",
+      "cpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.2403738498687744,
+          "deg_mos": 3.924560308456421
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "31ef7faeb74bd353f9ea15ebf12631612dc9e348848303f23a417a71232e260d"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.3969045579433441,
+        "execution": {
+          "device": "cpu",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 3.924560308456421,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "gpu": {
+        "status": "ok",
+        "values": {
+          "echo_mos": 2.240372896194458,
+          "deg_mos": 3.924560070037842
+        },
+        "details": {
+          "samples": 480000,
+          "seconds": 10.0
+        },
+        "provenance": {
+          "farend": {
+            "path": "farend.wav",
+            "sha256": "31ef7faeb74bd353f9ea15ebf12631612dc9e348848303f23a417a71232e260d"
+          },
+          "microphone": {
+            "path": "microphone.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "hypothesis": {
+            "path": "hypothesis.wav",
+            "sha256": "12af4daed0caa846ff8612ffbf89f7ecef117f79968bf86dbf5565c352cb146b"
+          },
+          "source_file": {
+            "path": "aecmos.py",
+            "sha256": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec"
+          },
+          "checkpoint": {
+            "path": "Run_1668423760_Stage_0.onnx",
+            "sha256": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "backend": {
+          "numpy": "1.26.4",
+          "scipy": "1.13.1",
+          "librosa": "0.9.2",
+          "soundfile": "0.13.0",
+          "onnxruntime": "1.16.3",
+          "providers": [
+            "CUDAExecutionProvider",
+            "CPUExecutionProvider"
+          ]
+        },
+        "protocol": {
+          "profile": "aecmos-microsoft-v1",
+          "family": "aecmos_48k",
+          "model_name": "aecmos_48kHz",
+          "sample_rate": 48000,
+          "talk_type": "dt",
+          "minimum_seconds": 1,
+          "maximum_seconds": 20,
+          "channel_policy": "strict_mono",
+          "length_policy": "strict_equal",
+          "resampling": "none",
+          "gain_normalization": "none",
+          "delay_alignment": "none",
+          "long_audio_policy": "reject; segment explicitly",
+          "onnx_math_mode": "float32; NVIDIA_TF32_OVERRIDE=0 in isolated worker",
+          "deterministic_compute": true,
+          "cudnn_conv_algo_search": "DEFAULT",
+          "cublas_workspace_config": ":4096:8",
+          "artifact_hashes": {
+            "source_file": "56aef6889be4c2169962e6838d19e9b032925c77d7e841bc1fd9d30b66f5ddec",
+            "checkpoint": "b57bc007046d7230008ad2b802cb378f998ff3d96be074389a4d07533b7d4aaf"
+          }
+        },
+        "elapsed_seconds": 0.5036399513483047,
+        "execution": {
+          "device": "cuda:0",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "aecmos_48k_deg",
+        "value": 3.924560070037842,
+        "value_unit": "predicted_MOS",
+        "direction": "higher_is_better"
+      },
+      "upstream_cpu": 3.924560308456421
+    }
+  ],
+  "scope": "Three real AEC Challenge scenarios, ten-second passthrough baseline; 48k is explicitly resampled interface coverage, not native fullband benchmark",
+  "date": "2026-11-08",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "driver": "550.163.01",
+    "platform": "Linux x86_64",
+    "python": "3.10.19"
+  },
+  "tolerances": {
+    "cpu_upstream_absolute": 1e-06,
+    "gpu_upstream_absolute": 0.0001,
+    "gpu_repeat_absolute": 1e-06
+  },
+  "observed_max_gpu_upstream_delta": 9.5367431640625e-07,
+  "verification_scorers": {
+    "eer": "known perfect, reversed, tied ROC cases, score-direction/order invariance and invalid inputs",
+    "min_dcf": "100 seeded random score vectors with ties, independently enumerated thresholds, raw and normalized costs (200 comparisons)",
+    "scope": "Analytical scorer validation; no population speaker-verification EER benchmark claim"
+  },
+  "compatibility": {
+    "original_weights_unchanged": true,
+    "runtime": "onnxruntime-gpu==1.16.3",
+    "scenarioless_load_rejected_versions": [
+      "1.18.1",
+      "1.19.2",
+      "1.20.0"
+    ],
+    "initial_default_gpu_observation": "Autotuned GPU execution varied by about 2.1e-5 on one repeated 48k output. Fixed DEFAULT convolution and deterministic compute removed the observed variation. NVIDIA_TF32_OVERRIDE=0 reduced CPU/GPU differences below 1e-6.",
+    "determinism_limit": "Observed repeated values, not a guarantee across hardware/drivers."
+  }
+}

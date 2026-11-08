@@ -75,3 +75,7 @@ Use `--families audiobox_aesthetics scoreq_natural_nr` to run a subset. A config
 | `plcmos_v2_val` | MOS | Same public scorer; separately provisioned v2 validation ONNX |
 
 See [complete profile definitions](EXPANSION_PROFILES.md), [example configuration](../examples/deployment.example.json) and [recorded v0.4 identities](../validation/expansion-v0.4.json). The existing `phoneme_similarity` family now computes both character and phone-token outputs in one inference. Choose the explicit `lps_phone` metric ID for the latter.
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).

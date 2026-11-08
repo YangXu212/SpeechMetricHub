@@ -18,7 +18,7 @@
 | visqol_speech/audio | binary：官方 ViSQOL；checkpoint：speech lattice TFLite / audio SVR |
 | whisper_wer/dwer | model_dir：Whisper large-v3 HF；language：english；beam_size：5 |
 
-公共字段：device 默认 cpu，或显式 cuda:N；threads 默认 2；timeout 秒；python 指定模型解释器；trusted_checkpoint=true 允许可信 PyTorch 文件；expected_hashes 映射文件字段名到 SHA-256。本版仅验收 CPU。DNSMOS 目前只支持 CPU。
+公共字段：device 默认 cpu，或显式 cuda:N；threads 默认 2；timeout 秒；python 指定模型解释器；trusted_checkpoint=true 允许可信 PyTorch 文件；expected_hashes 映射文件字段名到 SHA-256。v0.2/v0.4 重模型记录主要为 CPU；v0.5 的 AECMOS 有独立 CPU/GPU 验收，不能外推到其他模型。DNSMOS 目前只支持 CPU。
 
 重模型由独立子进程执行，超时终止本次进程。不需要常驻终端。工作台由原计划任务维护。
 
@@ -27,3 +27,7 @@
 旧名 scoreq/dnsmos/nisqa/speechbert_score/visqol 分别指 natural_ref/OVRL/overall MOS/precision/speech；新实验用显式 ID。
 
 `docker build -t speech-eval .` 构建核心镜像，数据只读挂载，模型环境按可选依赖扩展，权重不烘焙进镜像。Dockerfile 不代表 Docker runtime 已验收。
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).

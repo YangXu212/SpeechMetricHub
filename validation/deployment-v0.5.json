@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "cli_create_lock",
+      "passed": true
+    },
+    {
+      "name": "cli_verify_lock",
+      "passed": true
+    },
+    {
+      "name": "reject_tampered_python",
+      "passed": true
+    },
+    {
+      "name": "reject_tampered_library_sha256",
+      "passed": true
+    },
+    {
+      "name": "reject_tampered_packages",
+      "passed": true
+    },
+    {
+      "name": "reject_tampered_artifact",
+      "passed": true
+    },
+    {
+      "name": "locked_cli_aecmos_16k",
+      "passed": true,
+      "values": {
+        "aecmos_16k_echo": 2.566744804382324,
+        "aecmos_16k_deg": 4.04064416885376
+      }
+    },
+    {
+      "name": "locked_cli_aecmos_16k_scenarioless",
+      "passed": true,
+      "values": {
+        "aecmos_16k_scenarioless_echo": 1.6636340618133545,
+        "aecmos_16k_scenarioless_deg": 4.999870777130127
+      }
+    },
+    {
+      "name": "locked_cli_aecmos_48k",
+      "passed": true,
+      "values": {
+        "aecmos_48k_echo": 2.240372896194458,
+        "aecmos_48k_deg": 3.924560070037842
+      }
+    },
+    {
+      "name": "request_cannot_override_lock",
+      "passed": true
+    },
+    {
+      "name": "cli_eer",
+      "passed": true,
+      "value": 50.0
+    },
+    {
+      "name": "cli_min_dcf",
+      "passed": true,
+      "value": 1.0
+    },
+    {
+      "name": "cli_erle",
+      "passed": true,
+      "value": 0.0
+    },
+    {
+      "name": "installed_wheel_outside_checkout",
+      "passed": true,
+      "version": "0.5.0"
+    },
+    {
+      "name": "pip_check",
+      "passed": true,
+      "output": "No broken requirements found."
+    },
+    {
+      "name": "doctor_runtime_and_artifacts",
+      "passed": true
+    }
+  ],
+  "environment": {
+    "speechmetrichub": "0.5.0",
+    "python": "3.10.19",
+    "system": "Linux",
+    "machine": "x86_64",
+    "packages": {
+      "speechmetrichub": "0.5.0",
+      "scipy": "1.13.1",
+      "pooch": "1.9.0",
+      "llvmlite": "0.50.0",
+      "setuptools": "79.0.1",
+      "sympy": "1.14.0",
+      "build": "1.6.1",
+      "joblib": "1.6.0",
+      "nvidia-cuda-nvrtc-cu11": "11.8.89",
+      "librosa": "0.9.2",
+      "charset-normalizer": "3.5.2",
+      "packaging": "26.3",
+      "nvidia-cufft-cu11": "10.9.0.58",
+      "audioread": "3.1.0",
+      "pycparser": "3.11",
+      "coloredlogs": "15.0.1",
+      "nvidia-cudnn-cu11": "8.9.6.50",
+      "cloudpickle": "3.1.2",
+      "idna": "3.20",
+      "tomli": "2.5.0",
+      "resampy": "0.4.3",
+      "pyproject-hooks": "1.3.3",
+      "threadpoolctl": "3.8.0",
+      "flatbuffers": "25.12.19",
+      "cffi": "2.1.1",
+      "pip": "23.0.1",
+      "platformdirs": "4.12.4",
+      "decorator": "5.3.1",
+      "ruff": "0.17.4",
+      "nvidia-cuda-runtime-cu11": "11.8.89",
+      "numba": "0.68.1",
+      "scikit-learn": "1.5.2",
+      "onnxruntime-gpu": "1.16.3",
+      "mpmath": "1.3.0",
+      "urllib3": "2.8.0",
+      "humanfriendly": "10.0",
+      "requests": "2.34.2",
+      "certifi": "2026.10.23",
+      "nvidia-curand-cu11": "10.3.0.86",
+      "soxr": "0.5.0.post1",
+      "soundfile": "0.13.0",
+      "nvidia-cublas-cu11": "11.11.3.6",
+      "protobuf": "7.36.2",
+      "onnx": "1.17.0",
+      "numpy": "1.26.4"
+    },
+    "library_sha256": "45c7c61f1419bd51d2780efc6f33c700af6f33fd8664d497471b13bc678c0b0c"
+  }
+}

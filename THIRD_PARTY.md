@@ -33,3 +33,10 @@ The compatibility loader for SHEET injects a local SSL checkpoint only; its netw
 - [mHuBERT-147](https://huggingface.co/utter-project/mHuBERT-147) and [WavLM-base-plus-SV](https://huggingface.co/microsoft/wavlm-base-plus-sv): independently provisioned pretrained encoders, each with its own model-card terms.
 
 No internal lab code tree or model weights are included in this repository. Public source hashes and artifact fingerprints accompany the validation report. New adapters do not grant redistribution rights to upstream materials.
+
+## v0.5 AEC and verification
+
+- [Microsoft speechmos / AECMOS](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local): upstream three-signal frontend and three checkpoints, ECHO/DEG outputs; public package 0.0.1.1. Source and weights are provisioned separately, not redistributed here.
+- [scikit-learn ROC](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html): complete tie-aware operating points, version 1.5.2. EER interpolation and NIST-style minDCF reductions are explicitly defined in our profile.
+- [NIST SRE detection-cost construction](https://www.nist.gov/document/nistsre10evalplan-r6pdf): costs and prior must be reported; no claim of one universal NIST trial protocol.
+- [ONNX Runtime CUDA](https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html): isolated execution and provider profiling. AECMOS pins 1.16.3 for original-checkpoint compatibility.

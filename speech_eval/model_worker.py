@@ -71,6 +71,10 @@ def read_audio(path, *, minimum=0.1):
 
 
 def score(request):
+    if request["family"] in ("aecmos_16k", "aecmos_16k_scenarioless", "aecmos_48k"):
+        from .aec import score as aec_score
+
+        return aec_score(request)
     import torch
     import numpy as np
     import soxr

@@ -1,12 +1,18 @@
 # SpeechMetricHub · 语音指标集成库
 
-公开版本 **0.4.0**；沿用 v0.2 的指标集成与真实模型验收基线。将标准计分器和预训练评测模型整合为同一套 Python / CLI 接口，保留各自的参考条件、预处理、分数方向和模型身份。重点支持 MT-ASR / TS-ASR，也可用于质量、可懂度、分离和内容保持研究。
+公开版本 **0.5.0**；沿用 v0.2 的指标集成与真实模型验收基线。将标准计分器和预训练评测模型整合为同一套 Python / CLI 接口，保留各自的参考条件、预处理、分数方向和模型身份。重点支持 MT-ASR / TS-ASR，也可用于质量、可懂度、分离和内容保持研究。
 
 **使用同一个库，不等于所有论文使用同一评测协议。** 本项目固定并公开协议，不宣称存在唯一官方清洗或容差。工作台已有 `speech-eval-mt-v1.0` 协议保持不变。
 
+## v0.5 新增与部署约定
+
+新增 **AECMOS 三个模型各自的 ECHO/DEG 六个输出、ERLE、EER、minDCF**，共 9 个接口。AECMOS 归入感知质量，ERLE 归入回声衰减，EER/minDCF 归入说话人身份；AEC/说话人验证保留为任务标签。
+
+ERLE 只计算明确的远端单讲区间，批量按能量汇总。EER/minDCF 面向完整 trials，不能逐句求值再平均；minDCF 必须声明目标先验。支持部署锁定文件，检查代码、依赖、权重和配置是否一致；GPU 初始化失败不会静默返回 CPU 评分。详见[指标口径](docs/AEC_VERIFICATION.md)、[部署锁定](docs/DEPLOYMENT_LOCKS.md)及[实际验证](validation/aec-verification-v0.5.json)。
+
 ## v0.4 新增与口径修正
 
-当前提供 **75 个独立指标变体、5 个兼容别名、10 个测量维度、20 个模型家族**。新增 11 个接口：mHuBERT-147 多语言 SBS 三项输出、音素 token 版 LPS、WavLM 话者相似度、PLCMOS 的 final/validation 两个模型，以及四种明确命名的 LSD/MCD 口径。
+当前提供 **84 个独立指标变体、5 个兼容别名、11 个测量维度、23 个模型家族**。v0.4 新增 11 个接口：mHuBERT-147 多语言 SBS 三项输出、音素 token 版 LPS、WavLM 话者相似度、PLCMOS 的 final/validation 两个模型，以及四种明确命名的 LSD/MCD 口径。
 
 先完成[调研与接入计划](docs/EXPANSION_PLAN.md)，再实现并验证。详细[口径说明](docs/EXPANSION_PROFILES.md)和[本轮验证结果](validation/expansion-v0.4.json)随版本保留。旧的 IPA 字符相似度不替换为音素 token 相似度；旧实验数值仍可复现。
 
@@ -19,10 +25,11 @@
 | 识别准确性 `recognition` | WER/CER、TS-WER/CER、cpWER/cpCER、tcpWER/tcpCER、ORC/tcORC、MIMO/tcMIMO、greedy DI-cp/DI-tcp、Whisper WER/dWER |
 | 说话人结构 `speaker_structure` | DER、JER、说话人数误差及人数命中诊断 |
 | 语音活动 `speech_activity` | 检测错误率、precision、recall、accuracy |
-| 感知质量 `perceptual_quality` | PESQ WB/NB、ViSQOL speech/audio、DNSMOS 4 项校准输出及 3 项原始输出、NISQA 5 维、SCOREQ 4 种组合、UTMOS22 strong、SHEET SSL-MOS |
+| 感知质量 `perceptual_quality` | PESQ WB/NB、ViSQOL speech/audio、DNSMOS 4 项校准输出及 3 项原始输出、NISQA 5 维、SCOREQ 4 种组合、UTMOS22 strong、SHEET SSL-MOS、PLCMOS 两模型、AECMOS 三模型 ECHO/DEG |
 | 可懂度 `intelligibility` | STOI、ESTOI |
-| 信号保真 `signal_fidelity` | SI-SDR、SI-SDRi、BSS SDR/SIR/SAR |
-| 说话人身份 `speaker_identity` | RawNet3 embedding cosine |
+| 信号保真 `signal_fidelity` | SI-SDR、SI-SDRi、BSS SDR/SIR/SAR、LSD/MCD 显式口径 |
+| 说话人身份 `speaker_identity` | RawNet3/WavLM embedding cosine、完整 trials 的 EER/minDCF |
+| 回声衰减 `echo_attenuation` | 明确远端单讲区间的 ERLE |
 | 内容相似度 `content_similarity` | IPA 字符相似度、SpeechBERTScore precision/recall/F1 |
 | 音频美学 `audio_aesthetics` | Audiobox CE、CU、PC、PQ |
 | 评分一致性 `rating_agreement` | PLCC、SRCC、Kendall tau-b |

@@ -1,0 +1,20 @@
+{
+  "aecmos_16k": {
+    "source_file": "/opt/aecmos/speechmos/aecmos.py",
+    "checkpoint": "/opt/aecmos/speechmos/aecmos_models/Run_1663915512_Stage_0.onnx",
+    "device": "cpu",
+    "threads": 2
+  },
+  "aecmos_16k_scenarioless": {
+    "source_file": "/opt/aecmos/speechmos/aecmos.py",
+    "checkpoint": "/opt/aecmos/speechmos/aecmos_models/Run_1663829550_Stage_0.onnx",
+    "device": "cpu",
+    "threads": 2
+  },
+  "aecmos_48k": {
+    "source_file": "/opt/aecmos/speechmos/aecmos.py",
+    "checkpoint": "/opt/aecmos/speechmos/aecmos_models/Run_1668423760_Stage_0.onnx",
+    "device": "cpu",
+    "threads": 2
+  }
+}

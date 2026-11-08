@@ -1,6 +1,6 @@
 # Metric catalog
 
-**75 canonical variants and 5 migration aliases.** Counts include distinct modes and output heads; they are not counts of original algorithms. This catalog is generated from the shipped registry.
+**84 canonical variants and 5 migration aliases.** Counts include distinct modes and output heads; they are not counts of original algorithms. This catalog is generated from the shipped registry.
 
 See [API inputs](API.md), [model configuration](MODELS.md), [protocols](PROTOCOLS.md) and the [validation matrix](../validation/summary.json). Original interfaces retain their v0.2 evidence. New profiles are evaluated separately in the [v0.4 report](../validation/expansion-v0.4.json).
 
@@ -8,11 +8,12 @@ See [API inputs](API.md), [model configuration](MODELS.md), [protocols](PROTOCOL
 |---|---:|
 | `recognition` | 16 |
 | `speaker_structure` | 3 |
-| `perceptual_quality` | 24 |
+| `perceptual_quality` | 30 |
 | `intelligibility` | 2 |
 | `signal_fidelity` | 9 |
 | `audio_aesthetics` | 4 |
-| `speaker_identity` | 2 |
+| `speaker_identity` | 4 |
+| `echo_attenuation` | 1 |
 | `content_similarity` | 8 |
 | `rating_agreement` | 3 |
 | `speech_activity` | 4 |
@@ -1384,3 +1385,102 @@ SPTK MCD with DTW on c1..order (no gain fit)
 Frame, gain, log-base and coefficient conventions are part of the metric ID. MCD uses DTW; neither MCD nor magnitude LSD directly measures timing or phase fidelity.
 
 Protocol details: [v0.4 profiles](EXPANSION_PROFILES.md). Evidence: [v0.4 validation](../validation/expansion-v0.4.json).
+
+## `aecmos_16k_echo`
+
+Microsoft aecmos_16k: echo_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `aecmos_16k_deg`
+
+Microsoft aecmos_16k: deg_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `aecmos_16k_scenarioless_echo`
+
+Microsoft aecmos_16k_scenarioless: echo_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `aecmos_16k_scenarioless_deg`
+
+Microsoft aecmos_16k_scenarioless: deg_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `aecmos_48k_echo`
+
+Microsoft aecmos_48k: echo_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `aecmos_48k_deg`
+
+Microsoft aecmos_48k: deg_mos
+
+- Dimension: `perceptual_quality`; reference: `aec_triplet`.
+- Output: `predicted_MOS`, `higher_is_better`; scope: `recording`.
+- Required: `farend`, `microphone`, `hypothesis`, `config`, `explicit talk_type except scenarioless`.
+- [Upstream source](https://github.com/microsoft/AEC-Challenge/tree/main/AECMOS/AECMOS_local); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Three synchronous native-rate mono files, equal lengths, 1–20 seconds; no hidden resampling, cropping or gain fit. st=far-end only, nst=near-end only, dt=double-talk; scenario averages must remain stratified. DEG measures other degradations. Do not average ECHO and DEG into a synthetic overall MOS. Requires exactly one onnxruntime==1.16.3 or onnxruntime-gpu==1.16.3 distribution.
+
+## `erle`
+
+Echo return loss enhancement over explicit far-end-only intervals
+
+- Dimension: `echo_attenuation`; reference: `echo_or_farend_only_microphone`.
+- Output: `dB`, `higher_is_better`; scope: `recording`.
+- Required: `reference`, `hypothesis`, `sample_rate`, `farend_only_regions`, `signal_definition`.
+- [Upstream source](https://www.microsoft.com/en-us/research/publication/aecmos-a-speech-quality-assessment-metric-for-echo-impairment/); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Not defined as an echo-only measure during double-talk. Microphone-based ERLE includes noise; label this signal definition explicitly. Batches pool energies, not per-recording dB. Zero residual returns infinite_result and null.
+
+## `eer`
+
+Tie-aware interpolated equal error rate
+
+- Dimension: `speaker_identity`; reference: `trial_labels`.
+- Output: `percent`, `lower_is_better`; scope: `dataset`.
+- Required: `scores`, `labels`.
+- [Upstream source](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Whole trial list, both classes required; never average per-utterance EER/minDCF. Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point. EER uses linear ROC interpolation, which can differ from closest empirical-point conventions.
+
+## `min_dcf`
+
+Minimum detection cost with explicit prior
+
+- Dimension: `speaker_identity`; reference: `trial_labels`.
+- Output: `normalized_cost_or_cost`, `lower_is_better`; scope: `dataset`.
+- Required: `scores`, `labels`, `p_target`.
+- [Upstream source](https://www.nist.gov/document/nistsre10evalplan-r6pdf); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
+
+Whole trial list, both classes required; never average per-utterance EER/minDCF. Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point. Default costs 1/1; normalized=True. p_target is mandatory; minDCF is an oracle sweep, not deployment-threshold actual DCF.

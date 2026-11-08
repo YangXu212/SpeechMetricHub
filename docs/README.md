@@ -25,3 +25,7 @@ SpeechMetricHub separates the question **what is measured?** from **what referen
 
 - [v0.4 research and integration plan](EXPANSION_PLAN.md)
 - [v0.4 exact scoring profiles](EXPANSION_PROFILES.md)
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).

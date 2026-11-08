@@ -1,5 +1,18 @@
 # Validation evidence
 
+## v0.5 AEC / verification release evidence
+
+The installed wheel passed **54 semantic/API regression tests** outside the source checkout. All **16 deployment checks** passed, including locked CLI inference for every new model family, all three stateless scorer CLIs, dependency checks and refusal of changed artifacts/environments or request-level config overrides. The [deployment report](deployment-v0.5.json) includes the exact package inventory and library fingerprint.
+
+[Detailed report](aec-verification-v0.5.json) adds nine interfaces without replacing older evidence. All **72 real AEC checks passed**: six AECMOS heads across three scenarios, direct upstream CPU parity, CPU/GPU comparison, actual CUDA-kernel profiling, repeated execution, input/model/hash/device rejection controls, silent enhanced-output handling and real-waveform ERLE checks. Maximum observed GPU/upstream CPU difference was **9.54e-7**; ordinary repeated values were identical in the recorded checks. These are integration fixtures, not model-quality benchmark results.
+
+The runtime was a clean Python 3.10 environment on an RTX 3090, ONNX Runtime GPU 1.16.3, with its own pinned CUDA 11/cuDNN 8 user-space packages. Original weights are unchanged. Newer tested ONNX versions fail to load the original scenarioless graph. The profile fixes deterministic execution, convolution algorithm selection, cuBLAS workspace and disables TF32 in its isolated worker.
+
+EER is checked against known perfect/reversed/tied operating points and direction/tie-order invariance. minDCF is checked against independently enumerated thresholds on 100 seeded random tied-score trial lists, in both raw and normalized modes. The fixtures validate scoring semantics; they do not estimate a population EER or an operational decision threshold.
+
+The real AEC inputs are explicit first-ten-second windows from three AEC Challenge scenarios, with microphone passthrough as the hypothesis. Source recordings can differ in total length; no hidden crop occurs inside the adapter. The 48k fixtures are deliberately resampled from 16k for interface validation and are not native fullband benchmark evidence. Private audio is not redistributed. See [protocols and reproduction](../docs/AEC_VERIFICATION.md) and [deployment locks](../docs/DEPLOYMENT_LOCKS.md).
+
+
 ## v0.4 expansion
 
 The [v0.4 evidence matrix](expansion-v0.4.json) records **11 new interfaces**, bringing the registry to **80 IDs / 75 canonical variants**. It preserves the older baseline below rather than overwriting its history.

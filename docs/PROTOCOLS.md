@@ -43,3 +43,7 @@ The model checkpoint is part of the metric definition. Record source revision, w
 WER-like measures use micro aggregation; waveform quality uses utterance macro averaging; rating correlations operate on the full paired array. Do not pool different corpora, languages/token units, collars, reference definitions or model fingerprints without defining a defensible protocol.
 
 Report expected/scored counts and failures. A valid-subset score is not the full-test score. Model output ratings are predictions and should not be relabeled as subjective listening-study MOS.
+
+## v0.5 AEC / verification and deployment locks
+
+See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).
