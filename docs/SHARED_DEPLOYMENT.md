@@ -156,3 +156,7 @@ The initial baseline environment is never changed. Updates belong in a new copy
 or a deliberately versioned evaluation deployment. Shared storage permits reuse;
 different host libraries, CPU instructions or GPU drivers can still affect behavior.
 Only the hosts and devices recorded in the evidence are claimed as tested.
+
+## v0.7 pitch extension
+
+The v0.7 environment adds praat-parselmouth==0.4.7; WORLD was already present. The five new [pitch interfaces](PITCH.md) are CPU-only and need no weights. Their [separate validation report](../validation/pitch-v0.7.json) complements the unchanged historical v0.6 acceptance evidence. Existing deployment locks must be regenerated after the package/dependency update; do not reuse a v0.6 lock with changed code.

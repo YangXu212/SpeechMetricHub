@@ -1484,3 +1484,77 @@ Minimum detection cost with explicit prior
 - [Upstream source](https://www.nist.gov/document/nistsre10evalplan-r6pdf); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
 
 Whole trial list, both classes required; never average per-utterance EER/minDCF. Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point. Default costs 1/1; normalized=True. p_target is mandatory; minDCF is an oracle sweep, not deployment-threshold actual DCF.
+## `vuv_f1`
+
+V/UV F1 on the original time axis (WORLD Harvest)
+
+| Field | Contract |
+|---|---|
+| Category | signal_fidelity / pitch and voicing |
+| Unit | ratio |
+| Direction | higher_is_better |
+| Profile | world_aligned_v1 |
+| Inputs | Equal-length mono waveforms; arrays require sample_rate |
+| Backend | WORLD 0.3.5 |
+
+See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.
+
+## `f0_rmse`
+
+F0 RMSE on jointly voiced aligned frames (WORLD Harvest)
+
+| Field | Contract |
+|---|---|
+| Category | signal_fidelity / pitch and voicing |
+| Unit | Hz |
+| Direction | lower_is_better |
+| Profile | world_aligned_v1 |
+| Inputs | Equal-length mono waveforms; arrays require sample_rate |
+| Backend | WORLD 0.3.5 |
+
+See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.
+
+## `vuv_f1_amphion`
+
+V/UV F1 following the Amphion Parselmouth recipe
+
+| Field | Contract |
+|---|---|
+| Category | signal_fidelity / pitch and voicing |
+| Unit | ratio |
+| Direction | higher_is_better |
+| Profile | amphion_v1 |
+| Inputs | Matching-content audio files; profile-specific alignment |
+| Backend | Praat/Parselmouth 0.4.7 |
+
+See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.
+
+## `f0_rmse_amphion`
+
+F0 RMSE over all aligned frames following Amphion
+
+| Field | Contract |
+|---|---|
+| Category | signal_fidelity / pitch and voicing |
+| Unit | Hz |
+| Direction | lower_is_better |
+| Profile | amphion_v1 |
+| Inputs | Matching-content audio files; profile-specific alignment |
+| Backend | Praat/Parselmouth 0.4.7 |
+
+See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.
+
+## `log_f0_rmse_espnet`
+
+Natural-log F0 RMSE following ESPnet WORLD and spectral DTW
+
+| Field | Contract |
+|---|---|
+| Category | signal_fidelity / pitch and voicing |
+| Unit | ln_Hz_ratio |
+| Direction | lower_is_better |
+| Profile | espnet_v1 |
+| Inputs | Matching-content audio files; profile-specific alignment |
+| Backend | WORLD 0.3.5 |
+
+See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.

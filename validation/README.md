@@ -1,5 +1,17 @@
 # Validation evidence
 
+## v0.7 pitch and voicing
+
+The [pitch report](pitch-v0.7.json) checks five new interfaces against pinned upstream functions on twelve real reference/output pairs, plus controlled signals and failure cases. It separately records upstream parity, scientific properties and observed perturbations. It is not a benchmark of human-perceived quality. Existing model definitions and the historical v0.6 acceptance report remain unchanged.
+
+Reproduce using [the published script](../scripts/validate_pitch.py):
+
+```bash
+python scripts/validate_pitch.py --manifest /audio/manifest.json --download-upstream --output pitch-results.json
+```
+
+The manifest contains `records` with `key` and `paths.ref` / `paths.inf` waveform paths. Use `--upstream-dir` to reuse a local source cache; the pinned [source hashes](pitch-sources.json) are verified before execution. The parity harness executes original functions and requires Torch for the original Amphion count conversion. The metric adapters themselves do not require Torch. See [complete protocols](../docs/PITCH.md).
+
 ## v0.6 shared environment
 
 The [single-environment report](shared-environment-v0.6.json) records independent calls to every registry ID, including all model output heads and aliases. The environment is a dedicated copy of a Torch 2.8 baseline with a pinned [full package inventory](../requirements.txt). It retains CUDA 12.8 Torch but deliberately uses CPU ONNX Runtime 1.16.3. All-metric acceptance uses CPU; optional GPU and cross-host checks are separately identified in the report.

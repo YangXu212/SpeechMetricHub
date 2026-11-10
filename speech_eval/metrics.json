@@ -3646,5 +3646,206 @@
       "device": "cpu",
       "scope": "analytic fixtures, exhaustive threshold comparison or real-waveform energy checks, and invalid controls"
     }
+  },
+
+  {
+    "id": "vuv_f1",
+    "domains": [
+      "tts",
+      "vocoder",
+      "codec",
+      "voice_conversion",
+      "singing_synthesis"
+    ],
+    "description": "V/UV F1 on the original time axis (WORLD Harvest)",
+    "description_zh": "清浊音 F1（WORLD，原时间轴）",
+    "implementation": "SpeechMetricHub profile using WORLD Harvest",
+    "source": "https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder",
+    "adapter": "speech_eval.pitch:pitch_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyworld==0.3.5",
+      "praat-parselmouth==0.4.7",
+      "librosa==0.9.2",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4"
+    ],
+    "requirements": [
+      "equal-length mono aligned waveforms",
+      "native sample rate >=16000",
+      "sample_rate required for arrays"
+    ],
+    "direction": "higher_is_better",
+    "unit": "ratio",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "protocol_profile": "world_aligned_v1",
+    "validation": {
+      "state": "passed",
+      "report": "validation/pitch-v0.7.json",
+      "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
+    }
+  },
+  {
+    "id": "f0_rmse",
+    "domains": [
+      "tts",
+      "vocoder",
+      "codec",
+      "voice_conversion",
+      "singing_synthesis"
+    ],
+    "description": "F0 RMSE on jointly voiced aligned frames (WORLD Harvest)",
+    "description_zh": "基频 RMSE（WORLD，双方浊音帧）",
+    "implementation": "SpeechMetricHub profile using WORLD Harvest",
+    "source": "https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder",
+    "adapter": "speech_eval.pitch:pitch_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyworld==0.3.5",
+      "praat-parselmouth==0.4.7",
+      "librosa==0.9.2",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4"
+    ],
+    "requirements": [
+      "equal-length mono aligned waveforms",
+      "native sample rate >=16000",
+      "sample_rate required for arrays"
+    ],
+    "direction": "lower_is_better",
+    "unit": "Hz",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "aligned_waveform"
+    ],
+    "protocol_profile": "world_aligned_v1",
+    "validation": {
+      "state": "passed",
+      "report": "validation/pitch-v0.7.json",
+      "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
+    }
+  },
+  {
+    "id": "vuv_f1_amphion",
+    "domains": [
+      "tts",
+      "vocoder",
+      "codec",
+      "voice_conversion",
+      "singing_synthesis"
+    ],
+    "description": "V/UV F1 following the Amphion Parselmouth recipe",
+    "description_zh": "清浊音 F1（Amphion 兼容）",
+    "implementation": "Adapted Amphion recipe; Praat/Parselmouth",
+    "source": "https://github.com/open-mmlab/Amphion/tree/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0",
+    "adapter": "speech_eval.pitch:pitch_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyworld==0.3.5",
+      "praat-parselmouth==0.4.7",
+      "librosa==0.9.2",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4"
+    ],
+    "requirements": [
+      "matching-content reference and hypothesis audio files",
+      "explicit alignment profile",
+      "see docs/PITCH.md for guarded upstream edge cases"
+    ],
+    "direction": "higher_is_better",
+    "unit": "ratio",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "matching_content_waveform"
+    ],
+    "protocol_profile": "amphion_v1",
+    "validation": {
+      "state": "passed",
+      "report": "validation/pitch-v0.7.json",
+      "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
+    }
+  },
+  {
+    "id": "f0_rmse_amphion",
+    "domains": [
+      "tts",
+      "vocoder",
+      "codec",
+      "voice_conversion",
+      "singing_synthesis"
+    ],
+    "description": "F0 RMSE over all aligned frames following Amphion",
+    "description_zh": "基频 RMSE（Amphion 全帧口径）",
+    "implementation": "Adapted Amphion recipe; Praat/Parselmouth",
+    "source": "https://github.com/open-mmlab/Amphion/tree/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0",
+    "adapter": "speech_eval.pitch:pitch_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyworld==0.3.5",
+      "praat-parselmouth==0.4.7",
+      "librosa==0.9.2",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4"
+    ],
+    "requirements": [
+      "matching-content reference and hypothesis audio files",
+      "explicit alignment profile",
+      "see docs/PITCH.md for guarded upstream edge cases"
+    ],
+    "direction": "lower_is_better",
+    "unit": "Hz",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "matching_content_waveform"
+    ],
+    "protocol_profile": "amphion_v1",
+    "validation": {
+      "state": "passed",
+      "report": "validation/pitch-v0.7.json",
+      "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
+    }
+  },
+  {
+    "id": "log_f0_rmse_espnet",
+    "domains": [
+      "tts",
+      "vocoder",
+      "codec",
+      "voice_conversion",
+      "singing_synthesis"
+    ],
+    "description": "Natural-log F0 RMSE following ESPnet WORLD and spectral DTW",
+    "description_zh": "对数基频 RMSE（ESPnet 兼容）",
+    "implementation": "Adapted ESPnet recipe; WORLD, pysptk, fastdtw",
+    "source": "https://github.com/espnet/espnet/blob/c573dfed21a3d64ce491a6f53748cc6b596097e5/egs2/TEMPLATE/asr1/pyscripts/utils/evaluate_f0.py",
+    "adapter": "speech_eval.pitch:pitch_metric",
+    "status": "validated",
+    "dependencies": [
+      "pyworld==0.3.5",
+      "praat-parselmouth==0.4.7",
+      "librosa==0.9.2",
+      "pysptk==1.0.1",
+      "fastdtw==0.3.4"
+    ],
+    "requirements": [
+      "matching-content reference and hypothesis audio files",
+      "explicit alignment profile",
+      "see docs/PITCH.md for guarded upstream edge cases"
+    ],
+    "direction": "lower_is_better",
+    "unit": "ln_Hz_ratio",
+    "category": "signal_fidelity",
+    "reference_kinds": [
+      "matching_content_waveform"
+    ],
+    "protocol_profile": "espnet_v1",
+    "validation": {
+      "state": "passed",
+      "report": "validation/pitch-v0.7.json",
+      "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
+    }
   }
 ]

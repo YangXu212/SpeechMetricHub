@@ -31,3 +31,5 @@ SpeechMetricHub separates the question **what is measured?** from **what referen
 ## v0.5 AEC / verification and deployment locks
 
 See [AECMOS, ERLE, EER and minDCF profiles](AEC_VERIFICATION.md) and [locked worker deployment](DEPLOYMENT_LOCKS.md).
+
+- [Pitch and voicing: V/UV F1 and F0 RMSE](PITCH.md) — upstream recipes, strict reconstruction, scientific limits and usage.

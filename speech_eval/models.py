@@ -161,10 +161,31 @@ def evaluate(metrics, *, hypothesis, reference=None, configs=None, **inputs):
     from .registry import get_metric, run
 
     configs = configs or {}
+    metrics = list(metrics)
     cache, results = {}, {}
     for name in metrics:
         spec = get_metric(name)
-        if spec.get("adapter") in (
+        if spec.get("adapter") == "speech_eval.pitch:pitch_metric":
+            if "pitch" not in cache:
+                from .pitch import evaluate_pitch
+
+                pitch_names = [
+                    n
+                    for n in metrics
+                    if get_metric(n).get("adapter") == "speech_eval.pitch:pitch_metric"
+                ]
+                try:
+                    cache["pitch"] = evaluate_pitch(
+                        pitch_names, reference=reference, hypothesis=hypothesis, **inputs
+                    )
+                except ImportError:
+                    # Preserve registry dependency_unavailable results for partial installs.
+                    cache["pitch"] = {
+                        n: run(n, reference=reference, hypothesis=hypothesis, **inputs)
+                        for n in pitch_names
+                    }
+            results[name] = cache["pitch"][name]
+        elif spec.get("adapter") in (
             "speech_eval.models:model_metric",
             "speech_eval.aec:aecmos_metric",
         ):

@@ -1081,3 +1081,32 @@ Whole trial list, both classes required; never average per-utterance EER/minDCF.
 - [Upstream source](https://www.nist.gov/document/nistsre10evalplan-r6pdf); [exact profile and examples](AEC_VERIFICATION.md); [validation](../validation/aec-verification-v0.5.json).
 
 Whole trial list, both classes required; never average per-utterance EER/minDCF. Labels 1=target and 0=nontarget. Score direction is explicit. Ties share one operating point. Default costs 1/1; normalized=True. p_target is mandatory; minDCF is an oracle sweep, not deployment-threshold actual DCF.
+## `vuv_f1`
+
+清浊音 F1（WORLD，原时间轴）。单位：ratio；口径：world_aligned_v1。属于声学特征保真度的基频/清浊音子类。
+
+通过 `run("vuv_f1", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。
+
+## `f0_rmse`
+
+基频 RMSE（WORLD，双方浊音帧）。单位：Hz；口径：world_aligned_v1。属于声学特征保真度的基频/清浊音子类。
+
+通过 `run("f0_rmse", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。
+
+## `vuv_f1_amphion`
+
+清浊音 F1（Amphion 兼容）。单位：ratio；口径：amphion_v1。属于声学特征保真度的基频/清浊音子类。
+
+通过 `run("vuv_f1_amphion", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。
+
+## `f0_rmse_amphion`
+
+基频 RMSE（Amphion 全帧口径）。单位：Hz；口径：amphion_v1。属于声学特征保真度的基频/清浊音子类。
+
+通过 `run("f0_rmse_amphion", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。
+
+## `log_f0_rmse_espnet`
+
+对数基频 RMSE（ESPnet 兼容）。单位：ln_Hz_ratio；口径：espnet_v1。属于声学特征保真度的基频/清浊音子类。
+
+通过 `run("log_f0_rmse_espnet", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。

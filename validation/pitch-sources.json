@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "hash_normalization": "UTF-8 source text, CRLF converted to LF, trailing CR/LF replaced by one LF",
+  "sources": [
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "utils/f0.py",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/utils/f0.py",
+      "relative_path": "Amphion/utils/f0.py",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/utils/f0.py",
+      "sha256_lf": "0f6ba2d70c3427ae802e1f04cf4f30d13142fa9032e930800e805ea6b43efa1d"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "utils/util.py",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/utils/util.py",
+      "relative_path": "Amphion/utils/util.py",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/utils/util.py",
+      "sha256_lf": "c76d7c78c86740ad6e8a06b4a97c8bb38e4686f4e0458b69a1429a5a2e940bb5"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "evaluation/metrics/f0/f0_rmse.py",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0/f0_rmse.py",
+      "relative_path": "Amphion/evaluation/metrics/f0/f0_rmse.py",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0/f0_rmse.py",
+      "sha256_lf": "7dc23cf05b62b92b5ce64aed6e36280dd30fc721ff6aac61ef4e2979d633b5bd"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "evaluation/metrics/f0/v_uv_f1.py",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0/v_uv_f1.py",
+      "relative_path": "Amphion/evaluation/metrics/f0/v_uv_f1.py",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/evaluation/metrics/f0/v_uv_f1.py",
+      "sha256_lf": "265046fa4df7d521aeba15003df149dd4f11f011fcc963abee930f461fd75495"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "LICENSE",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/LICENSE",
+      "relative_path": "Amphion/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/LICENSE",
+      "sha256_lf": "3086a4ff95a809b61b74db96318232f4fa8e9fcf0f222a58f3727d7315edeb9a"
+    },
+    {
+      "repository": "espnet/espnet",
+      "commit": "c573dfed21a3d64ce491a6f53748cc6b596097e5",
+      "path": "egs2/TEMPLATE/asr1/pyscripts/utils/evaluate_f0.py",
+      "url": "https://github.com/espnet/espnet/blob/c573dfed21a3d64ce491a6f53748cc6b596097e5/egs2/TEMPLATE/asr1/pyscripts/utils/evaluate_f0.py",
+      "relative_path": "ESPnet/egs2/TEMPLATE/asr1/pyscripts/utils/evaluate_f0.py",
+      "raw_url": "https://raw.githubusercontent.com/espnet/espnet/c573dfed21a3d64ce491a6f53748cc6b596097e5/egs2/TEMPLATE/asr1/pyscripts/utils/evaluate_f0.py",
+      "sha256_lf": "9699d82fd74af8dfa9f0e89e7b54381509ded1738764a4efae4a2fd569a067a9"
+    },
+    {
+      "repository": "espnet/espnet",
+      "commit": "c573dfed21a3d64ce491a6f53748cc6b596097e5",
+      "path": "LICENSE",
+      "url": "https://github.com/espnet/espnet/blob/c573dfed21a3d64ce491a6f53748cc6b596097e5/LICENSE",
+      "relative_path": "ESPnet/LICENSE",
+      "raw_url": "https://raw.githubusercontent.com/espnet/espnet/c573dfed21a3d64ce491a6f53748cc6b596097e5/LICENSE",
+      "sha256_lf": "4696c3c9551da6fef1368be1e4ed2c80cf13e55448c6dcf2aba9462f5ff29ef5"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "egs/metrics/run.sh",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/egs/metrics/run.sh",
+      "relative_path": "Amphion/egs/metrics/run.sh",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/egs/metrics/run.sh",
+      "sha256_lf": "40cffb54eb03b84322437635a727f2f03a799217bd7293fb4d045a5752a5928a"
+    },
+    {
+      "repository": "open-mmlab/Amphion",
+      "commit": "26f6883110181f1dbfe95c70a7c7dbaf4de5f42a",
+      "path": "bins/calc_metrics.py",
+      "url": "https://github.com/open-mmlab/Amphion/blob/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/bins/calc_metrics.py",
+      "relative_path": "Amphion/bins/calc_metrics.py",
+      "raw_url": "https://raw.githubusercontent.com/open-mmlab/Amphion/26f6883110181f1dbfe95c70a7c7dbaf4de5f42a/bins/calc_metrics.py",
+      "sha256_lf": "c21460510fce255c3d1f34d43ea6e774da2a0b9e305dda6f0cc20533662530a7"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ These are candidates, not currently advertised callable interfaces. A new integr
 |---|---|---|
 | Perceptual quality | POLQA/P.863, UTMOSv2, additional SHEET models, NISQA MOS-only/TTS, personalized DNSMOS | Licensed implementations, checkpoint identity, complete output variants |
 | Intelligibility | HASPI/HASQI, SIIB | Hearing model parameters, alignment and implementation version |
-| Acoustic fidelity | WORLD/other MCD profiles, log-F0 RMSE, voiced/unvoiced error, FAD | Feature extraction, DTW, population statistics and aggregation |
+| Acoustic fidelity | Additional MCD/pitch extraction profiles, FAD | Feature extraction, alignment, population statistics and aggregation; [pitch/voicing profiles](PITCH.md) shipped in v0.7 |
 | Content | SpeechBLEU, SpeechTokenDistance, phone-token PER | Unit model, codebook, tokenization and distance definitions |
 | Echo/noise | SRMR and additional echo diagnostics | Signal definitions, room conditions and validity |
 | Recognition/speakers | Official corpus profiles, word alignment, actual DCF and calibration | Official normalization, annotation validity, trial lists, priors and thresholds |

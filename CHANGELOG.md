@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0 — 2026-11-10
+
+- Add V/UV F1 and F0 RMSE with explicit WORLD reconstruction profiles, Amphion raw-Hz/voicing profiles and ESPnet log-F0 RMSE (five IDs).
+- Share pitch extraction within multi-metric calls; pool confusion counts and squared errors for the reconstruction profiles. Keep upstream RMSE utterance aggregation explicit.
+- Record effective parameters, versions, input hashes, voicing counts and scored-frame coverage. Undefined voicing support returns null rather than a fabricated perfect score.
+- Pin source revisions and attribute adapted MIT/Apache recipes. Add Praat/Parselmouth 0.4.7 as a CPU dependency; no model download is needed.
+- Add direct upstream parity checks on real audio, controlled pitch/voicing tests, and detailed [scientific protocol documentation](docs/PITCH.md).
+- Preserve existing metric definitions. The registry now has 94 IDs / 89 canonical variants; prior 89-interface runtime evidence remains separately versioned.
+
 ## 0.6.0 — 2026-11-08
 
 - Add a pinned Linux/Python 3.10 full environment derived from an independent Torch 2.8 clone, with all 89 registry IDs exercised in one interpreter.

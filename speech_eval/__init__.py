@@ -1,6 +1,6 @@
 """Optional-dependency speech scorers; importing this package loads no models."""
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
 
 from .registry import list_metrics, register, run
 from .models import evaluate

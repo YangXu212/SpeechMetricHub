@@ -13,8 +13,8 @@
 
 Use it for transcription, diarization, speech quality, intelligibility, signal fidelity and similarity research. Select metrics by **what they measure**, then filter by reference conditions and task tags.
 
-> **84 canonical metric variants · 11 measurement dimensions · 23 model families.**
-> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations of upstream methods, not 84 newly proposed algorithms.
+> **89 canonical metric variants · 11 measurement dimensions · 23 model families.**
+> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations and explicit evaluation profiles, not 89 newly proposed algorithms.
 
 ## Why use it?
 
@@ -24,7 +24,11 @@ Use it for transcription, diarization, speech quality, intelligibility, signal f
 - **Reuse upstream implementations.** MeetEval, pyannote.metrics, fast-bss-eval and the original model projects provide the scoring algorithms.
 - **Inspect the evidence.** The repository includes a per-interface validation matrix, model/source fingerprints and repeatable checks. Real model execution is distinguished from ordinary CI.
 
-## New in v0.6
+## New in v0.7
+
+**V/UV F1 and F0 RMSE** now have five explicit interfaces: synchronized WORLD reconstruction, Amphion raw-Hz/voicing recipes and ESPnet log-F0 RMSE. Same-family calls share feature extraction; results include voicing counts and coverage. See [protocols, caveats and usage](docs/PITCH.md) and [real-audio upstream validation](validation/pitch-v0.7.json). Install with `pip install ".[pitch]"`. Existing metrics retain their definitions and earlier validation evidence.
+
+## Added in v0.6
 
 A pinned [full environment](requirements.txt), a [shared cluster deployment guide](docs/SHARED_DEPLOYMENT.md), and `MetricHub` provide one verified entry point for the complete registry. Every ID is called independently in the [single-environment acceptance report](validation/shared-environment-v0.6.json). The profile retains Torch 2.8/CUDA 12.8 and uses CPU ONNX Runtime 1.16.3; model artifacts are provisioned separately. Existing metric definitions are unchanged.
 

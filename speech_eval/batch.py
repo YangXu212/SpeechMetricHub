@@ -60,6 +60,22 @@ def evaluate_batch(metric, records, **shared):
         counts = {k: sum(r[k] for r in good) for k in ["N", "S", "D", "I", "errors"]}
         value = 100 * counts["errors"] / counts["N"] if counts["N"] else None
         method = "micro_errors_over_reference_units"
+    elif metric in ("vuv_f1", "vuv_f1_amphion", "f0_rmse"):
+        # Undefined utterances stay visible and make the full batch incomplete.
+        # Pool sufficient statistics; never average per-utterance F1/RMSE.
+        keys = ("TP", "FP", "FN", "TN", "squared_error_sum", "scored_frames", "total_frames")
+        counts = {k: sum(r["details"][k] for r in good) for k in keys}
+        if metric.startswith("vuv_f1"):
+            denominator = 2 * counts["TP"] + counts["FP"] + counts["FN"]
+            value = 2 * counts["TP"] / denominator if denominator else None
+            method = "micro_confusion_counts"
+        else:
+            value = (
+                math.sqrt(counts["squared_error_sum"] / counts["scored_frames"])
+                if counts["scored_frames"]
+                else None
+            )
+            method = "micro_squared_error_over_frames"
     elif metric == "erle":
         counts = {
             k: sum(r["details"][k] for r in good)
