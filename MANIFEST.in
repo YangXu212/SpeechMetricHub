@@ -6,6 +6,7 @@ recursive-include docs *.md
 recursive-include protocols *.json
 recursive-include examples *.json
 recursive-include examples *.md
+recursive-include examples *.py
 recursive-include validation *.md *.json
 recursive-include scripts *.py
 recursive-include tests *.py
