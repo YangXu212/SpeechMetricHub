@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0 — 2026-11-16
+
+- Add native Cohere Transcribe ground-truth WER/CER and clean-reference dWER/dCER, with explicit language, precision, normalization and chunking protocols.
+- Keep silence/noise model outputs visible and preserve empty-reference insertion counts. Reject incomplete generations rather than scoring partial transcripts.
+- Add verified alternate-worker deployment locks, including actual interpreter/environment validation and separate tokenizer fingerprints. Keep the primary dependency profile intact.
+- Document public model sources, limitations, provisioning, a separate Cohere worker overlay, and reproducible native/API parity tests.
+- Preserve existing Whisper and text-scoring protocols. The registry contains 98 IDs / 93 canonical variants.
+
 ## 0.7.0 — 2026-11-10
 
 - Add V/UV F1 and F0 RMSE with explicit WORLD reconstruction profiles, Amphion raw-Hz/voicing profiles and ESPnet log-F0 RMSE (five IDs).

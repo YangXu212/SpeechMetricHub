@@ -3847,5 +3847,174 @@
       "report": "validation/pitch-v0.7.json",
       "scope": "CPU upstream parity and scientific controls; not a quality benchmark"
     }
+  },
+
+  {
+    "id": "cohere_wer",
+    "family": "cohere_wer",
+    "output": "wer",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Cohere Transcribe WER against ground-truth text",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "native Transformers 5.4.0 Cohere ASR + MeetEval scorer",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "torch",
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Cohere model",
+      "explicit language",
+      "isolated Cohere worker environment",
+      "hypothesis mono audio",
+      "reference transcript or clean audio as specified"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-v0.8.json",
+      "scope": "native ASR integration, not model accuracy or hallucination-free certification"
+    }
+  },
+  {
+    "id": "cohere_cer",
+    "family": "cohere_wer",
+    "output": "cer",
+    "category": "recognition",
+    "reference_kinds": [
+      "transcript"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Cohere Transcribe CER against ground-truth text",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "native Transformers 5.4.0 Cohere ASR + MeetEval scorer",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "torch",
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Cohere model",
+      "explicit language",
+      "isolated Cohere worker environment",
+      "hypothesis mono audio",
+      "reference transcript or clean audio as specified"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-v0.8.json",
+      "scope": "native ASR integration, not model accuracy or hallucination-free certification"
+    }
+  },
+  {
+    "id": "cohere_dwer",
+    "family": "cohere_dwer",
+    "output": "wer",
+    "category": "recognition",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Cohere Transcribe DWER against ASR of clean reference (not ground-truth error rate)",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "native Transformers 5.4.0 Cohere ASR + MeetEval scorer",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "torch",
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Cohere model",
+      "explicit language",
+      "isolated Cohere worker environment",
+      "hypothesis mono audio",
+      "reference transcript or clean audio as specified"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-v0.8.json",
+      "scope": "native ASR integration, not model accuracy or hallucination-free certification"
+    }
+  },
+  {
+    "id": "cohere_dcer",
+    "family": "cohere_dwer",
+    "output": "cer",
+    "category": "recognition",
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "direction": "lower_is_better",
+    "unit": "percent",
+    "description": "Cohere Transcribe DCER against ASR of clean reference (not ground-truth error rate)",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "native Transformers 5.4.0 Cohere ASR + MeetEval scorer",
+    "adapter": "speech_eval.models:model_metric",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "torch",
+      "meeteval==0.4.3",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Cohere model",
+      "explicit language",
+      "isolated Cohere worker environment",
+      "hypothesis mono audio",
+      "reference transcript or clean audio as specified"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-v0.8.json",
+      "scope": "native ASR integration, not model accuracy or hallucination-free certification"
+    }
   }
 ]

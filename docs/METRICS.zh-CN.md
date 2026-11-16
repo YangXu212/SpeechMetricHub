@@ -1110,3 +1110,18 @@ Whole trial list, both classes required; never average per-utterance EER/minDCF.
 对数基频 RMSE（ESPnet 兼容）。单位：ln_Hz_ratio；口径：espnet_v1。属于声学特征保真度的基频/清浊音子类。
 
 通过 `run("log_f0_rmse_espnet", reference=..., hypothesis=...)` 调用。请阅读[精确协议、输入要求、聚合和局限](PITCH.md)，以及[上游对照与科学性验证](../validation/pitch-v0.7.json)。不能跨口径直接比较；无有效浊音支持时返回 null。
+## `cohere_wer`
+
+Cohere Transcribe WER，属于语音识别一致性，单位为百分比，越低越好。参考为与音频范围一致的正确文本。使用独立 worker、原生 Transformers 和 MeetEval。详见[精确口径](COHERE_ASR.md)及[实测证据](../validation/cohere-v0.8.json)。
+
+## `cohere_cer`
+
+Cohere Transcribe CER，属于语音识别一致性，单位为百分比，越低越好。参考为与音频范围一致的正确文本。使用独立 worker、原生 Transformers 和 MeetEval。详见[精确口径](COHERE_ASR.md)及[实测证据](../validation/cohere-v0.8.json)。
+
+## `cohere_dwer`
+
+Cohere Transcribe DWER，属于语音识别一致性，单位为百分比，越低越好。参考为干净音频的自动转写，不是人工真值。使用独立 worker、原生 Transformers 和 MeetEval。详见[精确口径](COHERE_ASR.md)及[实测证据](../validation/cohere-v0.8.json)。
+
+## `cohere_dcer`
+
+Cohere Transcribe DCER，属于语音识别一致性，单位为百分比，越低越好。参考为干净音频的自动转写，不是人工真值。使用独立 worker、原生 Transformers 和 MeetEval。详见[精确口径](COHERE_ASR.md)及[实测证据](../validation/cohere-v0.8.json)。

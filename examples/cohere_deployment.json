@@ -1,0 +1,28 @@
+{
+  "cohere_wer": {
+    "model_dir": "/opt/models/cohere-transcribe-03-2026",
+    "tokenizer_file": "/opt/models/cohere-transcribe-03-2026/tokenizer.model",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "en",
+    "punctuation": true,
+    "beam_size": 1,
+    "max_new_tokens": 256,
+    "chunk_batch_size": 1,
+    "threads": 2,
+    "timeout": 600
+  },
+  "cohere_dwer": {
+    "model_dir": "/opt/models/cohere-transcribe-03-2026",
+    "tokenizer_file": "/opt/models/cohere-transcribe-03-2026/tokenizer.model",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "en",
+    "punctuation": true,
+    "beam_size": 1,
+    "max_new_tokens": 256,
+    "chunk_batch_size": 1,
+    "threads": 2,
+    "timeout": 600
+  }
+}

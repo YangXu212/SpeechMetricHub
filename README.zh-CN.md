@@ -1,6 +1,6 @@
 # SpeechMetricHub · 语音指标集成库
 
-公开版本 **0.7.0**。将标准计分器和预训练评测模型整合为同一套 Python / CLI 接口，保留各自的参考条件、预处理、分数方向和模型身份。重点支持 MT-ASR / TS-ASR，也可用于质量、可懂度、分离和内容保持研究。
+公开版本 **0.8.0**。将标准计分器和预训练评测模型整合为同一套 Python / CLI 接口，保留各自的参考条件、预处理、分数方向和模型身份。重点支持 MT-ASR / TS-ASR，也可用于质量、可懂度、分离和内容保持研究。
 
 **使用同一个库，不等于所有论文使用同一评测协议。** 本项目固定并公开协议，不宣称存在唯一官方清洗或容差。工作台已有 `speech-eval-mt-v1.0` 协议保持不变。
 
@@ -18,7 +18,7 @@ ERLE 只计算明确的远端单讲区间，批量按能量汇总。EER/minDCF �
 
 ## v0.4 新增与口径修正
 
-当前提供 **89 个独立指标变体、5 个兼容别名、11 个测量维度、23 个模型家族**。v0.4 新增 11 个接口：mHuBERT-147 多语言 SBS 三项输出、音素 token 版 LPS、WavLM 话者相似度、PLCMOS 的 final/validation 两个模型，以及四种明确命名的 LSD/MCD 口径。
+当前提供 **93 个独立指标变体、5 个兼容别名、11 个测量维度、25 个模型家族**。v0.4 新增 11 个接口：mHuBERT-147 多语言 SBS 三项输出、音素 token 版 LPS、WavLM 话者相似度、PLCMOS 的 final/validation 两个模型，以及四种明确命名的 LSD/MCD 口径。
 
 先完成[调研与接入计划](docs/EXPANSION_PLAN.md)，再实现并验证。详细[口径说明](docs/EXPANSION_PROFILES.md)和[本轮验证结果](validation/expansion-v0.4.json)随版本保留。旧的 IPA 字符相似度不替换为音素 token 相似度；旧实验数值仍可复现。
 
@@ -128,3 +128,7 @@ DER/JER 必须提供 UEM 与确认的语音活动标注，转写句段不能冒�
 ## v0.7：基频与清浊音评测
 
 新增 V/UV F1、F0 RMSE 的五个明确口径：WORLD 原时间轴重建评测、Amphion 原始 Hz/清浊音兼容口径、ESPnet log-F0 RMSE。提供清浊音计数、有效帧覆盖率和上游来源，明确区分统计口径。详见 [使用与科学性说明](docs/PITCH.md) 和 [实际音频对照证据](validation/pitch-v0.7.json)。原 89 个接口的 v0.6 验证报告保留，新增接口验证单独记录。
+
+## v0.8：Cohere Transcribe 识别评测
+
+新增 cohere_wer、cohere_cer、cohere_dwer、cohere_dcer 四个接口。共享入口通过独立且经过部署锁验证的 worker 调用 Transformers 5.4 原生模型，保留现有 Whisper 口径。提供长音频分块、截断检测、静音插入词计数和完整参数记录。详见 [协议及部署说明](docs/COHERE_ASR.md) 与 [真实模型验证](validation/cohere-v0.8.json)。

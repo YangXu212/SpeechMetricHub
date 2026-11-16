@@ -1,5 +1,11 @@
 # Upstream implementations and artifacts
 
+## Cohere Transcribe (v0.8)
+
+The adapter calls [native Transformers 5.4.0 Cohere ASR](https://github.com/huggingface/transformers/tree/v5.4.0/src/transformers/models/cohere_asr), Apache-2.0. No model-repository custom Python code is bundled or executed. The separately provisioned [CohereLabs/cohere-transcribe-03-2026](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026) weights and processor files are Apache-2.0, subject to the official access process. Input audio stays local.
+
+MeetEval and kaldialign provide the word/character edit scorer. The adapter's explicit normalization does not claim to reproduce Cohere leaderboard scoring. Exact runtime versions, model hashes and direct native/API comparisons are recorded in [validation/cohere-v0.8.json](validation/cohere-v0.8.json). See [protocol and limitations](docs/COHERE_ASR.md).
+
 This library does not create a universal benchmark standard. It integrates existing implementations and records the exact local evaluation protocol. Dataset/challenge rules still determine normalization, scoring regions, reference quality and aggregation.
 
 | Implementation | Role | Upstream |

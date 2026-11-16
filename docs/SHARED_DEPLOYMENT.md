@@ -160,3 +160,7 @@ Only the hosts and devices recorded in the evidence are claimed as tested.
 ## v0.7 pitch extension
 
 The v0.7 environment adds praat-parselmouth==0.4.7; WORLD was already present. The five new [pitch interfaces](PITCH.md) are CPU-only and need no weights. Their [separate validation report](../validation/pitch-v0.7.json) complements the unchanged historical v0.6 acceptance evidence. Existing deployment locks must be regenerated after the package/dependency update; do not reuse a v0.6 lock with changed code.
+
+## v0.8 Cohere worker routing
+
+Cohere Transcribe uses a separate worker environment with [requirements-cohere.txt](../requirements-cohere.txt), while the primary environment keeps Transformers 4.48.2. One parent deployment can route its two Cohere families through an explicitly verified child lock. See [provisioning and protocol](COHERE_ASR.md) and [the v0.8 validation report](../validation/cohere-v0.8.json). Shared calls default to CPU/float32; GPU use requires an explicitly selected available card and a matching worker deployment. Historical metric definitions remain separate from the new recognizer profile.

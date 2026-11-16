@@ -1,5 +1,14 @@
 # Validation evidence
 
+## v0.8 Cohere recognition
+
+The [Cohere report](cohere-v0.8.json) records direct native Transformers versus
+public API transcript/count comparisons, silence/noise observations, long-audio
+reassembly, truncation rejection and invalid inputs. Reproduce with
+`scripts/validate_cohere.py` and a separately provisioned worker; see
+[the protocol](../docs/COHERE_ASR.md). This establishes integration correctness
+under tested configurations, not hallucination immunity or benchmark ranking.
+
 ## v0.7 pitch and voicing
 
 The [pitch report](pitch-v0.7.json) checks five new interfaces against pinned upstream functions on twelve real reference/output pairs, plus controlled signals and failure cases. It separately records upstream parity, scientific properties and observed perturbations. It is not a benchmark of human-perceived quality. Existing model definitions and the historical v0.6 acceptance report remain unchanged.

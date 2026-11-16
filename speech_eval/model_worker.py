@@ -71,6 +71,10 @@ def read_audio(path, *, minimum=0.1):
 
 
 def score(request):
+    if request["family"] in ("cohere_wer", "cohere_dwer"):
+        from .cohere import score as cohere_score
+
+        return cohere_score(request)
     if request["family"] in ("aecmos_16k", "aecmos_16k_scenarioless", "aecmos_48k"):
         from .aec import score as aec_score
 

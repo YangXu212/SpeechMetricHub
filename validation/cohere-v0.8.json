@@ -1,0 +1,4832 @@
+{
+  "release": "0.8.0",
+  "date": "2026-11-16",
+  "regression_tests_passed": 87,
+  "scope": "Native/API integration; no hallucination-reduction or benchmark ranking claim",
+  "schema_version": 1,
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "python": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.4.0",
+    "huggingface-hub": "1.33.0",
+    "tokenizers": "0.22.2",
+    "numpy": "1.23.5",
+    "librosa": "0.9.2",
+    "soundfile": "0.13.0",
+    "soxr": "0.5.0.post1",
+    "meeteval": "0.4.3",
+    "kaldialign": "0.12.0"
+  },
+  "config": {
+    "model_dir": "<model_root>",
+    "python": "<validation_root>/src/../venv/bin/python",
+    "device": "cuda:3",
+    "dtype": "bfloat16",
+    "language": "en",
+    "punctuation": true,
+    "beam_size": 1,
+    "max_new_tokens": 256,
+    "chunk_batch_size": 1,
+    "max_audio_seconds": 600,
+    "threads": 2,
+    "timeout": 1200
+  },
+  "manifest_sha256": "85a9e972d97267a42758b82f1e8b62ef8b19242c0e9db4e804437ba00a9d9e27",
+  "sources": [
+    "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "https://github.com/huggingface/transformers/tree/v5.4.0/src/transformers/models/cohere_asr"
+  ],
+  "protocol": "Matched local weights, float32/soxr HQ audio, native processor and generate/decode. Shared declared normalizer; independent Levenshtein N/errors oracle.",
+  "cases": [
+    {
+      "key": "1995-1837-0021_4970-29095-0026_1995-1837-0020",
+      "reference": "<input_root>/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+      "hypothesis": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+      "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+      "kind": "real_pair",
+      "input_sha256": {
+        "reference": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8",
+        "hypothesis": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+      }
+    },
+    {
+      "key": "260-123286-0008_4992-23283-0000_260-123288-0013",
+      "reference": "<input_root>/inputs/ref/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+      "hypothesis": "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+      "reference_text": "THEREFORE DON'T TALK TO ME ABOUT VIEWS AND PROSPECTS",
+      "kind": "real_pair",
+      "input_sha256": {
+        "reference": "7a9e737504807182ca294ed63514c6173833115f2e5dea1f2e6c203cfcf132b7",
+        "hypothesis": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+      }
+    },
+    {
+      "key": "5683-32879-0006_6829-68771-0035_6829-68771-0014",
+      "reference": "<input_root>/inputs/ref/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+      "hypothesis": "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+      "reference_text": "WILL YOU LEAVE ME ALONE IN MY OWN ROOM OR MUST I GO AWAY TO ESCAPE YOU",
+      "kind": "real_pair",
+      "input_sha256": {
+        "reference": "61a4e53b1223b1d9e1570bff7509b7040b14d2023c76d2405ebd8dd9b9c7939a",
+        "hypothesis": "019fff4ce6cf9008fe0775877f344e23396bbd7b2bf9f69e718df2bbe6d17edd"
+      }
+    },
+    {
+      "key": "silence",
+      "reference": "../cohere-controls/silence.wav",
+      "hypothesis": "../cohere-controls/silence.wav",
+      "reference_text": "",
+      "kind": "non_speech",
+      "input_sha256": {
+        "reference": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a",
+        "hypothesis": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+      }
+    },
+    {
+      "key": "noise",
+      "reference": "../cohere-controls/noise.wav",
+      "hypothesis": "../cohere-controls/noise.wav",
+      "reference_text": "",
+      "kind": "non_speech",
+      "input_sha256": {
+        "reference": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524",
+        "hypothesis": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+      }
+    },
+    {
+      "key": "long_repeated_speech",
+      "reference": "../cohere-controls/long_repeated_speech.wav",
+      "hypothesis": "../cohere-controls/long_repeated_speech.wav",
+      "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+      "kind": "long_form",
+      "input_sha256": {
+        "reference": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8",
+        "hypothesis": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+      }
+    }
+  ],
+  "native": {
+    "<input_root>/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav": {
+      "text": " The hope and dream of harvest was upon the land.",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.09,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 1.0016362266615033
+    },
+    "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav": {
+      "text": " The hope and dream of all of us was upon the land.",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          699,
+          554,
+          839,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.09,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.15288255363702774
+    },
+    "<input_root>/inputs/ref/260-123286-0008_4992-23283-0000_260-123288-0013.wav": {
+      "text": " Therefore don't talk to me about views and prospects.",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          1537,
+          1263,
+          792,
+          13789,
+          13767,
+          1288,
+          546,
+          659,
+          817,
+          9349,
+          556,
+          4720,
+          1325,
+          13771,
+          13785,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.735,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.17811406310647726
+    },
+    "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav": {
+      "text": " Therefore don't talk to me about views and prospects.",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          1537,
+          1263,
+          792,
+          13789,
+          13767,
+          1288,
+          546,
+          659,
+          817,
+          9349,
+          556,
+          4720,
+          1325,
+          13771,
+          13785,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.735,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.1670734379440546
+    },
+    "<input_root>/inputs/ref/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav": {
+      "text": " Will you leave me alone in my own room or must I go away to escape you?",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          5725,
+          573,
+          3538,
+          659,
+          4927,
+          548,
+          784,
+          1567,
+          2807,
+          692,
+          1915,
+          563,
+          663,
+          2102,
+          546,
+          10673,
+          573,
+          13819,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 4.39,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.19482719898223877
+    },
+    "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav": {
+      "text": " Will you leave me alone in my own room, or must I go away to escape you?\"",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          5725,
+          573,
+          3538,
+          659,
+          4927,
+          548,
+          784,
+          1567,
+          2807,
+          13784,
+          692,
+          1915,
+          563,
+          663,
+          2102,
+          546,
+          10673,
+          573,
+          9350,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 4.39,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.19316769484430552
+    },
+    "../cohere-controls/silence.wav": {
+      "text": " ",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          13764,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.0,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.09403444454073906
+    },
+    "../cohere-controls/noise.wav": {
+      "text": " Thank you.",
+      "complete": true,
+      "eos_per_chunk": [
+        true
+      ],
+      "generated_tokens": [
+        [
+          1691,
+          573,
+          13785,
+          3
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          null
+        ]
+      ],
+      "chunks": 1,
+      "seconds": 3.0,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 0.10281422082334757
+    },
+    "../cohere-controls/long_repeated_speech.wav": {
+      "text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+      "complete": true,
+      "eos_per_chunk": [
+        true,
+        true
+      ],
+      "generated_tokens": [
+        [
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          3
+        ],
+        [
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          749,
+          2558,
+          556,
+          6030,
+          554,
+          3065,
+          5481,
+          646,
+          2046,
+          527,
+          2198,
+          13785,
+          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "decoder_prompt_tokens": 10,
+      "audio_chunk_index": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "chunks": 2,
+      "seconds": 40.17,
+      "upstream_empty_reassembly_error": false,
+      "elapsed_seconds": 1.1547955824062228
+    }
+  },
+  "checks": [
+    {
+      "key": "1995-1837-0021_4970-29095-0026_1995-1837-0020",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 10,
+        "errors": 3,
+        "value": 30.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of all of us was upon the land.",
+          "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              14
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 10,
+            "S": 1,
+            "D": 0,
+            "I": 2,
+            "errors": 3,
+            "value": 30.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 38,
+            "S": 5,
+            "D": 1,
+            "I": 1,
+            "errors": 7,
+            "value": 18.42105263157895,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 30.0,
+          "cer": 18.42105263157895
+        },
+        "elapsed_seconds": 15.636435012333095,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": 30.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 10,
+        "S": 1,
+        "D": 0,
+        "I": 2,
+        "errors": 3
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.164182127453387
+    },
+    {
+      "key": "1995-1837-0021_4970-29095-0026_1995-1837-0020",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 38,
+        "errors": 7,
+        "value": 18.42105263157895
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of all of us was upon the land.",
+          "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              14
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 10,
+            "S": 1,
+            "D": 0,
+            "I": 2,
+            "errors": 3,
+            "value": 30.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 38,
+            "S": 5,
+            "D": 1,
+            "I": 1,
+            "errors": 7,
+            "value": 18.42105263157895,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 30.0,
+          "cer": 18.42105263157895
+        },
+        "elapsed_seconds": 15.636435012333095,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": 18.42105263157895,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 38,
+        "S": 5,
+        "D": 1,
+        "I": 1,
+        "errors": 7
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.164182127453387
+    },
+    {
+      "key": "1995-1837-0021_4970-29095-0026_1995-1837-0020",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 10,
+        "errors": 3,
+        "value": 30.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of all of us was upon the land.",
+          "reference_text": " The hope and dream of harvest was upon the land.",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              14
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              13
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 10,
+            "S": 1,
+            "D": 0,
+            "I": 2,
+            "errors": 3,
+            "value": 30.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 38,
+            "S": 5,
+            "D": 1,
+            "I": 1,
+            "errors": 7,
+            "value": 18.42105263157895,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 30.0,
+          "cer": 18.42105263157895
+        },
+        "elapsed_seconds": 19.537718593142927,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": 30.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 10,
+        "S": 1,
+        "D": 0,
+        "I": 2,
+        "errors": 3
+      },
+      "passed": true,
+      "family_call_wall_seconds": 21.05574040673673
+    },
+    {
+      "key": "1995-1837-0021_4970-29095-0026_1995-1837-0020",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 38,
+        "errors": 7,
+        "value": 18.42105263157895
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+            "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of all of us was upon the land.",
+          "reference_text": " The hope and dream of harvest was upon the land.",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.09,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              14
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              13
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 10,
+            "S": 1,
+            "D": 0,
+            "I": 2,
+            "errors": 3,
+            "value": 30.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 38,
+            "S": 5,
+            "D": 1,
+            "I": 1,
+            "errors": 7,
+            "value": 18.42105263157895,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 30.0,
+          "cer": 18.42105263157895
+        },
+        "elapsed_seconds": 19.537718593142927,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": 18.42105263157895,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 38,
+        "S": 5,
+        "D": 1,
+        "I": 1,
+        "errors": 7
+      },
+      "passed": true,
+      "family_call_wall_seconds": 21.05574040673673
+    },
+    {
+      "key": "260-123286-0008_4992-23283-0000_260-123288-0013",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 9,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Therefore don't talk to me about views and prospects.",
+          "reference_text": "THEREFORE DON'T TALK TO ME ABOUT VIEWS AND PROSPECTS",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 9,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 43,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 14.862252091988921,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 9,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.226442961022258
+    },
+    {
+      "key": "260-123286-0008_4992-23283-0000_260-123288-0013",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 43,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Therefore don't talk to me about views and prospects.",
+          "reference_text": "THEREFORE DON'T TALK TO ME ABOUT VIEWS AND PROSPECTS",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 9,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 43,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 14.862252091988921,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 43,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.226442961022258
+    },
+    {
+      "key": "260-123286-0008_4992-23283-0000_260-123288-0013",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 9,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "7a9e737504807182ca294ed63514c6173833115f2e5dea1f2e6c203cfcf132b7"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Therefore don't talk to me about views and prospects.",
+          "reference_text": " Therefore don't talk to me about views and prospects.",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 9,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 43,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.725465227849782,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 9,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.105218149721622
+    },
+    {
+      "key": "260-123286-0008_4992-23283-0000_260-123288-0013",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 43,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+            "sha256": "7a9e737504807182ca294ed63514c6173833115f2e5dea1f2e6c203cfcf132b7"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Therefore don't talk to me about views and prospects.",
+          "reference_text": " Therefore don't talk to me about views and prospects.",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 3.735,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              16
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 9,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 43,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.725465227849782,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 43,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.105218149721622
+    },
+    {
+      "key": "5683-32879-0006_6829-68771-0035_6829-68771-0014",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 17,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "019fff4ce6cf9008fe0775877f344e23396bbd7b2bf9f69e718df2bbe6d17edd"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Will you leave me alone in my own room, or must I go away to escape you?\"",
+          "reference_text": "WILL YOU LEAVE ME ALONE IN MY OWN ROOM OR MUST I GO AWAY TO ESCAPE YOU",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              20
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 17,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 54,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.057716820389032,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 17,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.31459230929613
+    },
+    {
+      "key": "5683-32879-0006_6829-68771-0035_6829-68771-0014",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 54,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "019fff4ce6cf9008fe0775877f344e23396bbd7b2bf9f69e718df2bbe6d17edd"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Will you leave me alone in my own room, or must I go away to escape you?\"",
+          "reference_text": "WILL YOU LEAVE ME ALONE IN MY OWN ROOM OR MUST I GO AWAY TO ESCAPE YOU",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              20
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 17,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 54,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.057716820389032,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 54,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.31459230929613
+    },
+    {
+      "key": "5683-32879-0006_6829-68771-0035_6829-68771-0014",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 17,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "019fff4ce6cf9008fe0775877f344e23396bbd7b2bf9f69e718df2bbe6d17edd"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "61a4e53b1223b1d9e1570bff7509b7040b14d2023c76d2405ebd8dd9b9c7939a"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Will you leave me alone in my own room, or must I go away to escape you?\"",
+          "reference_text": " Will you leave me alone in my own room or must I go away to escape you?",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              20
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              19
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 17,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 54,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.473775482736528,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 17,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.76087558735162
+    },
+    {
+      "key": "5683-32879-0006_6829-68771-0035_6829-68771-0014",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 54,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<input_root>/inputs/inf/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "019fff4ce6cf9008fe0775877f344e23396bbd7b2bf9f69e718df2bbe6d17edd"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<input_root>/inputs/ref/5683-32879-0006_6829-68771-0035_6829-68771-0014.wav",
+            "sha256": "61a4e53b1223b1d9e1570bff7509b7040b14d2023c76d2405ebd8dd9b9c7939a"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Will you leave me alone in my own room, or must I go away to escape you?\"",
+          "reference_text": " Will you leave me alone in my own room or must I go away to escape you?",
+          "hypothesis_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 24000,
+            "seconds": 4.39,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              20
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              19
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 17,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 54,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.473775482736528,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 54,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.76087558735162
+    },
+    {
+      "key": "silence",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 0,
+        "errors": 0,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " ",
+          "reference_text": "",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 14.741984346881509,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.017996427603066
+    },
+    {
+      "key": "silence",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 0,
+        "errors": 0,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " ",
+          "reference_text": "",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 14.741984346881509,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.017996427603066
+    },
+    {
+      "key": "silence",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 0,
+        "errors": 0,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          }
+        },
+        "details": {
+          "hypothesis_text": " ",
+          "reference_text": " ",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 15.102198121137917,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.51819373294711
+    },
+    {
+      "key": "silence",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 0,
+        "errors": 0,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/silence.wav",
+            "sha256": "8c800b7fc70cac276e21db2d07cef21c35270708caa21cf36bc87f83f0b9d39a"
+          }
+        },
+        "details": {
+          "hypothesis_text": " ",
+          "reference_text": " ",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": true
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              2
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 15.102198121137917,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.51819373294711
+    },
+    {
+      "key": "noise",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 0,
+        "errors": 2,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Thank you.",
+          "reference_text": "",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 2,
+            "errors": 2,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 8,
+            "errors": 8,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 14.899720588698983,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 2,
+        "errors": 2
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.18546891398728
+    },
+    {
+      "key": "noise",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 0,
+        "errors": 8,
+        "value": null
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Thank you.",
+          "reference_text": "",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 2,
+            "errors": 2,
+            "value": null,
+            "status": "undefined_reference"
+          },
+          "char": {
+            "N": 0,
+            "S": 0,
+            "D": 0,
+            "I": 8,
+            "errors": 8,
+            "value": null,
+            "status": "undefined_reference"
+          }
+        },
+        "status": "undefined_reference",
+        "values": {
+          "wer": null,
+          "cer": null
+        },
+        "elapsed_seconds": 14.899720588698983,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 0,
+        "S": 0,
+        "D": 0,
+        "I": 8,
+        "errors": 8
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.18546891398728
+    },
+    {
+      "key": "noise",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 2,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Thank you.",
+          "reference_text": " Thank you.",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 2,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 8,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.297568419016898,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 2,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.691060934215784
+    },
+    {
+      "key": "noise",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 8,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/noise.wav",
+            "sha256": "2540587fb1ea72de08740e1f7e104956792fa35b5f9624f0f0bfbda7a4d78524"
+          }
+        },
+        "details": {
+          "hypothesis_text": " Thank you.",
+          "reference_text": " Thank you.",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 3.0,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              4
+            ],
+            "chunks": 1,
+            "audio_chunk_index": [
+              [
+                0,
+                null
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 2,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 8,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.297568419016898,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 8,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 16.691060934215784
+    },
+    {
+      "key": "long_repeated_speech",
+      "metric": "cohere_wer",
+      "expected": {
+        "N": 130,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 130,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 494,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.614459675736725,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 130,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.010818161070347
+    },
+    {
+      "key": "long_repeated_speech",
+      "metric": "cohere_cer",
+      "expected": {
+        "N": 494,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_wer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "ground_truth_text",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": null,
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": null,
+          "word": {
+            "N": 130,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 494,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 15.614459675736725,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_cer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 494,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 17.010818161070347
+    },
+    {
+      "key": "long_repeated_speech",
+      "metric": "cohere_dwer",
+      "expected": {
+        "N": 130,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "reference_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 130,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 494,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 16.828751297667623,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dwer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 130,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 18.260485757142305
+    },
+    {
+      "key": "long_repeated_speech",
+      "metric": "cohere_dcer",
+      "expected": {
+        "N": 494,
+        "errors": 0,
+        "value": 0.0
+      },
+      "exact_native_text_match": true,
+      "actual": {
+        "protocol": {
+          "family": "cohere_dwer",
+          "profile": "cohere_transcribe_native_v1",
+          "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+          "model_id": "CohereLabs/cohere-transcribe-03-2026",
+          "scoring_sample_rate": 16000,
+          "channel_policy": "strict_mono",
+          "resampler": "soxr_HQ",
+          "gain_normalization": "none",
+          "silence_policy": "decode_no_vad",
+          "normalization": "nfkc-casefold-v1",
+          "number_normalization": "no_verbalization",
+          "word_tokenization": "whitespace_no_implicit_language_segmentation",
+          "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+          "language": "en",
+          "punctuation": true,
+          "dtype": "bfloat16",
+          "beam_size": 1,
+          "do_sample": false,
+          "max_new_tokens": 256,
+          "forced_eos_token_id": null,
+          "truncation_policy": "reject_missing_generated_eos",
+          "minimum_seconds": 0.1,
+          "max_audio_seconds": 600.0,
+          "chunk_batch_size": 1,
+          "chunking": "native_processor_energy_boundaries",
+          "max_audio_clip_s": 35.0,
+          "boundary_search_seconds": 5.0,
+          "min_energy_window_samples": 1600,
+          "dither": 1e-05,
+          "download_policy": "offline",
+          "trust_remote_code": false,
+          "reference_mode": "clean_reference_asr",
+          "aggregation": "micro_errors_over_reference_units",
+          "artifact_hashes": {
+            "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          }
+        },
+        "backend": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.4.0",
+          "numpy": "1.23.5",
+          "soundfile": "0.13.0",
+          "soxr": "0.5.0.post1",
+          "meeteval": "0.4.3",
+          "kaldialign": "0.12.0"
+        },
+        "provenance": {
+          "hypothesis": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          },
+          "model_dir": {
+            "path": "<model_root>",
+            "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+            "files": {
+              "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+              "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+              "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+              "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+              "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+              "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+              "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+              "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+              "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+            }
+          },
+          "tokenizer_file": {
+            "path": "<model_root>/tokenizer.model",
+            "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+          },
+          "reference": {
+            "path": "<validation_root>/cohere-controls/long_repeated_speech.wav",
+            "sha256": "768903f6ddf2fe32550b5f5bcb8d54b6aeb0a955d9cbb114ec6ff11aa56df8a8"
+          }
+        },
+        "details": {
+          "hypothesis_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "reference_text": " The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land. The hope and dream of harvest was upon the land.",
+          "hypothesis_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "reference_audio": {
+            "sample_rate": 16000,
+            "seconds": 40.17,
+            "exact_zero_waveform": false
+          },
+          "hypothesis_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "reference_decode": {
+            "complete": true,
+            "missing_eos_chunks": [],
+            "generated_tokens_per_chunk": [
+              121,
+              37
+            ],
+            "chunks": 2,
+            "audio_chunk_index": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "empty_chunk_reassembly_guard": false
+          },
+          "word": {
+            "N": 130,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          },
+          "char": {
+            "N": 494,
+            "S": 0,
+            "D": 0,
+            "I": 0,
+            "errors": 0,
+            "value": 0.0,
+            "status": "ok"
+          }
+        },
+        "status": "ok",
+        "values": {
+          "wer": 0.0,
+          "cer": 0.0
+        },
+        "elapsed_seconds": 16.828751297667623,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_dcer",
+        "value": 0.0,
+        "value_unit": "percent",
+        "direction": "lower_is_better",
+        "N": 494,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "passed": true,
+      "family_call_wall_seconds": 18.260485757142305
+    }
+  ],
+  "invalid_inputs": [
+    {
+      "case": "stereo",
+      "result": {
+        "status": "invalid_input",
+        "values": {},
+        "reason": "ValueError: Cohere ASR requires a nonempty mono audio file",
+        "traceback": "Traceback (most recent call last):\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 575, in main\n    result = score(request)\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 77, in score\n    return cohere_score(request)\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 274, in score\n    wave, hyp_info = read_audio(hypothesis, maximum=cfg[\"max_audio_seconds\"])\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 94, in read_audio\n    raise ValueError(\"Cohere ASR requires a nonempty mono audio file\")\nValueError: Cohere ASR requires a nonempty mono audio file\n",
+        "elapsed_seconds": 7.468472220003605,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better"
+      },
+      "passed": true
+    },
+    {
+      "case": "short",
+      "result": {
+        "status": "invalid_input",
+        "values": {},
+        "reason": "ValueError: Cohere ASR requires audio between 0.1 and 600.0 seconds",
+        "traceback": "Traceback (most recent call last):\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 575, in main\n    result = score(request)\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 77, in score\n    return cohere_score(request)\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 274, in score\n    wave, hyp_info = read_audio(hypothesis, maximum=cfg[\"max_audio_seconds\"])\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 97, in read_audio\n    raise ValueError(f\"Cohere ASR requires audio between 0.1 and {maximum} seconds\")\nValueError: Cohere ASR requires audio between 0.1 and 600.0 seconds\n",
+        "elapsed_seconds": 6.856418705545366,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better"
+      },
+      "passed": true
+    },
+    {
+      "case": "duration_limit",
+      "result": {
+        "status": "invalid_input",
+        "values": {},
+        "reason": "ValueError: Cohere ASR requires audio between 0.1 and 1.0 seconds",
+        "traceback": "Traceback (most recent call last):\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 575, in main\n    result = score(request)\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 77, in score\n    return cohere_score(request)\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 274, in score\n    wave, hyp_info = read_audio(hypothesis, maximum=cfg[\"max_audio_seconds\"])\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 97, in read_audio\n    raise ValueError(f\"Cohere ASR requires audio between 0.1 and {maximum} seconds\")\nValueError: Cohere ASR requires audio between 0.1 and 1.0 seconds\n",
+        "elapsed_seconds": 6.914365784265101,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better"
+      },
+      "passed": true
+    },
+    {
+      "case": "unsupported_language",
+      "result": {
+        "status": "invalid_input",
+        "values": {},
+        "reason": "ValueError: Explicit supported language code required: ['ar', 'de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'vi', 'zh']",
+        "traceback": "Traceback (most recent call last):\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 575, in main\n    result = score(request)\n  File \"<validation_root>/src/speech_eval/model_worker.py\", line 77, in score\n    return cohere_score(request)\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 225, in score\n    cfg = settings(config)\n  File \"<validation_root>/src/speech_eval/cohere.py\", line 59, in settings\n    raise ValueError(f\"Explicit supported language code required: {sorted(LANGUAGES)}\")\nValueError: Explicit supported language code required: ['ar', 'de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'vi', 'zh']\n",
+        "elapsed_seconds": 0.0031082388013601303,
+        "execution": {
+          "device": "cuda:3",
+          "threads": 2,
+          "isolated_process": true
+        },
+        "metric": "cohere_wer",
+        "value": null,
+        "value_unit": "percent",
+        "direction": "lower_is_better"
+      },
+      "passed": true
+    }
+  ],
+  "native_model_load_seconds": 4.784118697047234,
+  "processor_settings": {
+    "sampling_rate": 16000,
+    "hop_length": 160,
+    "n_fft": 512,
+    "win_length": 400,
+    "preemphasis": 0.97,
+    "dither": 1e-05,
+    "max_audio_clip_s": 35.0,
+    "overlap_chunk_second": 5.0,
+    "min_energy_window_samples": 1600
+  },
+  "native_truncated": {
+    "text": " The",
+    "complete": false,
+    "eos_per_chunk": [
+      false
+    ],
+    "generated_tokens": [
+      [
+        749
+      ]
+    ],
+    "decoder_prompt_tokens": 10,
+    "audio_chunk_index": [
+      [
+        0,
+        null
+      ]
+    ],
+    "chunks": 1,
+    "seconds": 3.09,
+    "upstream_empty_reassembly_error": false,
+    "elapsed_seconds": 0.0870153522118926
+  },
+  "token_budget_check": {
+    "result": {
+      "protocol": {
+        "family": "cohere_wer",
+        "profile": "cohere_transcribe_native_v1",
+        "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+        "model_id": "CohereLabs/cohere-transcribe-03-2026",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "nfkc-casefold-v1",
+        "number_normalization": "no_verbalization",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+        "language": "en",
+        "punctuation": true,
+        "dtype": "bfloat16",
+        "beam_size": 1,
+        "do_sample": false,
+        "max_new_tokens": 1,
+        "forced_eos_token_id": null,
+        "truncation_policy": "reject_missing_generated_eos",
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "chunk_batch_size": 1,
+        "chunking": "native_processor_energy_boundaries",
+        "max_audio_clip_s": 35.0,
+        "boundary_search_seconds": 5.0,
+        "min_energy_window_samples": 1600,
+        "dither": 1e-05,
+        "download_policy": "offline",
+        "trust_remote_code": false,
+        "reference_mode": "ground_truth_text",
+        "aggregation": "micro_errors_over_reference_units",
+        "artifact_hashes": {
+          "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+          "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "transformers": "5.4.0",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "meeteval": "0.4.3",
+        "kaldialign": "0.12.0"
+      },
+      "provenance": {
+        "hypothesis": {
+          "path": "<input_root>/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+          "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+        },
+        "model_dir": {
+          "path": "<model_root>",
+          "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+          "files": {
+            "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+            "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+            "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+            "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+            "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+            "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+            "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+            "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+            "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+          }
+        },
+        "tokenizer_file": {
+          "path": "<model_root>/tokenizer.model",
+          "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+        }
+      },
+      "details": {
+        "hypothesis_text": " The",
+        "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+        "hypothesis_audio": {
+          "sample_rate": 24000,
+          "seconds": 3.09,
+          "exact_zero_waveform": false
+        },
+        "reference_audio": null,
+        "hypothesis_decode": {
+          "complete": false,
+          "missing_eos_chunks": [
+            0
+          ],
+          "generated_tokens_per_chunk": [
+            1
+          ],
+          "chunks": 1,
+          "audio_chunk_index": [
+            [
+              0,
+              null
+            ]
+          ],
+          "empty_chunk_reassembly_guard": false
+        },
+        "reference_decode": null
+      },
+      "status": "generation_truncated",
+      "values": {},
+      "reason": "A chunk has no generated EOS; partial transcription is not scored. Increase max_new_tokens.",
+      "elapsed_seconds": 14.793904778547585,
+      "execution": {
+        "device": "cuda:3",
+        "threads": 2,
+        "isolated_process": true
+      },
+      "metric": "cohere_wer",
+      "value": null,
+      "value_unit": "percent",
+      "direction": "lower_is_better"
+    },
+    "passed": true
+  },
+  "summary": {
+    "real_pairs": 3,
+    "metric_checks": 24,
+    "metric_checks_passed": 24,
+    "invalid_checks_passed": 4,
+    "token_budget_check_passed": true,
+    "successfully_scored_metric_ids": [
+      "cohere_cer",
+      "cohere_dcer",
+      "cohere_dwer",
+      "cohere_wer"
+    ]
+  },
+  "complete": true
+}

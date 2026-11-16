@@ -26,6 +26,13 @@ The lock contains the package version, Python patch version, OS/architecture, in
 
 Alternate worker interpreters remain available in ordinary configs through `python`, but a strict lock must be created and used inside the actual worker interpreter. This avoids claiming that the caller's dependencies describe another environment. For multiple incompatible stacks, keep one lock and command entry point per environment.
 
+Since v0.8, one parent deployment can route a family to another interpreter when
+its config includes both `python` and `worker_deployment`. The latter identifies
+the child lock created in that interpreter. Lock creation verifies the actual
+child environment, source/artifacts and effective settings; the parent hashes
+the child lock. Nested routing is rejected. The Cohere adapter repeats scoped
+child verification before model execution. See [Cohere provisioning](COHERE_ASR.md).
+
 ## Runtime behavior and failure handling
 
 - AECMOS validates native rate, mono channels, duration, amplitude, lengths and scenario. It will not silently resample or truncate.

@@ -1558,3 +1558,58 @@ Natural-log F0 RMSE following ESPnet WORLD and spectral DTW
 | Backend | WORLD 0.3.5 |
 
 See [exact preprocessing, masks, aggregation and limitations](PITCH.md). [Runtime evidence](../validation/pitch-v0.7.json) records real-audio parity and controlled cases. No GPU or weights required. Undefined voiced support returns null.
+## `cohere_wer`
+
+Cohere Transcribe WER, using native Transformers 5.4.0 and MeetEval.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Ground-truth transcript text |
+| Family | cohere_wer |
+| Scorer | MeetEval 0.4.3; micro errors / reference units |
+
+See [protocol, supported options and scientific limitations](COHERE_ASR.md). [Real-model validation](../validation/cohere-v0.8.json) distinguishes native parity from accuracy claims. Requires a provisioned local model and separate worker environment; never downloads during scoring. Silence is decoded, empty-reference insertions retained, and token-limited outputs rejected.
+
+## `cohere_cer`
+
+Cohere Transcribe CER, using native Transformers 5.4.0 and MeetEval.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Ground-truth transcript text |
+| Family | cohere_wer |
+| Scorer | MeetEval 0.4.3; micro errors / reference units |
+
+See [protocol, supported options and scientific limitations](COHERE_ASR.md). [Real-model validation](../validation/cohere-v0.8.json) distinguishes native parity from accuracy claims. Requires a provisioned local model and separate worker environment; never downloads during scoring. Silence is decoded, empty-reference insertions retained, and token-limited outputs rejected.
+
+## `cohere_dwer`
+
+Cohere Transcribe DWER, using native Transformers 5.4.0 and MeetEval.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; same-recognizer pseudo-transcript |
+| Family | cohere_dwer |
+| Scorer | MeetEval 0.4.3; micro errors / reference units |
+
+See [protocol, supported options and scientific limitations](COHERE_ASR.md). [Real-model validation](../validation/cohere-v0.8.json) distinguishes native parity from accuracy claims. Requires a provisioned local model and separate worker environment; never downloads during scoring. Silence is decoded, empty-reference insertions retained, and token-limited outputs rejected.
+
+## `cohere_dcer`
+
+Cohere Transcribe DCER, using native Transformers 5.4.0 and MeetEval.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; same-recognizer pseudo-transcript |
+| Family | cohere_dwer |
+| Scorer | MeetEval 0.4.3; micro errors / reference units |
+
+See [protocol, supported options and scientific limitations](COHERE_ASR.md). [Real-model validation](../validation/cohere-v0.8.json) distinguishes native parity from accuracy claims. Requires a provisioned local model and separate worker environment; never downloads during scoring. Silence is decoded, empty-reference insertions retained, and token-limited outputs rejected.
