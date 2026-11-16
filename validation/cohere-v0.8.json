@@ -1,7 +1,7 @@
 {
   "release": "0.8.0",
   "date": "2026-11-16",
-  "regression_tests_passed": 87,
+  "regression_tests_passed": 88,
   "scope": "Native/API integration; no hallucination-reduction or benchmark ranking claim",
   "schema_version": 1,
   "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",

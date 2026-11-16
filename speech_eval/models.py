@@ -74,9 +74,14 @@ def model_family(family, *, hypothesis, reference=None, config=None):
     )
     env["CUDA_VISIBLE_DEVICES"] = "" if device == "cpu" else device[5:]
     config["device"] = "cpu" if device == "cpu" else "cuda:0"
-    env["PYTHONPATH"] = (
-        str(Path(__file__).resolve().parent.parent) + os.pathsep + env.get("PYTHONPATH", "")
-    )
+    if config.get("worker_deployment"):
+        # A locked worker has its own installed package. Injecting the parent's
+        # site-packages would override the worker's incompatible dependencies.
+        env.pop("PYTHONPATH", None)
+    else:
+        env["PYTHONPATH"] = (
+            str(Path(__file__).resolve().parent.parent) + os.pathsep + env.get("PYTHONPATH", "")
+        )
     if config.get("trusted_checkpoint"):
         env["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"
     request = dict(family=family, hypothesis=str(hypothesis), reference=reference, config=config)

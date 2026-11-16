@@ -1,10 +1,12 @@
 """Cohere scoring contracts; real model parity is in validate_cohere.py."""
 
 import tempfile
+import json
+import os
 from pathlib import Path
 import unittest
 from types import SimpleNamespace
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 import numpy as np
 
@@ -19,6 +21,40 @@ from speech_eval.cohere import (
 
 
 class CohereContractTests(unittest.TestCase):
+    def test_routed_dispatcher_uses_worker_environment_and_preserves_gpu_mapping(self):
+        from speech_eval.models import model_family
+
+        observed = []
+
+        def invoke(command, **kwargs):
+            request = json.loads(Path(command[-2]).read_text(encoding="utf-8"))
+            observed.append((command, kwargs["env"], request))
+            Path(command[-1]).write_text('{"status": "ok", "values": {"wer": 0}}')
+            return SimpleNamespace(returncode=0, stderr="")
+
+        config = {
+            "python": "/isolated/cohere/bin/python",
+            "worker_deployment": "worker.locked.json",
+            "device": "cuda:3",
+        }
+        with patch.dict(os.environ, {"PYTHONPATH": "/wrong/base/site-packages"}):
+            with patch("speech_eval.models.subprocess.run", side_effect=invoke):
+                result = model_family(
+                    "cohere_wer", hypothesis="audio.wav", reference="text", config=config
+                )
+                model_family("whisper_wer", hypothesis="audio.wav", reference="text")
+        command, environment, request = observed[0]
+        self.assertEqual(command[0], config["python"])
+        self.assertNotIn("PYTHONPATH", environment)
+        self.assertEqual(environment["CUDA_VISIBLE_DEVICES"], "3")
+        self.assertEqual(request["config"]["device"], "cuda:0")
+        self.assertEqual(result["execution"]["device"], "cuda:3")
+        self.assertEqual(config["device"], "cuda:3")
+        # The established same-environment worker retains its source path behavior.
+        self.assertIn("PYTHONPATH", observed[1][1])
+        self.assertIn("/wrong/base/site-packages", observed[1][1]["PYTHONPATH"])
+        self.assertEqual(observed[1][1]["CUDA_VISIBLE_DEVICES"], "")
+
     def test_unchunked_blank_text_is_preserved_and_only_chunked_empty_bug_is_guarded(self):
         processor = SimpleNamespace(
             tokenizer=SimpleNamespace(decode=Mock(return_value=[" "])),
