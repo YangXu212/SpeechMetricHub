@@ -1,0 +1,4286 @@
+{
+  "scope": "Additive protocols; batch-1 parity, not historical batch-8 or corpus accuracy equivalence",
+  "date": "2026-11-17",
+  "private_source_redistributed": false,
+  "gpu_public_native": {
+    "purpose": "real inference, normalization, S/D/I parity and bounded-generation accounting",
+    "utterance_batch_size": 1,
+    "historical_batch8_parity_claimed": false,
+    "reference_only": false,
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "transformers": "5.4.0",
+      "openai-whisper": "20250625",
+      "espnet": "202412",
+      "Levenshtein": "0.27.3",
+      "numpy": "1.23.5",
+      "soundfile": "0.13.0",
+      "soxr": "0.5.0.post1"
+    },
+    "normalizer_source_sha256": {
+      "BasicTextNormalizer": "4742eaa040e0657fa1247a1361e0d856c62317a43326ea59a40c2e9edd8d2c38",
+      "EnglishTextNormalizer": "2898e4672aeefc9f44cb4de38c115cdf286f5b35ae321433467a7674ce8841d0",
+      "TextCleaner": "2337da5396e9dd6217ffc110cb2266b2210fdfa16a1320aff140f3b6145a649b",
+      "english.json": "6607f948be9824d2e1b2fa2223cd94c06c45afa4e05ea0e3d5e1f2bdffde2465"
+    },
+    "reference_script_sha256": null,
+    "checks": [
+      {
+        "name": "native_checkpoint_does_not_force_eos",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:status",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "value": 20.0
+        }
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:status",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "value": 20.0
+        }
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_gt:status",
+        "passed": true
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_gt:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "value": 0.0
+        }
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_gt:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_audio:status",
+        "passed": true
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_audio:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "value": 0.0
+        }
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_audio:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "cohere_wer:status",
+        "passed": true
+      },
+      {
+        "name": "cohere_wer:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 2,
+          "errors": 3,
+          "value": 30.0
+        }
+      },
+      {
+        "name": "cohere_wer:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "cohere_cer:status",
+        "passed": true
+      },
+      {
+        "name": "cohere_cer:counts",
+        "passed": true,
+        "expected": {
+          "N": 38,
+          "S": 5,
+          "D": 1,
+          "I": 1,
+          "errors": 7,
+          "value": 18.42105263157895
+        }
+      },
+      {
+        "name": "cohere_cer:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "cohere_dwer:status",
+        "passed": true
+      },
+      {
+        "name": "cohere_dwer:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 2,
+          "errors": 3,
+          "value": 30.0
+        }
+      },
+      {
+        "name": "cohere_dwer:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "cohere_dcer:status",
+        "passed": true
+      },
+      {
+        "name": "cohere_dcer:counts",
+        "passed": true,
+        "expected": {
+          "N": 38,
+          "S": 5,
+          "D": 1,
+          "I": 1,
+          "errors": 7,
+          "value": 18.42105263157895
+        }
+      },
+      {
+        "name": "cohere_dcer:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "budget1_score:status",
+        "passed": true
+      },
+      {
+        "name": "budget1_score:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 0,
+          "D": 9,
+          "I": 0,
+          "errors": 9,
+          "value": 90.0
+        }
+      },
+      {
+        "name": "budget1_score:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "budget1_has_real_missing_eos",
+        "passed": true
+      },
+      {
+        "name": "budget1_scored_with_visible_warning",
+        "passed": true
+      },
+      {
+        "name": "budget1_reject_preserves_same_transcript_without_score",
+        "passed": true
+      },
+      {
+        "name": "zh_gt:status",
+        "passed": true
+      },
+      {
+        "name": "zh_gt:counts",
+        "passed": true,
+        "expected": {
+          "N": 19,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "value": 0.0
+        }
+      },
+      {
+        "name": "zh_gt:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "zh_audio_identity:status",
+        "passed": true
+      },
+      {
+        "name": "zh_audio_identity:counts",
+        "passed": true,
+        "expected": {
+          "N": 19,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "value": 0.0
+        }
+      },
+      {
+        "name": "zh_audio_identity:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "basic_chinese_does_not_equate_written_numerals",
+        "passed": true
+      }
+    ],
+    "cases": [
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt",
+        "metric": "cohere_wer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer_en_whisper",
+            "profile": "cohere_wer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the hope and dream of all this was upon the land",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 1,
+              "errors": 2,
+              "value": 20.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "this",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "t",
+                "h",
+                "i",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 20.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 32.996777441352606,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer_en_whisper",
+          "value": 20.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "validation_reference_kind": "provided_transcript"
+        },
+        "wall_seconds": 35.157520305365324
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio",
+        "metric": "cohere_dwer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_dwer_en_whisper",
+            "profile": "cohere_dwer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the hope and dream of all this was upon the land",
+            "reference_text": " the hope and dream of harvest was upon the land",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 1,
+              "errors": 2,
+              "value": 20.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "this",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "t",
+                "h",
+                "i",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 20.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 16.85254793893546,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dwer_en_whisper",
+          "value": 20.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2
+        },
+        "wall_seconds": 18.247345537878573
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_gt",
+        "metric": "cohere_wer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer_en_whisper",
+            "profile": "cohere_wer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+              "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " therefore don't talk to me about views and prospects",
+            "reference_text": "THEREFORE DON'T TALK TO ME ABOUT VIEWS AND PROSPECTS",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.735,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": "therefore do not talk to me about views and prospects",
+              "normalized_hypothesis_text": "therefore do not talk to me about views and prospects",
+              "reference_tokens": [
+                "therefore",
+                "do",
+                "not",
+                "talk",
+                "to",
+                "me",
+                "about",
+                "views",
+                "and",
+                "prospects"
+              ],
+              "hypothesis_tokens": [
+                "therefore",
+                "do",
+                "not",
+                "talk",
+                "to",
+                "me",
+                "about",
+                "views",
+                "and",
+                "prospects"
+              ],
+              "reference_fingerprint": "4a16fa75ac19c0e6985ba06e1d3c8c20ebf72506dd8c833a702e955c0fd43c1f"
+            },
+            "char": {
+              "N": 44,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": "therefore do not talk to me about views and prospects",
+              "normalized_hypothesis_text": "therefore do not talk to me about views and prospects",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "r",
+                "e",
+                "f",
+                "o",
+                "r",
+                "e",
+                "d",
+                "o",
+                "n",
+                "o",
+                "t",
+                "t",
+                "a",
+                "l",
+                "k",
+                "t",
+                "o",
+                "m",
+                "e",
+                "a",
+                "b",
+                "o",
+                "u",
+                "t",
+                "v",
+                "i",
+                "e",
+                "w",
+                "s",
+                "a",
+                "n",
+                "d",
+                "p",
+                "r",
+                "o",
+                "s",
+                "p",
+                "e",
+                "c",
+                "t",
+                "s"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "r",
+                "e",
+                "f",
+                "o",
+                "r",
+                "e",
+                "d",
+                "o",
+                "n",
+                "o",
+                "t",
+                "t",
+                "a",
+                "l",
+                "k",
+                "t",
+                "o",
+                "m",
+                "e",
+                "a",
+                "b",
+                "o",
+                "u",
+                "t",
+                "v",
+                "i",
+                "e",
+                "w",
+                "s",
+                "a",
+                "n",
+                "d",
+                "p",
+                "r",
+                "o",
+                "s",
+                "p",
+                "e",
+                "c",
+                "t",
+                "s"
+              ],
+              "reference_fingerprint": "b1cca1cd939b5f862e0e30bf663c2cc050076f7830539dcfc9ce3ab738adf531"
+            },
+            "reference_fingerprint": {
+              "word": "4a16fa75ac19c0e6985ba06e1d3c8c20ebf72506dd8c833a702e955c0fd43c1f",
+              "char": "b1cca1cd939b5f862e0e30bf663c2cc050076f7830539dcfc9ce3ab738adf531"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 0.0,
+            "cer": 0.0
+          },
+          "elapsed_seconds": 16.684244696982205,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer_en_whisper",
+          "value": 0.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "validation_reference_kind": "provided_transcript"
+        },
+        "wall_seconds": 18.0249313544482
+      },
+      {
+        "name": "260-123286-0008_4992-23283-0000_260-123288-0013:en_audio",
+        "metric": "cohere_dwer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_dwer_en_whisper",
+            "profile": "cohere_dwer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+              "sha256": "e2f5daafb886ed841f1981e661ff737156e49b08efb9212b05c1600820d63d5a"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/ref/260-123286-0008_4992-23283-0000_260-123288-0013.wav",
+              "sha256": "7a9e737504807182ca294ed63514c6173833115f2e5dea1f2e6c203cfcf132b7"
+            }
+          },
+          "details": {
+            "hypothesis_text": " therefore don't talk to me about views and prospects",
+            "reference_text": " therefore don't talk to me about views and prospects",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.735,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.735,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": "therefore do not talk to me about views and prospects",
+              "normalized_hypothesis_text": "therefore do not talk to me about views and prospects",
+              "reference_tokens": [
+                "therefore",
+                "do",
+                "not",
+                "talk",
+                "to",
+                "me",
+                "about",
+                "views",
+                "and",
+                "prospects"
+              ],
+              "hypothesis_tokens": [
+                "therefore",
+                "do",
+                "not",
+                "talk",
+                "to",
+                "me",
+                "about",
+                "views",
+                "and",
+                "prospects"
+              ],
+              "reference_fingerprint": "4a16fa75ac19c0e6985ba06e1d3c8c20ebf72506dd8c833a702e955c0fd43c1f"
+            },
+            "char": {
+              "N": 44,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": "therefore do not talk to me about views and prospects",
+              "normalized_hypothesis_text": "therefore do not talk to me about views and prospects",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "r",
+                "e",
+                "f",
+                "o",
+                "r",
+                "e",
+                "d",
+                "o",
+                "n",
+                "o",
+                "t",
+                "t",
+                "a",
+                "l",
+                "k",
+                "t",
+                "o",
+                "m",
+                "e",
+                "a",
+                "b",
+                "o",
+                "u",
+                "t",
+                "v",
+                "i",
+                "e",
+                "w",
+                "s",
+                "a",
+                "n",
+                "d",
+                "p",
+                "r",
+                "o",
+                "s",
+                "p",
+                "e",
+                "c",
+                "t",
+                "s"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "r",
+                "e",
+                "f",
+                "o",
+                "r",
+                "e",
+                "d",
+                "o",
+                "n",
+                "o",
+                "t",
+                "t",
+                "a",
+                "l",
+                "k",
+                "t",
+                "o",
+                "m",
+                "e",
+                "a",
+                "b",
+                "o",
+                "u",
+                "t",
+                "v",
+                "i",
+                "e",
+                "w",
+                "s",
+                "a",
+                "n",
+                "d",
+                "p",
+                "r",
+                "o",
+                "s",
+                "p",
+                "e",
+                "c",
+                "t",
+                "s"
+              ],
+              "reference_fingerprint": "b1cca1cd939b5f862e0e30bf663c2cc050076f7830539dcfc9ce3ab738adf531"
+            },
+            "reference_fingerprint": {
+              "word": "4a16fa75ac19c0e6985ba06e1d3c8c20ebf72506dd8c833a702e955c0fd43c1f",
+              "char": "b1cca1cd939b5f862e0e30bf663c2cc050076f7830539dcfc9ce3ab738adf531"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 0.0,
+            "cer": 0.0
+          },
+          "elapsed_seconds": 16.568201856687665,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dwer_en_whisper",
+          "value": 0.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0
+        },
+        "wall_seconds": 17.882086953148246
+      },
+      {
+        "name": "legacy_interface:cohere_wer",
+        "metric": "cohere_wer",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer",
+            "profile": "cohere_transcribe_native_v1",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "strict_mono",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "nfkc-casefold-v1",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+            "language": "en",
+            "punctuation": true,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "reject_missing_generated_eos",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " The hope and dream of all of us was upon the land.",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "nfkc-casefold-v1",
+              "versions": {
+                "meeteval": "0.4.3",
+                "kaldialign": "0.12.0"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 2,
+              "errors": 3,
+              "value": 30.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "of",
+                "us",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "o",
+                "f",
+                "u",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 30.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 14.970356283709407,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer",
+          "value": 30.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 2,
+          "errors": 3
+        }
+      },
+      {
+        "name": "legacy_interface:cohere_cer",
+        "metric": "cohere_cer",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer",
+            "profile": "cohere_transcribe_native_v1",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "strict_mono",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "nfkc-casefold-v1",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+            "language": "en",
+            "punctuation": true,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "reject_missing_generated_eos",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " The hope and dream of all of us was upon the land.",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "nfkc-casefold-v1",
+              "versions": {
+                "meeteval": "0.4.3",
+                "kaldialign": "0.12.0"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 2,
+              "errors": 3,
+              "value": 30.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "of",
+                "us",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "o",
+                "f",
+                "u",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 30.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 14.970356283709407,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_cer",
+          "value": 18.42105263157895,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "char",
+          "N": 38,
+          "S": 5,
+          "D": 1,
+          "I": 1,
+          "errors": 7
+        }
+      },
+      {
+        "name": "legacy_interface:cohere_dwer",
+        "metric": "cohere_dwer",
+        "result": {
+          "protocol": {
+            "family": "cohere_dwer",
+            "profile": "cohere_transcribe_native_v1",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "strict_mono",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "nfkc-casefold-v1",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+            "language": "en",
+            "punctuation": true,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "reject_missing_generated_eos",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+            }
+          },
+          "details": {
+            "hypothesis_text": " The hope and dream of all of us was upon the land.",
+            "reference_text": " The hope and dream of harvest was upon the land.",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                13
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "nfkc-casefold-v1",
+              "versions": {
+                "meeteval": "0.4.3",
+                "kaldialign": "0.12.0"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 2,
+              "errors": 3,
+              "value": 30.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "of",
+                "us",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "o",
+                "f",
+                "u",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 30.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 15.027472815476358,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dwer",
+          "value": 30.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 2,
+          "errors": 3
+        }
+      },
+      {
+        "name": "legacy_interface:cohere_dcer",
+        "metric": "cohere_dcer",
+        "result": {
+          "protocol": {
+            "family": "cohere_dwer",
+            "profile": "cohere_transcribe_native_v1",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "strict_mono",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "nfkc-casefold-v1",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "normalized_unicode_letters_marks_numbers_without_spaces",
+            "language": "en",
+            "punctuation": true,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "reject_missing_generated_eos",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+            }
+          },
+          "details": {
+            "hypothesis_text": " The hope and dream of all of us was upon the land.",
+            "reference_text": " The hope and dream of harvest was upon the land.",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                14
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                13
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "nfkc-casefold-v1",
+              "versions": {
+                "meeteval": "0.4.3",
+                "kaldialign": "0.12.0"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 2,
+              "errors": 3,
+              "value": 30.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "of",
+                "us",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all of us was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "o",
+                "f",
+                "u",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 30.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 15.027472815476358,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dcer",
+          "value": 18.42105263157895,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "char",
+          "N": 38,
+          "S": 5,
+          "D": 1,
+          "I": 1,
+          "errors": 7
+        }
+      },
+      {
+        "name": "budget1_score",
+        "metric": "cohere_wer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer_en_whisper",
+            "profile": "cohere_wer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 1,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": false,
+              "missing_eos_chunks": [
+                0
+              ],
+              "generated_tokens_per_chunk": [
+                1
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": false,
+            "word": {
+              "N": 10,
+              "S": 0,
+              "D": 9,
+              "I": 0,
+              "errors": 9,
+              "value": 90.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 0,
+              "D": 35,
+              "I": 0,
+              "errors": 35,
+              "value": 92.10526315789474,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "scored_truncated_generation": true
+          },
+          "warnings": [
+            "Truncated generated text was scored under explicit truncation_policy=score; no retry, row filtering or denominator substitution."
+          ],
+          "status": "ok",
+          "values": {
+            "wer": 90.0,
+            "cer": 92.10526315789474
+          },
+          "elapsed_seconds": 17.426769974641502,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer_en_whisper",
+          "value": 90.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 0,
+          "D": 9,
+          "I": 0,
+          "errors": 9
+        },
+        "wall_seconds": 18.81078494247049
+      },
+      {
+        "name": "budget1_reject",
+        "metric": "cohere_wer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer_en_whisper",
+            "profile": "cohere_wer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 1,
+            "forced_eos_token_id": null,
+            "truncation_policy": "reject_missing_generated_eos",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": false,
+              "missing_eos_chunks": [
+                0
+              ],
+              "generated_tokens_per_chunk": [
+                1
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": false
+          },
+          "status": "generation_truncated",
+          "values": {},
+          "reason": "A chunk has no generated EOS; partial transcription is not scored. Increase max_new_tokens.",
+          "elapsed_seconds": 14.828211782500148,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer_en_whisper",
+          "value": null,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word"
+        },
+        "wall_seconds": 16.23833800945431
+      },
+      {
+        "name": "zh_gt",
+        "metric": "cohere_cer_zh_basic",
+        "result": {
+          "protocol": {
+            "family": "cohere_cer_zh_basic",
+            "profile": "cohere_cer_zh_basic",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_basic",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "zh",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/staging/cohere-v0.9/chinese-example.wav",
+              "sha256": "a1bd32dc78493c123f9625a66deee562aed2895f53fbc39f2cca3be7e6f4f20f"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+            "reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+            "hypothesis_audio": {
+              "sample_rate": 16000,
+              "seconds": 5.5466875,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                23
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_basic",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 1,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "normalized_hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "reference_tokens": [
+                "欢迎大家来体验达摩院推出的语音识别模型"
+              ],
+              "hypothesis_tokens": [
+                "欢迎大家来体验达摩院推出的语音识别模型"
+              ],
+              "reference_fingerprint": "5031a4b74085e3599bb570c49cb1863dbb418f2fa3080726e75f6ae6dfc17b5e"
+            },
+            "char": {
+              "N": 19,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "normalized_hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "reference_tokens": [
+                "欢",
+                "迎",
+                "大",
+                "家",
+                "来",
+                "体",
+                "验",
+                "达",
+                "摩",
+                "院",
+                "推",
+                "出",
+                "的",
+                "语",
+                "音",
+                "识",
+                "别",
+                "模",
+                "型"
+              ],
+              "hypothesis_tokens": [
+                "欢",
+                "迎",
+                "大",
+                "家",
+                "来",
+                "体",
+                "验",
+                "达",
+                "摩",
+                "院",
+                "推",
+                "出",
+                "的",
+                "语",
+                "音",
+                "识",
+                "别",
+                "模",
+                "型"
+              ],
+              "reference_fingerprint": "87a3838ad76a3880b03063f77c2bffa72d9e2ecbbc04d2787903e876d3c8f7b2"
+            },
+            "reference_fingerprint": {
+              "word": "5031a4b74085e3599bb570c49cb1863dbb418f2fa3080726e75f6ae6dfc17b5e",
+              "char": "87a3838ad76a3880b03063f77c2bffa72d9e2ecbbc04d2787903e876d3c8f7b2"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 0.0,
+            "cer": 0.0
+          },
+          "elapsed_seconds": 17.413574292324483,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_cer_zh_basic",
+          "value": 0.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "char",
+          "N": 19,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0,
+          "validation_reference_kind": "self_transcript_interface_check_not_accuracy"
+        },
+        "wall_seconds": 18.767401819117367
+      },
+      {
+        "name": "zh_audio_identity",
+        "metric": "cohere_dcer_zh_basic",
+        "result": {
+          "protocol": {
+            "family": "cohere_dcer_zh_basic",
+            "profile": "cohere_dcer_zh_basic",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_basic",
+            "number_normalization": "no_verbalization",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "zh",
+            "punctuation": false,
+            "dtype": "bfloat16",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/staging/cohere-v0.9/chinese-example.wav",
+              "sha256": "a1bd32dc78493c123f9625a66deee562aed2895f53fbc39f2cca3be7e6f4f20f"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/staging/cohere-v0.9/chinese-example.wav",
+              "sha256": "a1bd32dc78493c123f9625a66deee562aed2895f53fbc39f2cca3be7e6f4f20f"
+            }
+          },
+          "details": {
+            "hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+            "reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+            "hypothesis_audio": {
+              "sample_rate": 16000,
+              "seconds": 5.5466875,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 16000,
+              "seconds": 5.5466875,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                23
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                23
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "whisper_basic",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 1,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "normalized_hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "reference_tokens": [
+                "欢迎大家来体验达摩院推出的语音识别模型"
+              ],
+              "hypothesis_tokens": [
+                "欢迎大家来体验达摩院推出的语音识别模型"
+              ],
+              "reference_fingerprint": "5031a4b74085e3599bb570c49cb1863dbb418f2fa3080726e75f6ae6dfc17b5e"
+            },
+            "char": {
+              "N": 19,
+              "S": 0,
+              "D": 0,
+              "I": 0,
+              "errors": 0,
+              "value": 0.0,
+              "status": "ok",
+              "normalized_reference_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "normalized_hypothesis_text": " 欢迎大家来体验达摩院推出的语音识别模型",
+              "reference_tokens": [
+                "欢",
+                "迎",
+                "大",
+                "家",
+                "来",
+                "体",
+                "验",
+                "达",
+                "摩",
+                "院",
+                "推",
+                "出",
+                "的",
+                "语",
+                "音",
+                "识",
+                "别",
+                "模",
+                "型"
+              ],
+              "hypothesis_tokens": [
+                "欢",
+                "迎",
+                "大",
+                "家",
+                "来",
+                "体",
+                "验",
+                "达",
+                "摩",
+                "院",
+                "推",
+                "出",
+                "的",
+                "语",
+                "音",
+                "识",
+                "别",
+                "模",
+                "型"
+              ],
+              "reference_fingerprint": "87a3838ad76a3880b03063f77c2bffa72d9e2ecbbc04d2787903e876d3c8f7b2"
+            },
+            "reference_fingerprint": {
+              "word": "5031a4b74085e3599bb570c49cb1863dbb418f2fa3080726e75f6ae6dfc17b5e",
+              "char": "87a3838ad76a3880b03063f77c2bffa72d9e2ecbbc04d2787903e876d3c8f7b2"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 0.0,
+            "cer": 0.0
+          },
+          "elapsed_seconds": 16.53634861856699,
+          "execution": {
+            "device": "cuda:0",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dcer_zh_basic",
+          "value": 0.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "char",
+          "N": 19,
+          "S": 0,
+          "D": 0,
+          "I": 0,
+          "errors": 0
+        },
+        "wall_seconds": 17.858588025905192
+      }
+    ],
+    "native_generation_config": {
+      "max_length": null,
+      "max_new_tokens": null,
+      "min_length": null,
+      "min_new_tokens": null,
+      "early_stopping": null,
+      "max_time": null,
+      "stop_strings": null,
+      "do_sample": null,
+      "num_beams": null,
+      "use_cache": null,
+      "cache_implementation": null,
+      "cache_config": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "min_p": null,
+      "top_h": null,
+      "typical_p": null,
+      "epsilon_cutoff": null,
+      "eta_cutoff": null,
+      "repetition_penalty": null,
+      "encoder_repetition_penalty": null,
+      "length_penalty": null,
+      "no_repeat_ngram_size": null,
+      "bad_words_ids": null,
+      "renormalize_logits": null,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": null,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "sequence_bias": null,
+      "token_healing": null,
+      "guidance_scale": null,
+      "watermarking_config": null,
+      "num_return_sequences": null,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "output_scores": null,
+      "output_logits": null,
+      "return_dict_in_generate": null,
+      "pad_token_id": 2,
+      "bos_token_id": 4,
+      "eos_token_id": 3,
+      "encoder_no_repeat_ngram_size": null,
+      "decoder_start_token_id": 13764,
+      "is_assistant": null,
+      "num_assistant_tokens": null,
+      "num_assistant_tokens_schedule": null,
+      "assistant_confidence_threshold": null,
+      "prompt_lookup_num_tokens": null,
+      "max_matching_ngram_size": null,
+      "assistant_early_exit": null,
+      "assistant_lookbehind": null,
+      "target_lookbehind": null,
+      "compile_config": null,
+      "disable_compile": null,
+      "continuous_batching_config": null,
+      "low_memory": null,
+      "penalty_alpha": null,
+      "dola_layers": null,
+      "diversity_penalty": null,
+      "num_beam_groups": null,
+      "constraints": null,
+      "force_words_ids": null,
+      "prefill_chunk_size": null,
+      "_from_model_config": true,
+      "transformers_version": "5.4.0"
+    },
+    "passed": true,
+    "normalizer_controls": {
+      "english": {
+        "Uh, I paid twenty one dollars.": "i paid $21",
+        "He cannot colour it.": "he cannot color it"
+      },
+      "chinese_basic": {
+        "我有１２个。": "我有12个 ",
+        "我有十二个。": "我有十二个 ",
+        "繁體與简体": "繁體與简体",
+        "你好[噪声]。": "你好 "
+      }
+    }
+  },
+  "cpu_original": {
+    "purpose": "real inference, normalization, S/D/I parity and bounded-generation accounting",
+    "utterance_batch_size": 1,
+    "historical_batch8_parity_claimed": false,
+    "reference_only": true,
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "transformers": "5.4.0",
+      "openai-whisper": "20250625",
+      "espnet": "202412",
+      "Levenshtein": "0.27.3",
+      "numpy": "1.23.5",
+      "soundfile": "0.13.0",
+      "soxr": "0.5.0.post1"
+    },
+    "normalizer_source_sha256": {
+      "BasicTextNormalizer": "4742eaa040e0657fa1247a1361e0d856c62317a43326ea59a40c2e9edd8d2c38",
+      "EnglishTextNormalizer": "2898e4672aeefc9f44cb4de38c115cdf286f5b35ae321433467a7674ce8841d0",
+      "TextCleaner": "2337da5396e9dd6217ffc110cb2266b2210fdfa16a1320aff140f3b6145a649b",
+      "english.json": "6607f948be9824d2e1b2fa2223cd94c06c45afa4e05ea0e3d5e1f2bdffde2465"
+    },
+    "reference_script_sha256": "bb9d5eb22f787de89c5c4eaad17a0010618064ee51885799f202266f68dc6a0c",
+    "checks": [
+      {
+        "name": "native_checkpoint_does_not_force_eos",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:waveform_frontend_parity",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:status",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "value": 20.0
+        }
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:status",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:counts",
+        "passed": true,
+        "expected": {
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "value": 20.0
+        }
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio:native_transcripts",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:original_sdi",
+        "passed": true
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:original_gt_sdi",
+        "passed": true
+      }
+    ],
+    "cases": [
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_gt",
+        "metric": "cohere_wer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_wer_en_whisper",
+            "profile": "cohere_wer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "float32",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "ground_truth_text",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the hope and dream of all this was upon the land",
+            "reference_text": "THE HOPE AND DREAM OF HARVEST WAS UPON THE LAND",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": null,
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": null,
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 1,
+              "errors": 2,
+              "value": 20.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "this",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "t",
+                "h",
+                "i",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 20.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 17.310967246070504,
+          "execution": {
+            "device": "cpu",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_wer_en_whisper",
+          "value": 20.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2,
+          "validation_reference_kind": "provided_transcript"
+        },
+        "wall_seconds": 19.915700316429138
+      },
+      {
+        "name": "1995-1837-0021_4970-29095-0026_1995-1837-0020:en_audio",
+        "metric": "cohere_dwer_en_whisper",
+        "result": {
+          "protocol": {
+            "family": "cohere_dwer_en_whisper",
+            "profile": "cohere_dwer_en_whisper",
+            "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+            "model_id": "CohereLabs/cohere-transcribe-03-2026",
+            "scoring_sample_rate": 16000,
+            "channel_policy": "float64_arithmetic_mean_channels",
+            "resampler": "soxr_HQ",
+            "gain_normalization": "none",
+            "silence_policy": "decode_no_vad",
+            "normalization": "whisper_en",
+            "number_normalization": "upstream_whisper_english",
+            "word_tokenization": "whitespace_no_implicit_language_segmentation",
+            "character_tokenization": "upstream_normalized_unicode_codepoints_without_whitespace",
+            "language": "en",
+            "punctuation": false,
+            "dtype": "float32",
+            "beam_size": 1,
+            "do_sample": false,
+            "max_new_tokens": 256,
+            "forced_eos_token_id": null,
+            "truncation_policy": "score_all_generated_text_with_truncation_warning",
+            "minimum_seconds": 0.1,
+            "max_audio_seconds": 600.0,
+            "chunk_batch_size": 1,
+            "chunking": "native_processor_energy_boundaries",
+            "max_audio_clip_s": 35.0,
+            "boundary_search_seconds": 5.0,
+            "min_energy_window_samples": 1600,
+            "dither": 1E-05,
+            "download_policy": "offline",
+            "trust_remote_code": false,
+            "reference_mode": "clean_reference_asr",
+            "aggregation": "micro_errors_over_reference_units",
+            "artifact_hashes": {
+              "model_dir": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "tokenizer_file": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "audio_frontend": "float64_downmix",
+            "waveform_dtype_order": "soundfile_float64; channel_mean; soxr_HQ; contiguous_float32",
+            "normalization_source": "espnet2.text.cleaner.TextCleaner",
+            "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+          },
+          "backend": {
+            "torch": "2.8.0+cu128",
+            "transformers": "5.4.0",
+            "tokenizers": "0.22.2",
+            "librosa": "0.9.2",
+            "numpy": "1.23.5",
+            "soundfile": "0.13.0",
+            "soxr": "0.5.0.post1",
+            "meeteval": "0.4.3",
+            "kaldialign": "0.12.0",
+            "espnet": "202412",
+            "openai-whisper": "20250625",
+            "Levenshtein": "0.27.3"
+          },
+          "provenance": {
+            "hypothesis": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/inf/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "25dcabd20e3a8e87382b496382274cbc7d29f6b6ae1aa3e670d324d9721b58de"
+            },
+            "model_dir": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026",
+              "sha256": "32065660f3845e7ad4cc065b3742568d9080221c62f9c1f144a3cef4935102b7",
+              "files": {
+                "config.json": "5de7e586cec6d8f51225c8d5fe17a56a3043dda9af8c42f9cb01dd545905eb18",
+                "generation_config.json": "a4837377b5696b1d04033536f25a6d0a11d5e613c6d7d75bf20ffc463ae642c6",
+                "model.safetensors": "987bd3e141c7bfdb5a78f5db11397ee7737308357e6cc0a3f36a4979b158137a",
+                "origin.json": "9f55c0f0600a8a0aafd2badcbe9045a477981d01b9a328790eb457a290b97558",
+                "preprocessor_config.json": "9f297d330646ecc8ebb9dc5784f48b7c35b118c913e306a1ccd0192f2c976332",
+                "processor_config.json": "d5eff85971bab7f42480856f8fb397d8dd966858d67049def99aa8a665aa87d5",
+                "special_tokens_map.json": "1814ce01458ff6a72b04a6618e75f18ce627be4dc17619cd3a7cd7f71e137f0f",
+                "tokenizer.json": "780ccca2de2ccd289971b1fb7d4f0b5ec2dc908872f6e350181c7eba9db3fa9f",
+                "tokenizer_config.json": "b462e16e04c9dbae82289b6ef9b080d8dbad331586ece3ebded0bd09996db636"
+              }
+            },
+            "tokenizer_file": {
+              "path": "<deployment_root>/artifacts/public/cohere-transcribe-03-2026/tokenizer.model",
+              "sha256": "6d21e6a83b2d0d3e1241a7817e4bef8eb63bcb7cfe4a2675af9a35ff3bbf0e14"
+            },
+            "reference": {
+              "path": "<deployment_root>/comparisons/tse-v18-20261108/inputs/ref/1995-1837-0021_4970-29095-0026_1995-1837-0020.wav",
+              "sha256": "a069a538405cb2d12db861104fbd927882c0e1c48cf89874822ee875255082f8"
+            }
+          },
+          "details": {
+            "hypothesis_text": " the hope and dream of all this was upon the land",
+            "reference_text": " the hope and dream of harvest was upon the land",
+            "hypothesis_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "reference_audio": {
+              "sample_rate": 24000,
+              "seconds": 3.09,
+              "exact_zero_waveform": false
+            },
+            "hypothesis_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "reference_decode": {
+              "complete": true,
+              "missing_eos_chunks": [],
+              "generated_tokens_per_chunk": [
+                12
+              ],
+              "chunks": 1,
+              "audio_chunk_index": [
+                [
+                  0,
+                  null
+                ]
+              ],
+              "decoder_prompt_tokens": 10,
+              "decoder_position_capacity": 1024,
+              "empty_chunk_reassembly_guard": false
+            },
+            "normalization_backend": {
+              "normalizer": "whisper_en",
+              "versions": {
+                "espnet": "202412",
+                "openai-whisper": "20250625",
+                "Levenshtein": "0.27.3"
+              }
+            },
+            "generation_complete": true,
+            "word": {
+              "N": 10,
+              "S": 1,
+              "D": 0,
+              "I": 1,
+              "errors": 2,
+              "value": 20.0,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "harvest",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "hypothesis_tokens": [
+                "the",
+                "hope",
+                "and",
+                "dream",
+                "of",
+                "all",
+                "this",
+                "was",
+                "upon",
+                "the",
+                "land"
+              ],
+              "reference_fingerprint": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9"
+            },
+            "char": {
+              "N": 38,
+              "S": 5,
+              "D": 1,
+              "I": 1,
+              "errors": 7,
+              "value": 18.42105263157895,
+              "status": "ok",
+              "normalized_reference_text": "the hope and dream of harvest was upon the land",
+              "normalized_hypothesis_text": "the hope and dream of all this was upon the land",
+              "reference_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "h",
+                "a",
+                "r",
+                "v",
+                "e",
+                "s",
+                "t",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "hypothesis_tokens": [
+                "t",
+                "h",
+                "e",
+                "h",
+                "o",
+                "p",
+                "e",
+                "a",
+                "n",
+                "d",
+                "d",
+                "r",
+                "e",
+                "a",
+                "m",
+                "o",
+                "f",
+                "a",
+                "l",
+                "l",
+                "t",
+                "h",
+                "i",
+                "s",
+                "w",
+                "a",
+                "s",
+                "u",
+                "p",
+                "o",
+                "n",
+                "t",
+                "h",
+                "e",
+                "l",
+                "a",
+                "n",
+                "d"
+              ],
+              "reference_fingerprint": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            },
+            "reference_fingerprint": {
+              "word": "34e41637b91542b4d32bd5b81b19c535e8e354bfcd73bd143283168ce7650fc9",
+              "char": "594463d9b84448c9a41aee50dabb7fb59389acaea36874f1d789b4af9c1faab9"
+            }
+          },
+          "status": "ok",
+          "values": {
+            "wer": 20.0,
+            "cer": 18.42105263157895
+          },
+          "elapsed_seconds": 18.98310362920165,
+          "execution": {
+            "device": "cpu",
+            "threads": 2,
+            "isolated_process": true
+          },
+          "metric": "cohere_dwer_en_whisper",
+          "value": 20.0,
+          "value_unit": "percent",
+          "direction": "lower_is_better",
+          "scoring_unit": "word",
+          "N": 10,
+          "S": 1,
+          "D": 0,
+          "I": 1,
+          "errors": 2
+        },
+        "wall_seconds": 19.820981092751026
+      }
+    ],
+    "native_generation_config": {
+      "max_length": null,
+      "max_new_tokens": null,
+      "min_length": null,
+      "min_new_tokens": null,
+      "early_stopping": null,
+      "max_time": null,
+      "stop_strings": null,
+      "do_sample": null,
+      "num_beams": null,
+      "use_cache": null,
+      "cache_implementation": null,
+      "cache_config": null,
+      "temperature": null,
+      "top_k": null,
+      "top_p": null,
+      "min_p": null,
+      "top_h": null,
+      "typical_p": null,
+      "epsilon_cutoff": null,
+      "eta_cutoff": null,
+      "repetition_penalty": null,
+      "encoder_repetition_penalty": null,
+      "length_penalty": null,
+      "no_repeat_ngram_size": null,
+      "bad_words_ids": null,
+      "renormalize_logits": null,
+      "forced_bos_token_id": null,
+      "forced_eos_token_id": null,
+      "remove_invalid_values": null,
+      "exponential_decay_length_penalty": null,
+      "suppress_tokens": null,
+      "begin_suppress_tokens": null,
+      "sequence_bias": null,
+      "token_healing": null,
+      "guidance_scale": null,
+      "watermarking_config": null,
+      "num_return_sequences": null,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "output_scores": null,
+      "output_logits": null,
+      "return_dict_in_generate": null,
+      "pad_token_id": 2,
+      "bos_token_id": 4,
+      "eos_token_id": 3,
+      "encoder_no_repeat_ngram_size": null,
+      "decoder_start_token_id": 13764,
+      "is_assistant": null,
+      "num_assistant_tokens": null,
+      "num_assistant_tokens_schedule": null,
+      "assistant_confidence_threshold": null,
+      "prompt_lookup_num_tokens": null,
+      "max_matching_ngram_size": null,
+      "assistant_early_exit": null,
+      "assistant_lookbehind": null,
+      "target_lookbehind": null,
+      "compile_config": null,
+      "disable_compile": null,
+      "continuous_batching_config": null,
+      "low_memory": null,
+      "penalty_alpha": null,
+      "dola_layers": null,
+      "diversity_penalty": null,
+      "num_beam_groups": null,
+      "constraints": null,
+      "force_words_ids": null,
+      "prefill_chunk_size": null,
+      "_from_model_config": true,
+      "transformers_version": "5.4.0"
+    },
+    "passed": true,
+    "other_runtime_cases": "not_requested_reference_only"
+  },
+  "release": "0.9.0",
+  "chinese_audio": {
+    "ground_truth_accuracy_claimed": false,
+    "sha256": "a1bd32dc78493c123f9625a66deee562aed2895f53fbc39f2cca3be7e6f4f20f",
+    "source": "https://isv-data.oss-cn-hangzhou.aliyuncs.com/ics/MaaS/ASR/test_audio/asr_example_zh.wav"
+  },
+  "regression_tests_passed": 112
+}

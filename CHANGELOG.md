@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0 — 2026-11-17
+
+- Add optional English Whisper-normalized Cohere WER/dWER and Mandarin basic-normalized CER/dCER profiles; keep all existing profile defaults.
+- Expose explicit normalizer, audio frontend and bounded-generation scoring/rejection choices. Scored truncation retains error counts and per-side diagnostics; decoder budgets use actual positional capacity.
+- Add `compare_recognition` and `compare-recognition` CLI to disclose full expected support, failures, truncation rates, verified reference identity and conditional common subsets without automatic ranking.
+- Reuse upstream ESPnet/OpenAI Whisper cleaners and Levenshtein opcodes; add pinned optional worker dependencies and real English/Chinese validation.
+- The registry now contains 102 IDs / 97 canonical variants. No AEC-specific slicing, retries or paired exclusion rule is imposed.
+
 ## 0.8.0 — 2026-11-16
 
 - Add native Cohere Transcribe ground-truth WER/CER and clean-reference dWER/dCER, with explicit language, precision, normalization and chunking protocols.

@@ -1613,3 +1613,58 @@ Cohere Transcribe DCER, using native Transformers 5.4.0 and MeetEval.
 | Scorer | MeetEval 0.4.3; micro errors / reference units |
 
 See [protocol, supported options and scientific limitations](COHERE_ASR.md). [Real-model validation](../validation/cohere-v0.8.json) distinguishes native parity from accuracy claims. Requires a provisioned local model and separate worker environment; never downloads during scoring. Silence is decoded, empty-reference insertions retained, and token-limited outputs rejected.
+## `cohere_wer_en_whisper`
+
+English Cohere WER with upstream Whisper-English normalization and bounded-output scoring.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Provided transcript |
+| Normalizer | ESPnet whisper_en; whitespace word units |
+| Truncation default | score bounded generated text; report missing EOS |
+
+Optional profile; existing Cohere defaults are unchanged. [Exact frontend, normalization and comparison rules](COHERE_PROFILES.md). [Runtime evidence](../validation/cohere-profiles-v0.9.json). No automatic row exclusion, retry or external fixed-duration slicing. Generation diagnostics and reference-token fingerprints are retained.
+
+## `cohere_dwer_en_whisper`
+
+English Cohere dWER with upstream Whisper-English normalization and bounded-output scoring.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; ASR pseudo-reference |
+| Normalizer | ESPnet whisper_en; whitespace word units |
+| Truncation default | score bounded generated text; report missing EOS |
+
+Optional profile; existing Cohere defaults are unchanged. [Exact frontend, normalization and comparison rules](COHERE_PROFILES.md). [Runtime evidence](../validation/cohere-profiles-v0.9.json). No automatic row exclusion, retry or external fixed-duration slicing. Generation diagnostics and reference-token fingerprints are retained.
+
+## `cohere_cer_zh_basic`
+
+Mandarin Cohere CER with upstream basic normalization and bounded-output scoring.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Provided transcript |
+| Normalizer | ESPnet whisper_basic; Unicode character units without whitespace |
+| Truncation default | score bounded generated text; report missing EOS |
+
+Optional profile; existing Cohere defaults are unchanged. [Exact frontend, normalization and comparison rules](COHERE_PROFILES.md). [Runtime evidence](../validation/cohere-profiles-v0.9.json). No automatic row exclusion, retry or external fixed-duration slicing. Generation diagnostics and reference-token fingerprints are retained.
+
+## `cohere_dcer_zh_basic`
+
+Mandarin Cohere dCER with upstream basic normalization and bounded-output scoring.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; ASR pseudo-reference |
+| Normalizer | ESPnet whisper_basic; Unicode character units without whitespace |
+| Truncation default | score bounded generated text; report missing EOS |
+
+Optional profile; existing Cohere defaults are unchanged. [Exact frontend, normalization and comparison rules](COHERE_PROFILES.md). [Runtime evidence](../validation/cohere-profiles-v0.9.json). No automatic row exclusion, retry or external fixed-duration slicing. Generation diagnostics and reference-token fingerprints are retained.

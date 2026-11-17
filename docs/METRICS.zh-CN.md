@@ -1125,3 +1125,18 @@ Cohere Transcribe DWER，属于语音识别一致性，单位为百分比，越�
 ## `cohere_dcer`
 
 Cohere Transcribe DCER，属于语音识别一致性，单位为百分比，越低越好。参考为干净音频的自动转写，不是人工真值。使用独立 worker、原生 Transformers 和 MeetEval。详见[精确口径](COHERE_ASR.md)及[实测证据](../validation/cohere-v0.8.json)。
+## `cohere_wer_en_whisper`
+
+可选 Cohere 英文 Whisper 清洗 WER口径，以提供的转写文本作为参考。默认将有界生成文本计入错误数，同时报告截断；不自动剔除样本。详见[精确协议与完整语料比较](COHERE_PROFILES.md)和[实测证据](../validation/cohere-profiles-v0.9.json)。
+
+## `cohere_dwer_en_whisper`
+
+可选 Cohere 英文 Whisper 清洗 WER口径，以干净音频的自动转写作为伪参考。默认将有界生成文本计入错误数，同时报告截断；不自动剔除样本。详见[精确协议与完整语料比较](COHERE_PROFILES.md)和[实测证据](../validation/cohere-profiles-v0.9.json)。
+
+## `cohere_cer_zh_basic`
+
+可选 Cohere 中文基础清洗 CER口径，以提供的转写文本作为参考。默认将有界生成文本计入错误数，同时报告截断；不自动剔除样本。详见[精确协议与完整语料比较](COHERE_PROFILES.md)和[实测证据](../validation/cohere-profiles-v0.9.json)。
+
+## `cohere_dcer_zh_basic`
+
+可选 Cohere 中文基础清洗 CER口径，以干净音频的自动转写作为伪参考。默认将有界生成文本计入错误数，同时报告截断；不自动剔除样本。详见[精确协议与完整语料比较](COHERE_PROFILES.md)和[实测证据](../validation/cohere-profiles-v0.9.json)。

@@ -1,5 +1,7 @@
 # Documentation
 
+- [Optional Cohere profiles and fair corpus comparisons](COHERE_PROFILES.md).
+
 - [Cohere Transcribe WER/CER and dWER/dCER](COHERE_ASR.md): offline recognition and isolated worker provisioning.
 
 SpeechMetricHub separates the question **what is measured?** from **what reference is needed?** and **which tasks might use it?** Read the protocol before comparing numbers.

@@ -154,7 +154,8 @@ def select(result, spec):
                 if k in result.get("details", {})
             }
         )
-    if spec["family"] in ("cohere_wer", "cohere_dwer"):
+    if spec["family"].startswith("cohere_"):
+        selected["scoring_unit"] = "word" if spec["output"] == "wer" else "char"
         head = result.get("details", {}).get("word" if spec["output"] == "wer" else "char", {})
         selected.update({k: head[k] for k in ("N", "S", "D", "I", "errors") if k in head})
         if selected["status"] in ("ok", "undefined_reference") and head:

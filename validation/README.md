@@ -1,5 +1,16 @@
 # Validation evidence
 
+## v0.9 optional Cohere profiles and comparison support
+
+[The profile report](cohere-profiles-v0.9.json) records real English/Mandarin
+inference, in-place read-only original-evaluator parity, both truncation policies
+and unchanged legacy interfaces. Chinese self-transcript/identity checks are
+labeled integration checks, not ground-truth accuracy benchmarks. Public
+normalizer source hashes are recorded; private evaluator source is not included.
+`tests/test_comparison.py` separately checks full-set accounting, selection bias,
+reference identity, missing rows, protocol drift and retained insertion counts.
+See [protocols and usage](../docs/COHERE_PROFILES.md).
+
 ## v0.8 Cohere recognition
 
 The [Cohere report](cohere-v0.8.json) records direct native Transformers versus

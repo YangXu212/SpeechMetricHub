@@ -1,5 +1,15 @@
 # Upstream implementations and artifacts
 
+## Optional Cohere text profiles (v0.9)
+
+The new English/basic normalization profiles invoke ESPnet 202412 `TextCleaner`,
+OpenAI Whisper 20250625 normalizers (MIT) and Python-Levenshtein 0.27.3 opcodes
+(GPL-2.0-or-later dependency; not bundled in this MIT package). Dependency licenses
+remain separate. No private lab evaluation source is included or redistributed.
+The English implementation was compared by read-only execution of an authorized
+local evaluator; the report records its hash and results only. Public algorithm
+sources, versions and limitations are listed in [the profile documentation](docs/COHERE_PROFILES.md).
+
 ## Cohere Transcribe (v0.8)
 
 The adapter calls [native Transformers 5.4.0 Cohere ASR](https://github.com/huggingface/transformers/tree/v5.4.0/src/transformers/models/cohere_asr), Apache-2.0. No model-repository custom Python code is bundled or executed. The separately provisioned [CohereLabs/cohere-transcribe-03-2026](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026) weights and processor files are Apache-2.0, subject to the official access process. Input audio stays local.

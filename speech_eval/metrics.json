@@ -4016,5 +4016,166 @@
       "report": "validation/cohere-v0.8.json",
       "scope": "native ASR integration, not model accuracy or hallucination-free certification"
     }
+  },
+
+  {
+    "id": "cohere_wer_en_whisper",
+    "family": "cohere_wer_en_whisper",
+    "output": "wer",
+    "description": "English Cohere WER with upstream Whisper-English normalization and bounded-output scoring",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "Native Cohere + ESPnet/OpenAI Whisper normalizers + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "tts",
+      "codec",
+      "enhancement",
+      "tse",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "transcript"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "espnet==202412",
+      "openai-whisper==20250625",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "verified local model",
+      "separate Cohere worker",
+      "explicit reference transcript or audio",
+      "see docs/COHERE_PROFILES.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-profiles-v0.9.json",
+      "scope": "explicit optional protocol; no automatic dataset filtering"
+    }
+  },
+  {
+    "id": "cohere_dwer_en_whisper",
+    "family": "cohere_dwer_en_whisper",
+    "output": "wer",
+    "description": "English Cohere dWER with upstream Whisper-English normalization and bounded-output scoring",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "Native Cohere + ESPnet/OpenAI Whisper normalizers + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "tts",
+      "codec",
+      "enhancement",
+      "tse",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "espnet==202412",
+      "openai-whisper==20250625",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "verified local model",
+      "separate Cohere worker",
+      "explicit reference transcript or audio",
+      "see docs/COHERE_PROFILES.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-profiles-v0.9.json",
+      "scope": "explicit optional protocol; no automatic dataset filtering"
+    }
+  },
+  {
+    "id": "cohere_cer_zh_basic",
+    "family": "cohere_cer_zh_basic",
+    "output": "cer",
+    "description": "Mandarin Cohere CER with upstream basic normalization and bounded-output scoring",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "Native Cohere + ESPnet/OpenAI Whisper normalizers + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "tts",
+      "codec",
+      "enhancement",
+      "tse",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "transcript"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "espnet==202412",
+      "openai-whisper==20250625",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "verified local model",
+      "separate Cohere worker",
+      "explicit reference transcript or audio",
+      "see docs/COHERE_PROFILES.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-profiles-v0.9.json",
+      "scope": "explicit optional protocol; no automatic dataset filtering"
+    }
+  },
+  {
+    "id": "cohere_dcer_zh_basic",
+    "family": "cohere_dcer_zh_basic",
+    "output": "cer",
+    "description": "Mandarin Cohere dCER with upstream basic normalization and bounded-output scoring",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026",
+    "implementation": "Native Cohere + ESPnet/OpenAI Whisper normalizers + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "tts",
+      "codec",
+      "enhancement",
+      "tse",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "dependencies": [
+      "transformers==5.4.0",
+      "espnet==202412",
+      "openai-whisper==20250625",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "verified local model",
+      "separate Cohere worker",
+      "explicit reference transcript or audio",
+      "see docs/COHERE_PROFILES.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/cohere-profiles-v0.9.json",
+      "scope": "explicit optional protocol; no automatic dataset filtering"
+    }
   }
 ]

@@ -13,8 +13,8 @@
 
 Use it for transcription, diarization, speech quality, intelligibility, signal fidelity and similarity research. Select metrics by **what they measure**, then filter by reference conditions and task tags.
 
-> **93 canonical metric variants · 11 measurement dimensions · 25 model families.**
-> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations and explicit evaluation profiles, not 93 newly proposed algorithms.
+> **97 canonical metric variants · 11 measurement dimensions · 29 model families.**
+> Variants and output heads are counted separately; five compatibility aliases are excluded. These are integrations and explicit evaluation profiles, not 97 newly proposed algorithms.
 
 ## Why use it?
 
@@ -24,7 +24,11 @@ Use it for transcription, diarization, speech quality, intelligibility, signal f
 - **Reuse upstream implementations.** MeetEval, pyannote.metrics, fast-bss-eval and the original model projects provide the scoring algorithms.
 - **Inspect the evidence.** The repository includes a per-interface validation matrix, model/source fingerprints and repeatable checks. Real model execution is distinguished from ordinary CI.
 
-## New in v0.8
+## New in v0.9
+
+Four additive [Cohere normalization and bounded-output profiles](docs/COHERE_PROFILES.md) expose English WER/dWER and Mandarin CER/dCER without changing the existing defaults. `compare_recognition` reports a frozen expected corpus, failures, truncation rates, reference identity and an explicitly conditional common subset, keeping model-dependent exclusions visible. See [runtime evidence](validation/cohere-profiles-v0.9.json).
+
+## Added in v0.8
 
 **Cohere Transcribe WER/CER and dWER/dCER** provide an additional offline recognizer, retaining the established text scorer and existing Whisper interfaces. Native long-audio chunking, silence diagnostics, token-limit rejection and a separately locked worker environment are explicit. See [protocol and provisioning](docs/COHERE_ASR.md), [worker overlay](requirements-cohere.txt), and [real-model validation](validation/cohere-v0.8.json).
 

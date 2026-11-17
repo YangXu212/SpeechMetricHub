@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "speechmetrichub"
-version = "0.8.0"
-description = "Protocol-aware speech evaluation: 93 metric variants, upstream scorers, traceable results"
+version = "0.9.0"
+description = "Protocol-aware speech evaluation: 97 metric variants, upstream scorers, traceable results"
 authors = [{name = "Yang Xu"}]
 keywords = ["speech", "evaluation", "asr", "diarization", "speech-quality", "audio"]
 classifiers = [

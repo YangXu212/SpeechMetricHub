@@ -28,6 +28,9 @@ def execute():
     batch.add_argument("metric")
     batch.add_argument("--input", required=True)
     batch.add_argument("--output")
+    compare = sub.add_parser("compare-recognition")
+    compare.add_argument("--input", required=True)
+    compare.add_argument("--output")
     for command in (calc, multi, batch):
         command.add_argument(
             "--deployment",
@@ -93,6 +96,10 @@ def execute():
         from .models import evaluate
 
         result = evaluate(**payload)
+    elif args.command == "compare-recognition":
+        from .comparison import compare_recognition
+
+        result = compare_recognition(**json.loads(Path(args.input).read_text(encoding="utf-8")))
     elif args.command == "batch":
         from .batch import evaluate_batch
 
@@ -112,6 +119,8 @@ def execute():
         return 0 if all(v.get("status") == "ok" for v in result.values()) else 2
     if args.command == "verify":
         return 0 if result.get("status") == "ok" else 2
+    if args.command == "compare-recognition":
+        return 0 if result.get("full_corpus_comparable") else 2
     return 0
 
 
