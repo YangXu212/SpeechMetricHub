@@ -155,7 +155,8 @@ def compare_recognition(systems, *, expected_ids=None):
 
     ``systems`` maps system names to iterable ``{id, result}`` rows, including
     failures. Supply the original ``expected_ids`` to detect items omitted from
-    every system. Otherwise the union of observed IDs is used and disclosed.
+    every system. Otherwise the union of observed IDs is used only for
+    diagnostics: full-corpus values remain null and comparability remains false.
     Unexpected IDs and duplicate IDs are rejected. Missing expected rows remain
     failures. Scored partial generations (status ok) retain their errors; rejected
     generations do not receive invented counts or a fabricated full-corpus score.
@@ -228,13 +229,14 @@ def compare_recognition(systems, *, expected_ids=None):
             if truncation["any"]:
                 scored_truncated_ids.append(item)
         protocol_valid = len(protocols) == 1 and None not in protocols
-        complete = bool(expected) and len(valid) == len(expected) and protocol_valid
+        complete = explicit and bool(expected) and len(valid) == len(expected) and protocol_valid
         subset = _aggregate(list(valid), valid, compatible=protocol_valid)
         reports[name] = {
             "expected": len(expected),
             "present": len(rows),
             "scored": len(valid),
             "counts_complete": bool(expected) and len(valid) == len(expected),
+            "expected_corpus_verified": explicit,
             "complete": complete,
             "coverage": len(valid) / len(expected) if expected else None,
             "value": subset["value"] if complete else None,
@@ -295,12 +297,15 @@ def compare_recognition(systems, *, expected_ids=None):
     common_comparable = bool(common) and protocol_compatible and not reference_issues
     issues = []
     if not explicit:
-        # This is a disclosure, not a protocol error: callers can compare the
-        # observed union, but cannot establish that it is the original corpus.
+        # A shared omission is invisible in the observed union. Do not promote
+        # conditional observed-set scores into full-corpus claims.
         corpus_scope = "observed_union; omissions shared by every system cannot be detected"
+        issues.append("expected_corpus_unverified")
     else:
         corpus_scope = "explicit_expected_ids"
-    if not all(report["complete"] for report in reports.values()):
+    if not all(
+        report["counts_complete"] and report["protocol_consistent"] for report in reports.values()
+    ):
         issues.append("incomplete_full_corpus_or_inconsistent_within_system_protocol")
     if not protocol_compatible:
         issues.append("incompatible_or_unverified_protocols")
@@ -312,6 +317,7 @@ def compare_recognition(systems, *, expected_ids=None):
     return {
         "expected_ids": expected,
         "expected_ids_sha256": _digest(expected),
+        "expected_corpus_verified": explicit,
         "corpus_scope": corpus_scope,
         "systems": reports,
         "full_corpus_comparable": full_comparable,

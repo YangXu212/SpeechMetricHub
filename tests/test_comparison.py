@@ -49,7 +49,9 @@ class RecognitionComparisonTests(unittest.TestCase):
                 "details": {"hypothesis_decode": {"complete": False}},
             },
         }
-        report = compare_recognition({"a": [row(), bad], "b": [row(), row("b", s=1)]})
+        report = compare_recognition(
+            {"a": [row(), bad], "b": [row(), row("b", s=1)]}, expected_ids=["a", "b"]
+        )
         self.assertIsNone(report["systems"]["a"]["value"])
         self.assertEqual(report["systems"]["b"]["value"], 25)
         self.assertFalse(report["full_corpus_comparable"])
@@ -60,7 +62,9 @@ class RecognitionComparisonTests(unittest.TestCase):
 
     def test_named_profile_uses_explicit_scoring_unit(self):
         entry = row(metric="cohere_wer_en_whisper", scoring_unit="word")
-        report = compare_recognition({"a": [entry], "b": [copy.deepcopy(entry)]})
+        report = compare_recognition(
+            {"a": [entry], "b": [copy.deepcopy(entry)]}, expected_ids=["a"]
+        )
         self.assertTrue(report["full_corpus_comparable"])
 
     def test_scoreable_truncation_retains_errors(self):
@@ -74,7 +78,7 @@ class RecognitionComparisonTests(unittest.TestCase):
 
     def test_generic_scored_truncation_flags_are_diagnostic(self):
         partial = row(s=1, details={"reference_text": "one two", "generation_complete": False})
-        report = compare_recognition({"a": [partial], "b": [row()]})
+        report = compare_recognition({"a": [partial], "b": [row()]}, expected_ids=["a"])
         self.assertEqual(report["systems"]["a"]["value"], 50)
         self.assertEqual(report["systems"]["a"]["scored_truncated"], 1)
 
@@ -84,6 +88,24 @@ class RecognitionComparisonTests(unittest.TestCase):
             self.assertEqual(system["failures_by_status"], {"missing_result": 1})
             self.assertIsNone(system["value"])
         self.assertEqual(report["common_subset"]["coverage"], 0.5)
+
+    def test_shared_omission_without_manifest_never_claims_full_corpus(self):
+        # Both systems may have omitted the same difficult examples. A perfect
+        # observed set cannot establish full-corpus accuracy or coverage.
+        report = compare_recognition({"a": [row()], "b": [row()]})
+        self.assertFalse(report["expected_corpus_verified"])
+        self.assertFalse(report["full_corpus_comparable"])
+        self.assertIn("expected_corpus_unverified", report["comparability_issues"])
+        for system in report["systems"].values():
+            self.assertTrue(system["counts_complete"])
+            self.assertFalse(system["complete"])
+            self.assertIsNone(system["value"])
+            self.assertEqual(system["valid_subset_value"], 0)
+            self.assertTrue(system["valid_subset_diagnostic_only"])
+        subset = report["common_subset"]
+        self.assertTrue(subset["diagnostic_only"])
+        self.assertTrue(subset["comparable_within_subset"])
+        self.assertEqual(subset["systems"]["a"]["value"], 0)
 
     def test_union_keeps_asymmetric_omission(self):
         report = compare_recognition({"a": [row()], "b": [row(), row("b")]})
@@ -102,7 +124,7 @@ class RecognitionComparisonTests(unittest.TestCase):
     def test_empty_reference_insertions_retained(self):
         a = [row("silent", n=0, i=2, text=""), row("speech")]
         b = [row("silent", n=0, text=""), row("speech")]
-        report = compare_recognition({"a": a, "b": b})
+        report = compare_recognition({"a": a, "b": b}, expected_ids=["silent", "speech"])
         self.assertTrue(report["full_corpus_comparable"])
         self.assertEqual(report["systems"]["a"]["value"], 100)
         self.assertEqual(report["systems"]["a"]["counts"]["I"], 2)
@@ -121,13 +143,13 @@ class RecognitionComparisonTests(unittest.TestCase):
     def test_caller_reference_id_supported_and_disclosed(self):
         a, b = row(details={}), row(details={})
         a["reference_id"] = b["reference_id"] = "annotations-v1:a"
-        report = compare_recognition({"a": [a], "b": [b]})
+        report = compare_recognition({"a": [a], "b": [b]}, expected_ids=["a"])
         self.assertTrue(report["full_corpus_comparable"])
         self.assertEqual(report["reference_identity_evidence"]["a"], ["caller_reference_id"])
 
     def test_reference_fingerprint_supported(self):
         a = row(details={"reference_fingerprint": {"word": "fixed-token-hash"}})
-        report = compare_recognition({"a": [a], "b": [copy.deepcopy(a)]})
+        report = compare_recognition({"a": [a], "b": [copy.deepcopy(a)]}, expected_ids=["a"])
         self.assertTrue(report["full_corpus_comparable"])
 
     def test_reference_tokens_must_match_N(self):

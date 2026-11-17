@@ -121,6 +121,8 @@ report = compare_recognition(
 Each system is a list of `{"id": recording_id, "result": metric_result}` rows,
 including failures. Results from `evaluate_batch(...)["rows"]` already have this
 shape. Pass explicit expected IDs to detect omissions shared by every system.
+Without `expected_ids`, full-corpus values remain null and
+`full_corpus_comparable=False`; the observed union is diagnostic only.
 Missing rows and unscored failures prevent a full-corpus score. Scored bounded
 outputs remain included while their truncation count/rate is reported separately.
 
