@@ -99,6 +99,25 @@ These metrics measure agreement with ASR pseudo-references, not transcription
 accuracy against human ground truth. Empty references retain insertion counts
 but have no defined per-utterance percentage.
 
+## Calling the profiles
+
+In a provisioned deployment, use the selected profile directly:
+
+```python
+from speechmetrichub import MetricHub
+
+hub = MetricHub("/path/to/deployment.locked.json")
+english = hub.run("cohere_dwer_en_whisper", reference="clean.wav", hypothesis="output.wav")
+chinese = hub.run("cohere_dcer_zh_basic", reference="clean_zh.wav", hypothesis="output_zh.wav")
+```
+
+The `_whisper` suffix identifies the text normalizer; recognition still uses
+Cohere Transcribe. For a fresh installation, add each chosen profile ID as a
+family key in the child worker configuration, using the same local `model_dir`,
+`tokenizer_file` and device settings as [the base Cohere deployment](COHERE_ASR.md).
+The normalizer, truncation policy and audio frontend remain explicit selectable
+settings; a locked deployment records the chosen configuration.
+
 ## Comparing systems without hidden exclusions
 
 Compatibility validation covers valid reference transcripts and short
