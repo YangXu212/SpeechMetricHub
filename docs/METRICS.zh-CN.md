@@ -1140,3 +1140,23 @@ Cohere Transcribe DCER，属于语音识别一致性，单位为百分比，越�
 ## `cohere_dcer_zh_basic`
 
 可选 Cohere 中文基础清洗 CER口径，以干净音频的自动转写作为伪参考。默认将有界生成文本计入错误数，同时报告截断；不自动剔除样本。详见[精确协议与完整语料比较](COHERE_PROFILES.md)和[实测证据](../validation/cohere-profiles-v0.9.json)。
+
+## `whisper_wer_en_openai`
+
+OpenAI 官方 `openai-whisper`（`large-v3.pt`）英文 WER 口径，默认 `beam_size=5`、`hallucination_silence_threshold=2.0`，支持 `>30s` 滑窗解码，采用 `ESPnet TextCleaner("whisper_en")` 与 `Levenshtein.opcodes` 计分。**推荐用于复现语音增强 / TSE 论文（与 `calculate_wer_whisper.py` 口径一致）**。详见 [Whisper ASR 协议说明](WHISPER_ASR.md) 与[实测证据](../validation/whisper-unispeech-v0.10.json)。
+
+## `whisper_dwer_en_openai`
+
+OpenAI 官方 `openai-whisper`（`large-v3.pt`）英文 dWER 口径，以干净参考音频的同模型转写作为伪参考（非人工真值）。**推荐用于复现无人工标注测试集（如 DNS1）的论文 dWER 指标**。详见 [Whisper ASR 协议说明](WHISPER_ASR.md) 与[实测证据](../validation/whisper-unispeech-v0.10.json)。
+
+## `whisper_wer_hf_v3`
+
+升级版 Hugging Face Transformers Whisper `large-v3` 英文 WER 口径：显式启用 `return_timestamps=True`、`condition_on_prev_tokens=False`、温度回退阈值与 `>30s` 顺序长音频解码，采用 `WhisperTokenizer.normalize` 完整英美拼写映射与 `kaldialign` 计分，不改动旧版 `whisper_wer` 兼容口径。复现基于 `openai-whisper` 的论文时仍建议优先选用 `whisper_wer_en_openai`。详见 [Whisper ASR 协议说明](WHISPER_ASR.md)。
+
+## `whisper_dwer_hf_v3`
+
+升级版 Hugging Face Transformers Whisper `large-v3` 英文 dWER 口径，以干净音频的同模型转写作为伪参考，补齐时间戳、温度回退与 `>30s` 长音频解码且保持旧版 `whisper_dwer` 不变。详见 [Whisper ASR 协议说明](WHISPER_ASR.md)。
+
+## `speaker_similarity_unispeech_wavlm`
+
+Microsoft UniSpeech 微调版 `WavLM-Large + ECAPA-TDNN` 说话人嵌入余弦相似度（256 维嵌入，16 kHz `soxr` HQ 重采样，范围 `[-1, 1]`）。需显式配置本地 `ssl_checkpoint`（`WavLM-Large.pt`）与 `checkpoint`（`wavlm_large_finetune.pth`），依赖 `s3prl`。与 `speaker_similarity`（RawNet3）和 `speaker_similarity_wavlm`（WavLM-base-plus-SV）为不同骨干，不可混比。详见 [模型配置](MODELS.md) 与[实测证据](../validation/whisper-unispeech-v0.10.json)。

@@ -1,0 +1,547 @@
+{
+  "release": "0.10.0",
+  "date": "2026-11-21",
+  "scope": "Real-audio interface execution, >30s long-form verification, identity/parity checks, and full StuPASE DNS1/LibriSpeech benchmark verification",
+  "passed": true,
+  "cases": {
+    "openai_wer_short": {
+      "metric": "whisper_wer_en_openai",
+      "status": "ok",
+      "value": 0.0,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 18,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "protocol": {
+        "family": "whisper_wer_en_openai",
+        "profile": "whisper_wer_en_openai",
+        "source": "https://github.com/openai/whisper",
+        "backend_kind": "openai",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "float64_arithmetic_mean_channels",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "en",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "openai_whisper_30s_sliding_window",
+        "download_policy": "offline",
+        "reference_mode": "ground_truth_text",
+        "aggregation": "micro_errors_over_reference_units",
+        "hallucination_silence_threshold": 2.0,
+        "layer_norm_dtype": "float32",
+        "artifact_hashes": {
+          "checkpoint": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+        },
+        "normalization_source": "espnet2.text.cleaner.TextCleaner",
+        "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "openai-whisper": "20250625",
+        "tiktoken": "0.14.0",
+        "espnet": "202412",
+        "Levenshtein": "0.27.3"
+      },
+      "elapsed_seconds": 50.102
+    },
+    "openai_wer_gt30s": {
+      "metric": "whisper_wer_en_openai",
+      "status": "ok",
+      "value": 37.5,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 88,
+        "S": 25,
+        "D": 6,
+        "I": 2,
+        "errors": 33
+      },
+      "protocol": {
+        "family": "whisper_wer_en_openai",
+        "profile": "whisper_wer_en_openai",
+        "source": "https://github.com/openai/whisper",
+        "backend_kind": "openai",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "float64_arithmetic_mean_channels",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "en",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "openai_whisper_30s_sliding_window",
+        "download_policy": "offline",
+        "reference_mode": "ground_truth_text",
+        "aggregation": "micro_errors_over_reference_units",
+        "hallucination_silence_threshold": 2.0,
+        "layer_norm_dtype": "float32",
+        "artifact_hashes": {
+          "checkpoint": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+        },
+        "normalization_source": "espnet2.text.cleaner.TextCleaner",
+        "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "openai-whisper": "20250625",
+        "tiktoken": "0.14.0",
+        "espnet": "202412",
+        "Levenshtein": "0.27.3"
+      },
+      "elapsed_seconds": 61.295
+    },
+    "openai_dwer_dns1_169": {
+      "metric": "whisper_dwer_en_openai",
+      "status": "ok",
+      "value": 0.0,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 24,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "protocol": {
+        "family": "whisper_dwer_en_openai",
+        "profile": "whisper_dwer_en_openai",
+        "source": "https://github.com/openai/whisper",
+        "backend_kind": "openai",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "float64_arithmetic_mean_channels",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "en",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "openai_whisper_30s_sliding_window",
+        "download_policy": "offline",
+        "reference_mode": "clean_reference_asr",
+        "aggregation": "micro_errors_over_reference_units",
+        "hallucination_silence_threshold": 2.0,
+        "layer_norm_dtype": "float32",
+        "artifact_hashes": {
+          "checkpoint": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+        },
+        "normalization_source": "espnet2.text.cleaner.TextCleaner",
+        "edit_counts": "python_Levenshtein.opcodes_reference_span_except_insert"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "openai-whisper": "20250625",
+        "tiktoken": "0.14.0",
+        "espnet": "202412",
+        "Levenshtein": "0.27.3"
+      },
+      "elapsed_seconds": 43.446
+    },
+    "hf_v3_wer_short": {
+      "metric": "whisper_wer_hf_v3",
+      "status": "ok",
+      "value": 0.0,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 18,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "protocol": {
+        "family": "whisper_wer_hf_v3",
+        "profile": "whisper_wer_hf_v3",
+        "source": "https://huggingface.co/openai/whisper-large-v3",
+        "backend_kind": "hf",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en_hf",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "english",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "hf_sequential_long_form_timestamps",
+        "download_policy": "offline",
+        "reference_mode": "ground_truth_text",
+        "aggregation": "micro_errors_over_reference_units",
+        "return_timestamps": true,
+        "condition_on_prev_tokens": false,
+        "temperature": [
+          0.0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ],
+        "compression_ratio_threshold": 2.4,
+        "logprob_threshold": -1.0,
+        "no_speech_threshold": 0.6,
+        "artifact_hashes": {
+          "model_dir": "50053ffa985eab62d85c26e454406d4712f3c5bc7b838e679e6738557b3ead52"
+        },
+        "normalization_source": "transformers.WhisperTokenizer.normalize",
+        "edit_counts": "kaldialign.edit_distance"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "transformers": "4.48.2",
+        "tokenizers": "0.21.4",
+        "kaldialign": "0.12.0",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 44.912
+    },
+    "hf_v3_wer_gt30s": {
+      "metric": "whisper_wer_hf_v3",
+      "status": "ok",
+      "value": 36.36363636363637,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 88,
+        "S": 22,
+        "D": 9,
+        "I": 1,
+        "errors": 32
+      },
+      "protocol": {
+        "family": "whisper_wer_hf_v3",
+        "profile": "whisper_wer_hf_v3",
+        "source": "https://huggingface.co/openai/whisper-large-v3",
+        "backend_kind": "hf",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en_hf",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "english",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "hf_sequential_long_form_timestamps",
+        "download_policy": "offline",
+        "reference_mode": "ground_truth_text",
+        "aggregation": "micro_errors_over_reference_units",
+        "return_timestamps": true,
+        "condition_on_prev_tokens": false,
+        "temperature": [
+          0.0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ],
+        "compression_ratio_threshold": 2.4,
+        "logprob_threshold": -1.0,
+        "no_speech_threshold": 0.6,
+        "artifact_hashes": {
+          "model_dir": "50053ffa985eab62d85c26e454406d4712f3c5bc7b838e679e6738557b3ead52"
+        },
+        "normalization_source": "transformers.WhisperTokenizer.normalize",
+        "edit_counts": "kaldialign.edit_distance"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "transformers": "4.48.2",
+        "tokenizers": "0.21.4",
+        "kaldialign": "0.12.0",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 30.889
+    },
+    "hf_v3_dwer_dns1_169": {
+      "metric": "whisper_dwer_hf_v3",
+      "status": "ok",
+      "value": 0.0,
+      "value_unit": "percent",
+      "direction": "lower_is_better",
+      "counts": {
+        "N": 24,
+        "S": 0,
+        "D": 0,
+        "I": 0,
+        "errors": 0
+      },
+      "protocol": {
+        "family": "whisper_dwer_hf_v3",
+        "profile": "whisper_dwer_hf_v3",
+        "source": "https://huggingface.co/openai/whisper-large-v3",
+        "backend_kind": "hf",
+        "scoring_sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "resampler": "soxr_HQ",
+        "gain_normalization": "none",
+        "silence_policy": "decode_no_vad",
+        "normalization": "whisper_en_hf",
+        "word_tokenization": "whitespace_no_implicit_language_segmentation",
+        "language": "english",
+        "dtype": "float16",
+        "beam_size": 5,
+        "minimum_seconds": 0.1,
+        "max_audio_seconds": 600.0,
+        "long_form_policy": "hf_sequential_long_form_timestamps",
+        "download_policy": "offline",
+        "reference_mode": "clean_reference_asr",
+        "aggregation": "micro_errors_over_reference_units",
+        "return_timestamps": true,
+        "condition_on_prev_tokens": false,
+        "temperature": [
+          0.0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ],
+        "compression_ratio_threshold": 2.4,
+        "logprob_threshold": -1.0,
+        "no_speech_threshold": 0.6,
+        "artifact_hashes": {
+          "model_dir": "50053ffa985eab62d85c26e454406d4712f3c5bc7b838e679e6738557b3ead52"
+        },
+        "normalization_source": "transformers.WhisperTokenizer.normalize",
+        "edit_counts": "kaldialign.edit_distance"
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "transformers": "4.48.2",
+        "tokenizers": "0.21.4",
+        "kaldialign": "0.12.0",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 26.042
+    },
+    "unispeech_identity": {
+      "metric": "speaker_similarity_unispeech_wavlm",
+      "status": "ok",
+      "value": 1.0,
+      "value_unit": "cosine",
+      "direction": "higher_is_better",
+      "counts": {},
+      "protocol": {
+        "family": "speaker_similarity_unispeech_wavlm",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "configuration": {
+          "ssl_checkpoint": "WavLM-Large.pt",
+          "checkpoint": "wavlm_large_finetune.pth",
+          "trusted_checkpoint": true
+        },
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "unispeech-wavlm-large-ecapa",
+        "feat_dim": 1024,
+        "emb_dim": 256,
+        "similarity": "cosine",
+        "pooling": "attentive_stats_pool",
+        "artifact_hashes": {
+          "checkpoint": "51f07e3b94d9e0262a6a675ef5a087be3dd09e8c62e9d886827f44f82fe7f94b",
+          "ssl_checkpoint": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 22.529
+    },
+    "unispeech_dns1_noisy": {
+      "metric": "speaker_similarity_unispeech_wavlm",
+      "status": "ok",
+      "value": 0.9915649890899658,
+      "value_unit": "cosine",
+      "direction": "higher_is_better",
+      "counts": {},
+      "protocol": {
+        "family": "speaker_similarity_unispeech_wavlm",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "configuration": {
+          "ssl_checkpoint": "WavLM-Large.pt",
+          "checkpoint": "wavlm_large_finetune.pth",
+          "trusted_checkpoint": true
+        },
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "unispeech-wavlm-large-ecapa",
+        "feat_dim": 1024,
+        "emb_dim": 256,
+        "similarity": "cosine",
+        "pooling": "attentive_stats_pool",
+        "artifact_hashes": {
+          "checkpoint": "51f07e3b94d9e0262a6a675ef5a087be3dd09e8c62e9d886827f44f82fe7f94b",
+          "ssl_checkpoint": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 14.34
+    },
+    "unispeech_dns1_stupase": {
+      "metric": "speaker_similarity_unispeech_wavlm",
+      "status": "ok",
+      "value": 0.9442287683486938,
+      "value_unit": "cosine",
+      "direction": "higher_is_better",
+      "counts": {},
+      "protocol": {
+        "family": "speaker_similarity_unispeech_wavlm",
+        "sample_rate": 16000,
+        "channel_policy": "strict_mono",
+        "minimum_seconds": 1.0,
+        "gain_normalization": "none",
+        "download_policy": "offline",
+        "configuration": {
+          "ssl_checkpoint": "WavLM-Large.pt",
+          "checkpoint": "wavlm_large_finetune.pth",
+          "trusted_checkpoint": true
+        },
+        "scoring_sample_rate": 16000,
+        "resampler": "soxr_HQ",
+        "model_type": "unispeech-wavlm-large-ecapa",
+        "feat_dim": 1024,
+        "emb_dim": 256,
+        "similarity": "cosine",
+        "pooling": "attentive_stats_pool",
+        "artifact_hashes": {
+          "checkpoint": "51f07e3b94d9e0262a6a675ef5a087be3dd09e8c62e9d886827f44f82fe7f94b",
+          "ssl_checkpoint": "6fb4b3c3e6aa567f0a997b30855859cb81528ee8078802af439f7b2da0bf100f"
+        }
+      },
+      "backend": {
+        "torch": "2.8.0+cu128",
+        "torchaudio": "2.8.0+cu128",
+        "numpy": "1.23.5",
+        "soundfile": "0.13.0",
+        "soxr": "0.5.0.post1",
+        "scoreq": "1.0.0",
+        "onnxruntime": "1.16.3",
+        "audiobox-aesthetics": "0.0.4",
+        "transformers": "4.48.2",
+        "s3prl": "0.4.18",
+        "espnet": "202412",
+        "phonemizer": "3.6.0",
+        "librosa": "0.9.2",
+        "meeteval": "0.4.3"
+      },
+      "elapsed_seconds": 14.644
+    }
+  },
+  "checks": {
+    "unispeech_identity_cosine": 1.0,
+    "unispeech_upstream_parity_abs_diff": 5.960464477539063e-08,
+    "compare_recognition_openai_comparable": true,
+    "compare_recognition_hf_v3_comparable": true,
+    "gt30s_clip_seconds": 31.65
+  },
+  "benchmark_alignment_summary": {
+    "dns1_no_reverb_noisy": {
+      "unispeech_spksim": 0.9615,
+      "openai_whisper_dwer_pct": 3.53,
+      "hf_v3_dwer_pct": 3.67
+    },
+    "dns1_no_reverb_stupase": {
+      "unispeech_spksim": 0.8754,
+      "openai_whisper_dwer_pct": 2.26,
+      "hf_v3_dwer_pct": 3.12
+    },
+    "dns1_with_reverb_noisy": {
+      "unispeech_spksim": 0.7873,
+      "openai_whisper_dwer_pct": 9.88,
+      "hf_v3_dwer_pct": 10.24
+    },
+    "dns1_with_reverb_stupase": {
+      "unispeech_spksim": 0.7335,
+      "openai_whisper_dwer_pct": 7.54,
+      "hf_v3_dwer_pct": 9.04
+    },
+    "simulated_librispeech_stupase_1000": {
+      "rawnet3_spksim": 0.6644,
+      "unispeech_spksim": 0.6668,
+      "openai_whisper_wer_pct": 11.57,
+      "hf_v3_wer_pct": 10.62
+    }
+  }
+}

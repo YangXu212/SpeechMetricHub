@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.0 — 2026-11-21
+
+- Add official OpenAI Whisper evaluation profiles (`whisper_wer_en_openai`, `whisper_dwer_en_openai`) using `openai-whisper==20250625`, `beam_size=5`, `hallucination_silence_threshold=2.0`, native `>30s` sliding-window decoding, optional CUDA `float16` weights with `float32` `LayerNorm` (~3.5 GB VRAM), and `ESPnet TextCleaner("whisper_en")` + `Levenshtein.opcodes`. Recommended for reproducing published enhancement/TSE benchmarks.
+- Add upgraded Hugging Face Whisper profiles (`whisper_wer_hf_v3`, `whisper_dwer_hf_v3`) with `return_timestamps=True`, `condition_on_prev_tokens=False`, temperature/compression/logprob/no-speech fallback thresholds, sequential `>30s` long-form decoding, and full `WhisperTokenizer.normalize` English spelling normalization while preserving legacy `whisper_wer` / `whisper_dwer` unchanged.
+- Add `speaker_similarity_unispeech_wavlm` implementing the Microsoft UniSpeech fine-tuned WavLM-Large ECAPA-TDNN speaker embedding cosine metric backed by local `WavLM-Large.pt` (`ssl_checkpoint`) and `wavlm_large_finetune.pth` (`checkpoint`) via S3PRL.
+- Extend `models.select` to expose `scoring_unit="word"` and `undefined_reference` propagation for all new Whisper profiles, enabling direct `evaluate_batch` and `compare_recognition` support.
+- Reorganize `README.md`, `README.zh-CN.md`, `docs/README.md`, and `docs/MODELS.md` into evergreen reference documentation (moving version-by-version history exclusively to `CHANGELOG.md`) and add [docs/WHISPER_ASR.md](docs/WHISPER_ASR.md).
+- The registry now contains 107 IDs / 102 canonical variants across 11 dimensions and 34 model families.
+
 ## 0.9.0 — 2026-11-17
 
 - Add optional English Whisper-normalized Cohere WER/dWER and Mandarin basic-normalized CER/dCER profiles; keep all existing profile defaults.

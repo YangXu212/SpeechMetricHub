@@ -1,5 +1,10 @@
 # Upstream implementations and artifacts
 
+## OpenAI Whisper, upgraded HF Whisper v3 and UniSpeech WavLM-Large-ECAPA (v0.10)
+
+- **OpenAI Whisper** (`openai-whisper==20250625`), MIT License: https://github.com/openai/whisper. Invoked directly by `whisper_wer_en_openai` and `whisper_dwer_en_openai` with local `large-v3.pt` weights; combined with ESPnet `TextCleaner("whisper_en")` and `Levenshtein.opcodes` (dependencies remain separate, not bundled in this wheel).
+- **Microsoft UniSpeech speaker verification**, MIT License: https://github.com/microsoft/UniSpeech/tree/main/downstreams/speaker_verification, building on **ECAPA-TDNN** (https://github.com/lawlict/ECAPA-TDNN, MIT License) and **S3PRL** WavLM upstream (`s3prl`, Apache-2.0). The `ECAPA_TDNN_SMALL` model definition in `speech_eval/unispeech_sv.py` is adapted from that public recipe to accept explicit local `WavLM-Large.pt` and `wavlm_large_finetune.pth` checkpoints without runtime downloads; weights are provisioned separately and retain Microsoft's upstream license terms.
+
 ## Optional Cohere text profiles (v0.9)
 
 The new English/basic normalization profiles invoke ESPnet 202412 `TextCleaner`,

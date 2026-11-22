@@ -826,7 +826,7 @@ Whisper ASR WER against ground-truth text
 | Model family / head | `whisper_wer` / `wer` |
 | Configuration | `model_dir`, `language`, `beam_size` |
 
-Whisper large-v3, English, beam_size=5, deterministic generation, clips <=30 s. WER uses reference text; dWER uses clean-reference ASR text. EnglishTextNormalizer({}) precedes shared normalization/MeetEval. The runtime fixture does not establish ASR accuracy on a benchmark.
+Whisper large-v3, English, beam_size=5, deterministic generation, clips <=30 s. WER uses reference text; dWER uses clean-reference ASR text. EnglishTextNormalizer({}) precedes shared normalization/MeetEval. Preserved for historical lock compatibility; for new benchmarks see [Whisper ASR profiles](WHISPER_ASR.md) and prefer `whisper_wer_en_openai` or `whisper_wer_hf_v3`.
 
 **Evidence:** real audio execution, declared outputs returned, and rejection of short/stereo/silent/missing-file inputs. Model-specific upstream parity and identity checks are recorded individually in the matrix.
 
@@ -844,7 +844,7 @@ Whisper ASR WER against ASR transcript of clean reference; not ground-truth WER
 | Model family / head | `whisper_dwer` / `wer` |
 | Configuration | `model_dir`, `language`, `beam_size` |
 
-Whisper large-v3, English, beam_size=5, deterministic generation, clips <=30 s. WER uses reference text; dWER uses clean-reference ASR text. EnglishTextNormalizer({}) precedes shared normalization/MeetEval. The runtime fixture does not establish ASR accuracy on a benchmark.
+Whisper large-v3, English, beam_size=5, deterministic generation, clips <=30 s. WER uses reference text; dWER uses clean-reference ASR text. EnglishTextNormalizer({}) precedes shared normalization/MeetEval. Preserved for historical lock compatibility; for new benchmarks see [Whisper ASR profiles](WHISPER_ASR.md) and prefer `whisper_wer_en_openai` or `whisper_wer_hf_v3`.
 
 **Evidence:** real audio execution, declared outputs returned, and rejection of short/stereo/silent/missing-file inputs. Model-specific upstream parity and identity checks are recorded individually in the matrix.
 
@@ -1668,3 +1668,77 @@ Mandarin Cohere dCER with upstream basic normalization and bounded-output scorin
 | Truncation default | score bounded generated text; report missing EOS |
 
 Optional profile; existing Cohere defaults are unchanged. [Exact frontend, normalization and comparison rules](COHERE_PROFILES.md). [Runtime evidence](../validation/cohere-profiles-v0.9.json). No automatic row exclusion, retry or external fixed-duration slicing. Generation diagnostics and reference-token fingerprints are retained.
+
+## `whisper_wer_en_openai`
+
+English OpenAI Whisper large-v3 WER with hallucination silence suppression and ESPnet whisper_en normalization.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Provided ground-truth transcript |
+| Family | `whisper_wer_en_openai` |
+| Backend | `openai-whisper==20250625` (`large-v3.pt`), `beam_size=5`, `hallucination_silence_threshold=2.0` |
+| Normalizer | ESPnet `TextCleaner("whisper_en")` + `Levenshtein.opcodes` |
+
+**Recommended Whisper profile for speech enhancement and TSE paper reproduction** (matches `calculate_wer_whisper.py`). Natively supports recordings longer than 30 s and optional CUDA `float16` weight loading with `float32` LayerNorm. See [Whisper ASR profiles](WHISPER_ASR.md) and [validation evidence](../validation/whisper-unispeech-v0.10.json).
+
+## `whisper_dwer_en_openai`
+
+English OpenAI Whisper large-v3 dWER against ASR transcript of clean reference (not ground-truth WER).
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; same-recognizer ASR pseudo-reference |
+| Family | `whisper_dwer_en_openai` |
+| Backend | `openai-whisper==20250625` (`large-v3.pt`), `beam_size=5`, `hallucination_silence_threshold=2.0` |
+| Normalizer | ESPnet `TextCleaner("whisper_en")` + `Levenshtein.opcodes` |
+
+**Recommended Whisper dWER profile for speech enhancement and TSE paper reproduction.** Measures agreement against the recognizer's own transcript of clean reference audio rather than human ground truth. See [Whisper ASR profiles](WHISPER_ASR.md) and [validation evidence](../validation/whisper-unispeech-v0.10.json).
+
+## `whisper_wer_hf_v3`
+
+Upgraded Hugging Face Whisper large-v3 WER with timestamps, temperature fallback, >30 s long-form decoding and English spelling normalization.
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Provided ground-truth transcript |
+| Family | `whisper_wer_hf_v3` |
+| Backend | Hugging Face `transformers` (`Whisper_large_v3_HF`), `return_timestamps=True`, `condition_on_prev_tokens=False`, temperature fallback |
+| Normalizer | `WhisperTokenizer.normalize` + `kaldialign` |
+
+Upgraded primary-environment Hugging Face Whisper profile that eliminates legacy leading-sentence omissions, infinite repetition loops, and 30 s rejection without modifying legacy `whisper_wer`. For exact OpenAI Whisper benchmark parity, prefer `whisper_wer_en_openai`. See [Whisper ASR profiles](WHISPER_ASR.md) and [validation evidence](../validation/whisper-unispeech-v0.10.json).
+
+## `whisper_dwer_hf_v3`
+
+Upgraded Hugging Face Whisper large-v3 dWER against ASR transcript of clean reference (not ground-truth WER).
+
+| Field | Contract |
+|---|---|
+| Category | recognition |
+| Unit / direction | percent / lower is better |
+| Reference | Clean reference audio; same-recognizer ASR pseudo-reference |
+| Family | `whisper_dwer_hf_v3` |
+| Backend | Hugging Face `transformers` (`Whisper_large_v3_HF`), `return_timestamps=True`, `condition_on_prev_tokens=False`, temperature fallback |
+| Normalizer | `WhisperTokenizer.normalize` + `kaldialign` |
+
+Upgraded primary-environment Hugging Face Whisper dWER profile supporting >30 s audio and fallback decoding without changing legacy `whisper_dwer`. For exact OpenAI Whisper benchmark parity, prefer `whisper_dwer_en_openai`. See [Whisper ASR profiles](WHISPER_ASR.md) and [validation evidence](../validation/whisper-unispeech-v0.10.json).
+
+## `speaker_similarity_unispeech_wavlm`
+
+Microsoft UniSpeech fine-tuned WavLM-Large ECAPA-TDNN speaker embedding cosine similarity.
+
+| Field | Contract |
+|---|---|
+| Category | speaker_identity |
+| Unit / direction | cosine / higher is better |
+| Reference | `speaker_reference` |
+| Family | `speaker_similarity_unispeech_wavlm` |
+| Configuration | `ssl_checkpoint` (`WavLM-Large.pt`), `checkpoint` (`wavlm_large_finetune.pth`), `trusted_checkpoint` |
+
+Computes cosine similarity in `[-1, 1]` between 256-dim speaker embeddings extracted by the Microsoft UniSpeech fine-tuned `ECAPA_TDNN_SMALL` model over S3PRL WavLM-Large hidden states at 16 kHz (`soxr` HQ). Distinct from `speaker_similarity` (RawNet3) and `speaker_similarity_wavlm` (WavLM-base-plus-SV); do not mix across backbones. See [Model setup](MODELS.md) and [validation evidence](../validation/whisper-unispeech-v0.10.json).

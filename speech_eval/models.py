@@ -146,7 +146,9 @@ def select(result, spec):
             **selected["protocol"],
             "tokenization": "space-delimited decoded phonemes; URGENT 2026 LPS",
         }
-    if spec["family"] in ("whisper_wer", "whisper_dwer"):
+    if spec["family"].startswith("whisper_"):
+        if spec["family"] not in ("whisper_wer", "whisper_dwer"):
+            selected["scoring_unit"] = "word"
         selected.update(
             {
                 k: result.get("details", {})[k]
@@ -154,6 +156,9 @@ def select(result, spec):
                 if k in result.get("details", {})
             }
         )
+        head = result.get("details", {}).get("word", {})
+        if selected["status"] in ("ok", "undefined_reference") and isinstance(head, dict) and head:
+            selected["status"] = head.get("status", selected["status"])
     if spec["family"].startswith("cohere_"):
         selected["scoring_unit"] = "word" if spec["output"] == "wer" else "char"
         head = result.get("details", {}).get("word" if spec["output"] == "wer" else "char", {})

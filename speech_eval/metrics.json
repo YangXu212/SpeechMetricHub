@@ -4177,5 +4177,201 @@
       "report": "validation/cohere-profiles-v0.9.json",
       "scope": "explicit optional protocol; no automatic dataset filtering"
     }
+  },
+  {
+    "id": "whisper_wer_en_openai",
+    "family": "whisper_wer_en_openai",
+    "output": "wer",
+    "description": "English OpenAI Whisper large-v3 WER with hallucination silence suppression and ESPnet whisper_en normalization",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://github.com/openai/whisper",
+    "implementation": "OpenAI Whisper large-v3 + ESPnet/OpenAI whisper_en normalizer + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "transcript"
+    ],
+    "dependencies": [
+      "torch",
+      "openai-whisper==20250625",
+      "espnet==202412",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "local verified OpenAI Whisper checkpoint (large-v3.pt)",
+      "explicit reference transcript",
+      "see docs/WHISPER_ASR.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/whisper-unispeech-v0.10.json",
+      "scope": "real-audio parity with upstream OpenAI Whisper evaluation pipeline"
+    }
+  },
+  {
+    "id": "whisper_dwer_en_openai",
+    "family": "whisper_dwer_en_openai",
+    "output": "wer",
+    "description": "English OpenAI Whisper large-v3 dWER against ASR transcript of clean reference (not ground-truth WER)",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://github.com/openai/whisper",
+    "implementation": "OpenAI Whisper large-v3 + ESPnet/OpenAI whisper_en normalizer + Levenshtein opcodes",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "dependencies": [
+      "torch",
+      "openai-whisper==20250625",
+      "espnet==202412",
+      "Levenshtein==0.27.3"
+    ],
+    "requirements": [
+      "local verified OpenAI Whisper checkpoint (large-v3.pt)",
+      "clean reference audio path",
+      "see docs/WHISPER_ASR.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/whisper-unispeech-v0.10.json",
+      "scope": "real-audio parity with upstream OpenAI Whisper evaluation pipeline"
+    }
+  },
+  {
+    "id": "whisper_wer_hf_v3",
+    "family": "whisper_wer_hf_v3",
+    "output": "wer",
+    "description": "Upgraded Hugging Face Whisper large-v3 WER with timestamps, temperature fallback, >30s long-form decoding and English spelling normalization",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/openai/whisper-large-v3",
+    "implementation": "Hugging Face Transformers Whisper long-form/fallback + WhisperTokenizer.normalize + kaldialign",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "transcript"
+    ],
+    "dependencies": [
+      "torch",
+      "transformers",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Hugging Face Whisper model directory",
+      "explicit reference transcript",
+      "see docs/WHISPER_ASR.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/whisper-unispeech-v0.10.json",
+      "scope": "upgraded HF Whisper protocol with >30s long-form and fallback decoding"
+    }
+  },
+  {
+    "id": "whisper_dwer_hf_v3",
+    "family": "whisper_dwer_hf_v3",
+    "output": "wer",
+    "description": "Upgraded Hugging Face Whisper large-v3 dWER against ASR transcript of clean reference (not ground-truth WER)",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://huggingface.co/openai/whisper-large-v3",
+    "implementation": "Hugging Face Transformers Whisper long-form/fallback + WhisperTokenizer.normalize + kaldialign",
+    "category": "recognition",
+    "unit": "percent",
+    "direction": "lower_is_better",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "matching_waveform"
+    ],
+    "dependencies": [
+      "torch",
+      "transformers",
+      "kaldialign==0.12.0"
+    ],
+    "requirements": [
+      "local verified Hugging Face Whisper model directory",
+      "clean reference audio path",
+      "see docs/WHISPER_ASR.md"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/whisper-unispeech-v0.10.json",
+      "scope": "upgraded HF Whisper protocol with >30s long-form and fallback decoding"
+    }
+  },
+  {
+    "id": "speaker_similarity_unispeech_wavlm",
+    "family": "speaker_similarity_unispeech_wavlm",
+    "output": "cosine",
+    "description": "Microsoft UniSpeech fine-tuned WavLM-Large ECAPA-TDNN speaker embedding cosine similarity",
+    "adapter": "speech_eval.models:model_metric",
+    "source": "https://github.com/microsoft/UniSpeech/tree/main/downstreams/speaker_verification",
+    "implementation": "S3PRL WavLM-Large upstream + UniSpeech ECAPA-TDNN-SMALL head",
+    "category": "speaker_identity",
+    "unit": "cosine",
+    "direction": "higher_is_better",
+    "domains": [
+      "enhancement",
+      "tse",
+      "separation",
+      "codec",
+      "tts",
+      "voice_conversion"
+    ],
+    "reference_kinds": [
+      "speaker_reference"
+    ],
+    "dependencies": [
+      "torch",
+      "s3prl"
+    ],
+    "requirements": [
+      "hypothesis audio file",
+      "reference speaker audio file",
+      "local WavLM-Large.pt and wavlm_large_finetune.pth checkpoints"
+    ],
+    "status": "validated",
+    "validation": {
+      "state": "passed",
+      "report": "validation/whisper-unispeech-v0.10.json",
+      "scope": "real-audio parity with upstream UniSpeech WavLM-Large-ECAPA speaker similarity"
+    }
   }
 ]

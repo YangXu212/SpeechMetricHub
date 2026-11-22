@@ -75,6 +75,15 @@ def score(request):
         from .cohere import score as cohere_score
 
         return cohere_score(request)
+    if request["family"] in (
+        "whisper_wer_en_openai",
+        "whisper_dwer_en_openai",
+        "whisper_wer_hf_v3",
+        "whisper_dwer_hf_v3",
+    ):
+        from .whisper_asr import score as whisper_score
+
+        return whisper_score(request)
     if request["family"] in ("aecmos_16k", "aecmos_16k_scenarioless", "aecmos_48k"):
         from .aec import score as aec_score
 
@@ -95,6 +104,7 @@ def score(request):
         "speechbert",
         "speechbert_mhubert",
         "speaker_similarity_wavlm",
+        "speaker_similarity_unispeech_wavlm",
         "visqol_speech",
         "visqol_audio",
         "whisper_dwer",
@@ -483,6 +493,27 @@ def extended(family, hyp, ref, wave, sr, config, provenance, protocol):
             similarity="cosine",
             pooling="upstream x-vector",
             feature_extractor_do_normalize=processor.do_normalize,
+        )
+        return {"cosine": value}, details
+    if family == "speaker_similarity_unispeech_wavlm":
+        from .unispeech_sv import load_unispeech_wavlm_model
+
+        model = load_unispeech_wavlm_model(
+            require(config, "ssl_checkpoint"),
+            require(config, "checkpoint"),
+            device=device,
+        )
+        ref_wave = torch.from_numpy(np.ascontiguousarray(reference16, dtype=np.float32))[None].to(
+            device
+        )
+        hyp_wave = torch.from_numpy(np.ascontiguousarray(wave16, dtype=np.float32))[None].to(device)
+        value = torch.cosine_similarity(model(ref_wave), model(hyp_wave), dim=-1).item()
+        protocol.update(
+            model_type="unispeech-wavlm-large-ecapa",
+            feat_dim=1024,
+            emb_dim=256,
+            similarity="cosine",
+            pooling="attentive_stats_pool",
         )
         return {"cosine": value}, details
     if family == "phoneme_similarity":

@@ -1,5 +1,9 @@
 # Validation evidence
 
+## v0.10 OpenAI Whisper, upgraded HF Whisper v3 and UniSpeech WavLM-Large-ECAPA
+
+[The v0.10 validation report](whisper-unispeech-v0.10.json) records real-audio execution and upstream parity for all five new interfaces (`whisper_wer_en_openai`, `whisper_dwer_en_openai`, `whisper_wer_hf_v3`, `whisper_dwer_hf_v3`, and `speaker_similarity_unispeech_wavlm`), including `>30s` long-form decoding, CUDA `float16` weight loading with `float32` LayerNorm, identity checks, and StuPASE benchmark verification on DNS1 and Simulated LibriSpeech. Legacy `whisper_wer` / `whisper_dwer` and all prior Cohere profiles remain unchanged. See [Whisper ASR profiles](../docs/WHISPER_ASR.md).
+
 ## v0.9 optional Cohere profiles and comparison support
 
 [The profile report](cohere-profiles-v0.9.json) records real English/Mandarin

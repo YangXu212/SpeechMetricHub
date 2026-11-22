@@ -1,138 +1,96 @@
-# SpeechMetricHub · 语音指标集成库
+# SpeechMetricHub · 语音评测指标集成库
 
-公开版本 **0.9.0**。将标准计分器和预训练评测模型整合为同一套 Python / CLI 接口，保留各自的参考条件、预处理、分数方向和模型身份。重点支持 MT-ASR / TS-ASR，也可用于质量、可懂度、分离和内容保持研究。
+<p align="center"><a href="README.md">English</a> · <b>简体中文</b> · <a href="docs/README.md">完整文档</a> · <a href="docs/METRICS.zh-CN.md">中文指标卡</a> · <a href="validation/README.zh-CN.md">验证记录</a> · <a href="CHANGELOG.md">更新日志</a></p>
 
-**使用同一个库，不等于所有论文使用同一评测协议。** 本项目固定并公开协议，不宣称存在唯一官方清洗或容差。工作台已有 `speech-eval-mt-v1.0` 协议保持不变。
+**SpeechMetricHub** 将主流语音评测计分器与预训练神经评测模型整合到同一套 Python / CLI 接口中，在返回分数的同时显式记录参考条件、预处理方式、模型指纹、分数方向与汇总口径。
 
-## v0.6 统一环境与共享调用
+适用于语音识别（ASR / MT-ASR / TS-ASR）、说话人日志、语音质量、可懂度、信号保真、基频与清浊音、回声消除、说话人身份及内容一致性研究。
 
-从独立复制的 Torch 2.8 环境出发，在同一 Python 环境中逐项验证全部 89 个注册接口（84 个指标变体及 5 个兼容别名），发布固定版本的 [requirements.txt](requirements.txt) 和[逐项实测报告](validation/shared-environment-v0.6.json)。保留 Torch 2.8/CUDA 12.8，统一使用 CPU ONNX Runtime 1.16.3，避免 CPU/GPU ONNX 包覆盖同一模块。
+> **102 个独立指标变体 · 5 个兼容别名 · 11 个测量维度 · 34 个模型家族。**
+> **使用同一个库不等于所有论文使用同一评测协议**——本库固定并公开具体口径，历史版本变更详见 [CHANGELOG.md](CHANGELOG.md)。
 
-共享部署提供 `bin/smh` 命令和 `MetricHub` Python 入口；各服务器的实验可以调用同一套环境。安装依赖后仍需配置权重、上游源码与 ViSQOL 程序；不宣称只装 requirements 就已下载所有模型。详见[完整部署与调用说明](docs/SHARED_DEPLOYMENT.md)。无需常驻终端或后台服务，模型冷启动和文件校验仍需要时间。
+## 核心特性
 
-## v0.5 新增与部署约定
+- **完整输出头与明确方向**：保留 Audiobox CE/CU/PC/PQ、SCOREQ 四种域/模式、NISQA 五维、DNSMOS 校准与原始输出头、SpeechBERTScore P/R/F1、AECMOS 三模型 ECHO/DEG 等全部输出。
+- **可追溯的锁版本协议**：通过部署锁（`deployment.locked.json`）与 `MetricHub` 固定代码、依赖版本、归一化规则及权重 SHA-256 指纹；不自动联网下载模型。
+- **失败显式可见**：缺依赖、非法输入、解码截断或批量缺项均显式报错与留痕，绝不静默填 0 或从均值中隐藏；`compare_recognition` 显式区分完整语料与条件公共子集。
+- **复用上游算法**：底层计算直接调用 MeetEval、pyannote.metrics、fast-bss-eval、OpenAI Whisper、Transformers、ESPnet、S3PRL、PyWorld、Parselmouth 及各原论文实现。
 
-新增 **AECMOS 三个模型各自的 ECHO/DEG 六个输出、ERLE、EER、minDCF**，共 9 个接口。AECMOS 归入感知质量，ERLE 归入回声衰减，EER/minDCF 归入说话人身份；AEC/说话人验证保留为任务标签。
+## 指标维度总览
 
-ERLE 只计算明确的远端单讲区间，批量按能量汇总。EER/minDCF 面向完整 trials，不能逐句求值再平均；minDCF 必须声明目标先验。支持部署锁定文件，检查代码、依赖、权重和配置是否一致；GPU 初始化失败不会静默返回 CPU 评分。详见[指标口径](docs/AEC_VERIFICATION.md)、[部署锁定](docs/DEPLOYMENT_LOCKS.md)及[实际验证](validation/aec-verification-v0.5.json)。
-
-## v0.4 新增与口径修正
-
-当前提供 **97 个独立指标变体、5 个兼容别名、11 个测量维度、29 个模型家族**。v0.4 新增 11 个接口：mHuBERT-147 多语言 SBS 三项输出、音素 token 版 LPS、WavLM 话者相似度、PLCMOS 的 final/validation 两个模型，以及四种明确命名的 LSD/MCD 口径。
-
-先完成[调研与接入计划](docs/EXPANSION_PLAN.md)，再实现并验证。详细[口径说明](docs/EXPANSION_PROFILES.md)和[本轮验证结果](validation/expansion-v0.4.json)随版本保留。旧的 IPA 字符相似度不替换为音素 token 相似度；旧实验数值仍可复现。
-
-## 指标组织
-
-主分类按“测量什么”，参考条件与任务标签独立存储。这是项目的工程分类，不冒称标准组织的唯一分类。
+主分类按“测量什么”组织，参考条件与任务标签（`enhancement`、`tse`、`codec`、`tts` 等）独立标注。
 
 | 测量维度 | 可调用指标 |
 |---|---|
-| 识别准确性 `recognition` | WER/CER、TS-WER/CER、cpWER/cpCER、tcpWER/tcpCER、ORC/tcORC、MIMO/tcMIMO、greedy DI-cp/DI-tcp、Whisper WER/dWER |
+| 识别准确性 `recognition` | WER/CER、TS-WER/CER、cpWER/cpCER、tcpWER/tcpCER、ORC/tcORC、MIMO/tcMIMO、greedy DI-cp/DI-tcp；OpenAI Whisper WER/dWER（`whisper_wer_en_openai`、`whisper_dwer_en_openai`）、升级版 HF Whisper v3（`whisper_wer_hf_v3`、`whisper_dwer_hf_v3`）、兼容版 Whisper WER/dWER；Cohere Transcribe WER/CER/dWER/dCER 及显式英/中文口径 |
 | 说话人结构 `speaker_structure` | DER、JER、说话人数误差及人数命中诊断 |
 | 语音活动 `speech_activity` | 检测错误率、precision、recall、accuracy |
-| 感知质量 `perceptual_quality` | PESQ WB/NB、ViSQOL speech/audio、DNSMOS 4 项校准输出及 3 项原始输出、NISQA 5 维、SCOREQ 4 种组合、UTMOS22 strong、SHEET SSL-MOS、PLCMOS 两模型、AECMOS 三模型 ECHO/DEG |
+| 感知质量 `perceptual_quality` | PESQ WB/NB、ViSQOL speech/audio、DNSMOS 校准与原始输出头及 P.808、NISQA 5 维、SCOREQ 4 种组合、UTMOS22 strong、SHEET SSL-MOS、PLCMOS v2/final 与 validation、AECMOS 三模型 ECHO/DEG |
 | 可懂度 `intelligibility` | STOI、ESTOI |
-| 信号保真 `signal_fidelity` | SI-SDR、SI-SDRi、BSS SDR/SIR/SAR、LSD/MCD 显式口径 |
-| 说话人身份 `speaker_identity` | RawNet3/WavLM embedding cosine、完整 trials 的 EER/minDCF |
-| 回声衰减 `echo_attenuation` | 明确远端单讲区间的 ERLE |
-| 内容相似度 `content_similarity` | IPA 字符相似度、SpeechBERTScore precision/recall/F1 |
+| 信号保真 `signal_fidelity` | SI-SDR、SI-SDRi、BSS SDR/SIR/SAR；显式 LSD/MCD 口径；V/UV F1 与 F0 RMSE（WORLD、Amphion、ESPnet log-F0） |
+| 说话人身份 `speaker_identity` | RawNet3、WavLM-base-plus-SV、UniSpeech WavLM-Large-ECAPA 说话人相似度；完整 trials 的 EER / minDCF |
+| 回声衰减 `echo_attenuation` | 明确远端单讲区间的 ERLE（按能量汇总） |
+| 内容相似度 `content_similarity` | IPA 字符相似度；HuBERT / mHuBERT SpeechBERTScore P/R/F1；字符级与音素 token 级 LPS |
 | 音频美学 `audio_aesthetics` | Audiobox CE、CU、PC、PQ |
 | 评分一致性 `rating_agreement` | PLCC、SRCC、Kendall tau-b |
 
-`enhancement`、`tse`、`codec` 等只是任务标签，不能证明模型在该任务上的有效性。参考条件包括无参考、对齐波形、匹配/非匹配波形、目标说话人参考、文本、语音活动标注、成对主观评分。
+完整参数与局限见 [中文指标卡](docs/METRICS.zh-CN.md) 与 [English Metric Catalog](docs/METRICS.md)。
 
-完整参数与局限见 [中文指标卡](docs/METRICS.zh-CN.md)。实际验证见 [验收报告](validation/README.md) 和 `validation/summary.json`。5 个兼容旧名的别名不计作新增指标。
+## 快速开始
 
-[English](README.md) · [完整文档](docs/README.md) · [GitHub Releases](https://github.com/YangXu212/SpeechMetricHub/releases)
+### 安装
 
-## 快速调用
+核心计分器建议使用 Python 3.10 或 3.11（Windows 编译说明见 [WINDOWS_BUILD.md](WINDOWS_BUILD.md)）：
 
-核心算法建议 Python 3.10/3.11；神经模型已验证 Linux / Python 3.10 / CPU。Windows MeetEval 编译与隔离包见 [WINDOWS_BUILD.md](WINDOWS_BUILD.md)。
-
-```sh
+```bash
 git clone https://github.com/YangXu212/SpeechMetricHub.git
 cd SpeechMetricHub
 python -m venv .venv
-# 激活虚拟环境后：
-python -m pip install 'numpy<2' '.[transcription,quality,separation,diarization]'
+source .venv/bin/activate
+python -m pip install "numpy<2" ".[transcription,quality,separation,diarization,spectral,pitch]"
+```
+
+完整固定环境与集群共享部署请参考 [安装说明](docs/INSTALLATION.md) 与 [共享部署指南](docs/SHARED_DEPLOYMENT.md)。
+
+### Python 与 CLI 调用
+
+```python
+from speechmetrichub import run, evaluate, MetricHub
+
+# 文本 / 波形标准指标
+run("ts_wer", reference="hello world", hypothesis="hello word")
+run("estoi", reference=clean_wave, hypothesis=predicted_wave, sample_rate=16000)
+run("tcpwer", reference=reference_segments, hypothesis=predicted_segments, collar=5)
+
+# 共享锁定部署调用预训练模型
+hub = MetricHub("/path/to/deployment.locked.json")
+res = hub.run("whisper_wer_en_openai", reference="hello world", hypothesis="enh.wav")
+```
+
+```bash
 speechmetrichub list --category perceptual_quality
 speechmetrichub list --task tse --reference-kind none
 speechmetrichub run tcpwer --input examples/tcpwer.json --output result.json
-speechmetrichub doctor
-```
-
-```python
-from speechmetrichub import run, list_metrics, evaluate
-run('ts_wer', reference='hello world', hypothesis='hello word')
-run('estoi', reference=clean_wave, hypothesis=predicted_wave, sample_rate=16000)
-run('tcpwer', reference=reference_segments, hypothesis=predicted_segments, collar=5)
-```
-
-分段格式：`{"speaker":"A", "text":"hello", "start":0.0, "end":1.0}`。一次调用对应完整录音，说话人重排不能逐句重置。TS-ASR 必须提前选定目标，不允许按答案挑选最好的一路。
-
-## 模型接口
-
-只加载显式配置的本地文件，评分时不自动下载；`doctor` 不加载模型。模型在独立进程运行，默认 CPU、2 线程、超时 600 秒。可通过 `python` 配置指定独立模型环境。
-
-```python
-results = evaluate(
-    ['audiobox_aesthetics_ce', 'audiobox_aesthetics_cu',
-     'audiobox_aesthetics_pc', 'audiobox_aesthetics_pq'],
-    hypothesis='/audio/example.wav',
-    configs={'audiobox_aesthetics': {
-        'checkpoint': '/models/audiobox/checkpoint.pt',
-        'trusted_checkpoint': True, 'device': 'cpu', 'threads': 2,
-    }},
-)
-```
-
-同一次 `evaluate` 的多个输出共用一次前向计算。不同录音目前重新启动进程并加载模型；这版优先依赖隔离，不宣称是持久化高吞吐服务。
-
-SCOREQ 使用 `scoreq_natural_nr/ref`、`scoreq_synthetic_nr/ref` 四个明确名称。REF 必须声明 `reference_kind`；synthetic 按上游建议使用 nonmatching 参考。NR 是越高越好的预测 MOS；REF 是越低越好的距离。AE 的 PC 是制作复杂度，不能作为音质排行榜的“越高越好”。
-
-```sh
-speechmetrichub evaluate --input examples/model_evaluation.json --output model-results.json
+speechmetrichub batch ts_wer --input examples/batch_ts_asr.json --output report.json
 speechmetrichub doctor --config deployment.local.json --verify-hashes
 ```
 
-配置与依赖见 [部署说明](docs/DEPLOYMENT.md)，模型归属见 [上游与许可证](THIRD_PARTY.md)。权重不随 wheel 分发。
+## 预训练模型与口径选型建议
 
-## 结果与汇总
+所有神经评测模型均在独立子进程中离线运行，只加载显式配置的本地文件；同一次 `evaluate()` 请求同一模型家族的多个输出头会复用一次前向计算。
 
-- 成功返回 `status="ok"`、有限 `value`、单位、协议、版本；模型另有输入/权重/代码 SHA-256、完整输出、设备和耗时。
-- 缺依赖、非法输入、模型错误、超时均保留原因，不填 0。参数错误可能抛出 `ValueError`，批量接口捕获并保留。JSON 不输出 NaN/Infinity。
-- WER/CER/Whisper 累计 N/S/D/I；DER/VAD 累计时长分量；JER 按参考说话人数累计；波形质量按录音宏平均。相关系数在完整评分数组上算，不平均相关系数。
-- 缺项时完整集分数为空，子集分数单列，同时报告 expected/scored/coverage。不同协议、权重或清洗版本不能合并。
-- WER 空参考保留插入数。BSS 完美重建导致无限值时显式标记，不静默截断到任意 dB。
-- 传统侵入式指标要求同率、同长度、有限单声道，不暗中裁剪/延时搜索/增益拟合。模型部署协议拒绝静音、短于 1 秒和立体声；这些是本 profile 的限制，不声称是全部原论文的限制。
+- **Whisper ASR 选型**：复现语音增强 / TSE 论文（如 StuPASE、URGENT、ESPnet 评测流程）时，**推荐优先使用 `whisper_wer_en_openai` / `whisper_dwer_en_openai`**（对应官方 `openai-whisper` + `beam_size=5` + `hallucination_silence_threshold=2.0` + `TextCleaner("whisper_en")` 调用方式），或使用 Cohere 英文口径 `cohere_wer_en_whisper` / `cohere_dwer_en_whisper`。升级版 `whisper_wer_hf_v3` / `whisper_dwer_hf_v3` 已在 Transformers 侧补齐时间戳、温度回退与 `>30s` 长音频解码；旧 `whisper_wer` / `whisper_dwer` 仅为兼容历史锁文件保留。详见 [Whisper ASR 协议说明](docs/WHISPER_ASR.md) 与 [Cohere 协议说明](docs/COHERE_PROFILES.md)。
+- **说话人相似度选型**：按实验目标显式选择 `speaker_similarity`（RawNet3）、`speaker_similarity_wavlm`（WavLM-base-plus-SV）或 `speaker_similarity_unispeech_wavlm`（UniSpeech WavLM-Large-ECAPA），三者不可混比。
+- **方向与语义注意**：SCOREQ NR 越高越好，SCOREQ REF 为嵌入距离越低越好；Audiobox PC 为制作复杂度描述量；`*_dwer` / `*_dcer` 衡量与干净音频 ASR 转写的一致性，不是真值错误率。
 
-```sh
-speechmetrichub batch ts_wer --input examples/batch_ts_asr.json --output report.json
-python -m unittest discover -s tests -v
-python -m build
-```
+## 结果与汇总边界
 
-CLI 成功退出 0；评分失败/批量缺项退出 2。`doctor` 不能代替真实调用。
+- WER/CER/Whisper/Cohere 按语料累计 `N/S/D/I` 计算 micro 错误率；DER/VAD 按时长分量累计；JER 按参考说话人数累计；V/UV F1 与 F0 RMSE 汇总充分统计量；ERLE 按能量汇总；质量类指标按样本宏平均；相关系数在完整评分数组上计算。
+- 批量存在缺项或失败时，`value` 为空，同时单独报告 `valid_subset_value` 与 `coverage`。
+- MT/TS-ASR 固定 MeetEval 0.4.3 与 `nfkc-casefold-v1` 口径；DER/JER 必须提供 UEM 与真实语音活动标注。
 
-## MT/TS-ASR 协议
+## 文档与版本记录
 
-固定 MeetEval 0.4.3、kaldialign 0.12.0。NFKC/casefold 保留重复、口头词、数字原写法和词内撇号。中文按字符 CER。tcp 使用字符比例伪词时间：参考 character_based、假设 character_based_points，容差显式配置。句级插值不等价于人工词级时间戳。
-
-DER/JER 必须提供 UEM 与确认的语音活动标注，转写句段不能冒充真值。说话人数是辅助诊断，不能替代 DER 或 cpWER。
-
-## 范围
-
-这是具有真实接口验收的研究集成版本，不是完整排行榜复现。GPU、所有平台/语言、所有 SHEET 模型和失真类型没有穷尽验证。Dockerfile 与 CI 是否实际执行，以验收报告为准。未实现候选项单列于 [扩展路线](docs/ROADMAP.md)，不混入可调用目录。扩展要求见 [CONTRIBUTING.md](CONTRIBUTING.md)。
-
-## v0.7：基频与清浊音评测
-
-新增 V/UV F1、F0 RMSE 的五个明确口径：WORLD 原时间轴重建评测、Amphion 原始 Hz/清浊音兼容口径、ESPnet log-F0 RMSE。提供清浊音计数、有效帧覆盖率和上游来源，明确区分统计口径。详见 [使用与科学性说明](docs/PITCH.md) 和 [实际音频对照证据](validation/pitch-v0.7.json)。原 89 个接口的 v0.6 验证报告保留，新增接口验证单独记录。
-
-## v0.8：Cohere Transcribe 识别评测
-
-新增 cohere_wer、cohere_cer、cohere_dwer、cohere_dcer 四个接口。共享入口通过独立且经过部署锁验证的 worker 调用 Transformers 5.4 原生模型，保留现有 Whisper 口径。提供长音频分块、截断检测、静音插入词计数和完整参数记录。详见 [协议及部署说明](docs/COHERE_ASR.md) 与 [真实模型验证](validation/cohere-v0.8.json)。
-
-## v0.9：可选识别协议和完整语料比较
-
-新增英文 Whisper 归一化 Cohere WER/dWER、中文基础归一化 CER/dCER 四个接口；原有接口默认不变。支持明确选择截断文本计分或拒算。通用 compare_recognition 接口核对固定样本、失败原因、截断率和参考文本身份，将公共交集明确标为条件性子集。详见 [协议和比较方法](docs/COHERE_PROFILES.md)。
+- 中文资料：[指标卡](docs/METRICS.zh-CN.md) · [部署说明](docs/DEPLOYMENT.md) · [验证记录](validation/README.zh-CN.md)
+- 协议与架构：[文档总目录](docs/README.md) · [Whisper 协议](docs/WHISPER_ASR.md) · [Cohere 协议](docs/COHERE_PROFILES.md) · [基频与清浊音](docs/PITCH.md) · [AEC 与声纹](docs/AEC_VERIFICATION.md) · [模型配置](docs/MODELS.md) · [共享部署](docs/SHARED_DEPLOYMENT.md)
+- 版本与许可：[更新日志](CHANGELOG.md) · [上游与许可证](THIRD_PARTY.md) · [安全边界](SECURITY.md) · [贡献指南](CONTRIBUTING.md)

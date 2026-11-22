@@ -148,5 +148,67 @@
     "checkpoint": "/models/plcmos/plcmos_v2_val.onnx",
     "seed": 0,
     "embed_rounds": 15
+  },
+  "whisper_wer_en_openai": {
+    "checkpoint": "/models/openai-whisper/large-v3.pt",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "en",
+    "beam_size": 5,
+    "hallucination_silence_threshold": 2.0,
+    "normalizer": "whisper_en",
+    "audio_frontend": "float64_downmix",
+    "timeout": 1200,
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "whisper_dwer_en_openai": {
+    "checkpoint": "/models/openai-whisper/large-v3.pt",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "en",
+    "beam_size": 5,
+    "hallucination_silence_threshold": 2.0,
+    "normalizer": "whisper_en",
+    "audio_frontend": "float64_downmix",
+    "timeout": 1200,
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "whisper_wer_hf_v3": {
+    "model_dir": "/models/whisper-large-v3",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "english",
+    "beam_size": 5,
+    "return_timestamps": true,
+    "condition_on_prev_tokens": false,
+    "normalizer": "whisper_en_hf",
+    "audio_frontend": "strict_float32",
+    "timeout": 1200,
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "whisper_dwer_hf_v3": {
+    "model_dir": "/models/whisper-large-v3",
+    "device": "cpu",
+    "dtype": "float32",
+    "language": "english",
+    "beam_size": 5,
+    "return_timestamps": true,
+    "condition_on_prev_tokens": false,
+    "normalizer": "whisper_en_hf",
+    "audio_frontend": "strict_float32",
+    "timeout": 1200,
+    "threads": 2,
+    "trusted_checkpoint": true
+  },
+  "speaker_similarity_unispeech_wavlm": {
+    "ssl_checkpoint": "/models/wavlm/WavLM-Large.pt",
+    "checkpoint": "/models/unispeech_sv/wavlm_large_finetune.pth",
+    "device": "cpu",
+    "threads": 2,
+    "timeout": 600,
+    "trusted_checkpoint": true
   }
 }
