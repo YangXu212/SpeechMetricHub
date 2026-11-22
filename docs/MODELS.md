@@ -73,8 +73,8 @@ Workers enforce offline Hugging Face behavior and use only supplied local artifa
 
 ```bash
 speechmetrichub doctor --config deployment.local.json --verify-hashes
-speechmetrichub lock-deployment --input deployment.local.json --output deployment.locked.json
-speechmetrichub verify-deployment --input deployment.locked.json
+speechmetrichub lock --config deployment.local.json --output deployment.locked.json
+speechmetrichub verify --deployment deployment.locked.json
 ```
 
 See [DEPLOYMENT_LOCKS.md](DEPLOYMENT_LOCKS.md) and [SHARED_DEPLOYMENT.md](SHARED_DEPLOYMENT.md) for multi-environment lock verification and shared cluster setup.
